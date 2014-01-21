@@ -19,4 +19,9 @@
 class Weekly_Entity_Repository_Event extends Weekly_Entity_Repository_Base_Event
 {
     // feel free to add your own methods here, like for example reusable DQL queries
+	
+	    /**
+     * @var string The default sorting field/expression.
+     */
+    protected $defaultSortingField = 'eventBegin';
 }
