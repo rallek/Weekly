@@ -1,5 +1,5 @@
 {* purpose of this template: events view filter form in user area *}
-{checkpermissionblock component='Weekly:Event:' instance='::' level='ACCESS_EDIT'}
+{checkpermissionblock component='Weekly:Event:' instance='::' level='ACCESS_READ'}
 {assign var='objectType' value='event'}
 <form action="{$modvars.ZConfig.entrypoint|default:'index.php'}" method="get" id="weeklyEventQuickNavForm" class="weekly-quicknav">
     <fieldset>
@@ -73,19 +73,21 @@
                 {/foreach}
                 </select>
         {/if}
+
         {if !isset($searchFilter) || $searchFilter eq true}
                 <label for="searchTerm">{gt text='Search'}</label>
                 <input type="text" id="searchTerm" name="searchterm" value="{$searchterm}" />
         {/if}
+
         {if !isset($sorting) || $sorting eq true}
                 <label for="sortBy">{gt text='Sort by'}</label>
                 &nbsp;
                 <select id="sortBy" name="sort">
-                    <option value="id"{if $sort eq 'id'} selected="selected"{/if}>{gt text='Id'}</option>
-                    <option value="workflowState"{if $sort eq 'workflowState'} selected="selected"{/if}>{gt text='Workflow state'}</option>
+                    <!-- <option value="id"{if $sort eq 'id'} selected="selected"{/if}>{gt text='Id'}</option>
+                    <option value="workflowState"{if $sort eq 'workflowState'} selected="selected"{/if}>{gt text='Workflow state'}</option> -->
                     <option value="eventBegin"{if $sort eq 'eventBegin'} selected="selected"{/if}>{gt text='Event begin'}</option>
                     <option value="eventName"{if $sort eq 'eventName'} selected="selected"{/if}>{gt text='Event name'}</option>
-                    <option value="eventDay"{if $sort eq 'eventDay'} selected="selected"{/if}>{gt text='Event day'}</option>
+                    <!-- <option value="eventDay"{if $sort eq 'eventDay'} selected="selected"{/if}>{gt text='Event day'}</option>
                     <option value="eventBeginText"{if $sort eq 'eventBeginText'} selected="selected"{/if}>{gt text='Event begin text'}</option>
                     <option value="eventDuration"{if $sort eq 'eventDuration'} selected="selected"{/if}>{gt text='Event duration'}</option>
                     <option value="eventMessage"{if $sort eq 'eventMessage'} selected="selected"{/if}>{gt text='Event message'}</option>
@@ -95,7 +97,7 @@
                     <option value="active"{if $sort eq 'active'} selected="selected"{/if}>{gt text='Active'}</option>
                     <option value="createdDate"{if $sort eq 'createdDate'} selected="selected"{/if}>{gt text='Creation date'}</option>
                     <option value="createdUserId"{if $sort eq 'createdUserId'} selected="selected"{/if}>{gt text='Creator'}</option>
-                    <option value="updatedDate"{if $sort eq 'updatedDate'} selected="selected"{/if}>{gt text='Update date'}</option>
+                    <option value="updatedDate"{if $sort eq 'updatedDate'} selected="selected"{/if}>{gt text='Update date'}</option> -->
                 </select>
                 <select id="sortDir" name="sortdir">
                     <option value="asc"{if $sdir eq 'asc'} selected="selected"{/if}>{gt text='ascending'}</option>
@@ -117,7 +119,7 @@
                     <option value="100"{if $pageSize eq 100} selected="selected"{/if}>100</option>
                 </select>
         {/if}
-        {if !isset($activeFilter) || $activeFilter eq true}
+<!--         {if !isset($activeFilter) || $activeFilter eq true}
                 <label for="active">{gt text='Active'}</label>
                 <select id="active" name="active">
                     <option value="">{$lblDefault}</option>
@@ -125,7 +127,7 @@
                     <option value="{$option.value}"{if $option.value eq $active} selected="selected"{/if}>{$option.text|safetext}</option>
                 {/foreach}
                 </select>
-        {/if}
+        {/if} -->
         <input type="submit" name="updateview" id="quicknavSubmit" value="{gt text='OK'}" />
     </fieldset>
 </form>

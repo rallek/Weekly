@@ -1,5 +1,7 @@
 {* purpose of this template: build the Form to edit an instance of event *}
+{pageaddvar name='javascript' value='jquery'}
 {include file='user/header.tpl'}
+{include file='include_eventbegin.tpl'}
 {pageaddvar name='javascript' value='modules/Weekly/javascript/Weekly_editFunctions.js'}
 {pageaddvar name='javascript' value='modules/Weekly/javascript/Weekly_validation.js'}
 
@@ -21,7 +23,7 @@
     <fieldset>
         <legend>{gt text='Content'}</legend>
         
-        <div class="z-formrow">
+        <div class="z-formrow z-hide">
             {formlabel for='eventBegin' __text='Event begin' cssClass=''}
             {if $mode ne 'create'}
                 {formdateinput group='event' id='eventBegin' mandatory=false __title='Enter the event begin of the event' includeTime=true cssClass='' }
