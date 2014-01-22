@@ -17,4 +17,65 @@
 class Weekly_Api_User extends Weekly_Api_Base_User
 {
     // feel free to add own api methods here
+    /**
+     * Returns available user panel links.
+     *
+     * @return array Array of user links.
+     */
+    public function getlinks()
+    {
+        $links = array();
+		
+        if (SecurityUtil::checkPermission($this->name . '::', '::', ACCESS_ADMIN)) {
+            $links[] = array('url' => ModUtil::url($this->name, 'admin', 'main'),
+                             'text' => $this->__('Backend'),
+                             'title' => $this->__('Switch to administration area.'),
+                             'class' => 'z-icon-es-options');
+        }
+
+        $controllerHelper = new Weekly_Util_Controller($this->serviceManager);
+        $utilArgs = array('api' => 'user', 'action' => 'getlinks');
+        $allowedObjectTypes = $controllerHelper->getObjectTypes('api', $utilArgs);
+
+        if (in_array('event', $allowedObjectTypes)
+            && SecurityUtil::checkPermission($this->name . ':Event:', '::', ACCESS_READ)) {
+            $links[] = array('url' => ModUtil::url($this->name, 'user', 'view', array('ot' => 'event')),
+                             'text' => $this->__('Events'),
+                             'title' => $this->__('Event list'));
+        }
+		if ($this->getVar('showLeader')) {
+			if (in_array('leader', $allowedObjectTypes)
+				&& SecurityUtil::checkPermission($this->name . ':Leader:', '::', ACCESS_READ)) {
+				$links[] = array('url' => ModUtil::url($this->name, 'user', 'view', array('ot' => 'leader')),
+								 'text' => $this->__('Leaders'),
+								 'title' => $this->__('Leader list'));
+			}
+		}
+		if ($this->getVar('showOrganisator')) {
+			if (in_array('organisator', $allowedObjectTypes)
+				&& SecurityUtil::checkPermission($this->name . ':Organisator:', '::', ACCESS_READ)) {
+				$links[] = array('url' => ModUtil::url($this->name, 'user', 'view', array('ot' => 'organisator')),
+								 'text' => $this->__('Organisators'),
+								 'title' => $this->__('Organisator list'));
+			}
+		}
+		if ($this->getVar('showKind')) {
+			if (in_array('kind', $allowedObjectTypes)
+				&& SecurityUtil::checkPermission($this->name . ':Kind:', '::', ACCESS_READ)) {
+				$links[] = array('url' => ModUtil::url($this->name, 'user', 'view', array('ot' => 'kind')),
+								 'text' => $this->__('Kind'),
+								 'title' => $this->__('Kind list'));
+			}
+		}
+		if ($this->getVar('showLocation')) {
+			if (in_array('location', $allowedObjectTypes)
+				&& SecurityUtil::checkPermission($this->name . ':Location:', '::', ACCESS_READ)) {
+				$links[] = array('url' => ModUtil::url($this->name, 'user', 'view', array('ot' => 'location')),
+								 'text' => $this->__('Locations'),
+								 'title' => $this->__('Location list'));
+			}
+		}
+
+        return $links;
+    }
 }

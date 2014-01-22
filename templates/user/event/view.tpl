@@ -5,7 +5,7 @@
     {pagesetvar name='title' value=$templateTitle}
     <h2>{$templateTitle}</h2>
 
-    
+    <p class="z-informationmsg">the name of the event</p>
 
     {if $canBeCreated}
         {checkpermissionblock component='Weekly:Event:' instance='::' level='ACCESS_EDIT'}
@@ -62,56 +62,66 @@
 				<span class="z-sub">{$event.eventDuration} {gt text='minutes'}</span>
             </td>
             <td headers="hEventName" class="z-left">
-                <span class="z-sub">
-				{if isset($event.Kind) && $event.Kind ne null}
-                    <a href="{modurl modname='Weekly' type='user' func='display' ot='kind' id=$event.Kind.id}">{strip}
-                      {$event.Kind->getTitleFromDisplayPattern()|default:""}
-                    {/strip}</a>
-                    <script type="text/javascript">
-                    /* <![CDATA[ */
-                        document.observe('dom:loaded', function() {
-                            weeklyInitInlineWindow($('kindItem{{$event.id}}_rel_{{$event.Kind.id}}Display'), '{{$event.Kind->getTitleFromDisplayPattern()|replace:"'":""}}');
-                        });
-                    /* ]]> */
-                    </script>
-                {else}
-                    {gt text='Not set.'}
-                {/if}
-				,
-				{if isset($event.Location) && $event.Location ne null}
-                    <a href="{modurl modname='Weekly' type='user' func='display' ot='location' id=$event.Location.id}">{strip}
-                      {$event.Location->getTitleFromDisplayPattern()|default:""}
-                    {/strip}</a>
-                    <script type="text/javascript">
-                    /* <![CDATA[ */
-                        document.observe('dom:loaded', function() {
-                            weeklyInitInlineWindow($('locationItem{{$event.id}}_rel_{{$event.Location.id}}Display'), '{{$event.Location->getTitleFromDisplayPattern()|replace:"'":""}}');
-                        });
-                    /* ]]> */
-                    </script>
-                {else}
-                    {gt text='Not set.'}
-                {/if}
-				
-				</span></br>
+				{if $modvars.Weekly.showKind || $modvars.Weekly.showLocation}
+					<span class="z-sub">
+					{if $modvars.Weekly.showKind}
+						{if isset($event.Kind) && $event.Kind ne null && $modvars.Weekly.showKind}
+							<a href="{modurl modname='Weekly' type='user' func='display' ot='kind' id=$event.Kind.id}">{strip}
+							  {$event.Kind->getTitleFromDisplayPattern()|default:""}
+							{/strip}</a>
+							<script type="text/javascript">
+							/* <![CDATA[ */
+								document.observe('dom:loaded', function() {
+									weeklyInitInlineWindow($('kindItem{{$event.id}}_rel_{{$event.Kind.id}}Display'), '{{$event.Kind->getTitleFromDisplayPattern()|replace:"'":""}}');
+								});
+							/* ]]> */
+							</script>
+						{else}
+							{gt text='Not set.'}
+						{/if}
+						{if $modvars.Weekly.showLocation}
+							,
+						{/if}
+					{/if}
+					{if $modvars.Weekly.showLocation}
+						{if isset($event.Location) && $event.Location ne null}
+							<a href="{modurl modname='Weekly' type='user' func='display' ot='location' id=$event.Location.id}">{strip}
+							  {$event.Location->getTitleFromDisplayPattern()|default:""}
+							{/strip}</a>
+							<script type="text/javascript">
+							/* <![CDATA[ */
+								document.observe('dom:loaded', function() {
+									weeklyInitInlineWindow($('locationItem{{$event.id}}_rel_{{$event.Location.id}}Display'), '{{$event.Location->getTitleFromDisplayPattern()|replace:"'":""}}');
+								});
+							/* ]]> */
+							</script>
+						{else}
+							{gt text='Not set.'}
+						{/if}
+					{/if}
+					</span></br>
+				{/if}	
+					
 				<a class="z-bold" href="{modurl modname='Weekly' type='user' func='display' ot='event' id=$event.id}" title="{gt text='View detail page'}">{$event.eventName}</a></br>
 				
-				<span class="z-sub">
-				{if isset($event.Leader) && $event.Leader ne null}
-                    <a href="{modurl modname='Weekly' type='user' func='display' ot='leader' id=$event.Leader.id}">{strip}
-                      {$event.Leader->getTitleFromDisplayPattern()|default:""}
-                    {/strip}</a>
-                    <script type="text/javascript">
-                    /* <![CDATA[ */
-                        document.observe('dom:loaded', function() {
-                            weeklyInitInlineWindow($('leaderItem{{$event.id}}_rel_{{$event.Leader.id}}Display'), '{{$event.Leader->getTitleFromDisplayPattern()|replace:"'":""}}');
-                        });
-                    /* ]]> */
-                    </script>
-                {else}
-                    {gt text='Not set.'}
-                {/if}
-				</span>
+				{if $modvars.Weekly.showLeader}
+					<span class="z-sub">
+					{if isset($event.Leader) && $event.Leader ne null}
+						<a href="{modurl modname='Weekly' type='user' func='display' ot='leader' id=$event.Leader.id}">{strip}
+						  {$event.Leader->getTitleFromDisplayPattern()|default:""}
+						{/strip}</a>
+						<script type="text/javascript">
+						/* <![CDATA[ */
+							document.observe('dom:loaded', function() {
+								weeklyInitInlineWindow($('leaderItem{{$event.id}}_rel_{{$event.Leader.id}}Display'), '{{$event.Leader->getTitleFromDisplayPattern()|replace:"'":""}}');
+							});
+						/* ]]> */
+						</script>
+					{else}
+						{gt text='Not set.'}
+					{/if}
+					</span>
+				{/if}
 				
             </td>
             <td headers="hEventMessage" class="z-left z-middle">
