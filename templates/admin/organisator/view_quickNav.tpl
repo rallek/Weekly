@@ -1,13 +1,13 @@
-{* purpose of this template: organisators view filter form in admin area *}
-{checkpermissionblock component='Weekly:Organisator:' instance='::' level='ACCESS_EDIT'}
-{assign var='objectType' value='organisator'}
-<form action="{$modvars.ZConfig.entrypoint|default:'index.php'}" method="get" id="weeklyOrganisatorQuickNavForm" class="weekly-quicknav">
+{* purpose of this template: comanagers view filter form in admin area *}
+{checkpermissionblock component='Weekly:Comanager:' instance='::' level='ACCESS_EDIT'}
+{assign var='objectType' value='comanager'}
+<form action="{$modvars.ZConfig.entrypoint|default:'index.php'}" method="get" id="weeklyComanagerQuickNavForm" class="weekly-quicknav">
     <fieldset>
         <h3>{gt text='Quick navigation'}</h3>
         <input type="hidden" name="module" value="{modgetinfo modname='Weekly' info='url'}" />
         <input type="hidden" name="type" value="admin" />
         <input type="hidden" name="func" value="view" />
-        <input type="hidden" name="ot" value="organisator" />
+        <input type="hidden" name="ot" value="comanager" />
         <input type="hidden" name="all" value="{$all|default:0}" />
         <input type="hidden" name="own" value="{$own|default:0}" />
         {gt text='All' assign='lblDefault'}
@@ -30,9 +30,9 @@
                 <select id="sortBy" name="sort">
                     <option value="id"{if $sort eq 'id'} selected="selected"{/if}>{gt text='Id'}</option>
                     <option value="workflowState"{if $sort eq 'workflowState'} selected="selected"{/if}>{gt text='Workflow state'}</option>
-                    <option value="organisatorName"{if $sort eq 'organisatorName'} selected="selected"{/if}>{gt text='Organisator name'}</option>
-                    <option value="organisatorText"{if $sort eq 'organisatorText'} selected="selected"{/if}>{gt text='Organisator text'}</option>
-                    <option value="organisatorPicture"{if $sort eq 'organisatorPicture'} selected="selected"{/if}>{gt text='Organisator picture'}</option>
+                    <option value="comanagerName"{if $sort eq 'comanagerName'} selected="selected"{/if}>{gt text='Comanager name'}</option>
+                    <option value="comanagerText"{if $sort eq 'comanagerText'} selected="selected"{/if}>{gt text='Comanager text'}</option>
+                    <option value="comanagerPicture"{if $sort eq 'comanagerPicture'} selected="selected"{/if}>{gt text='Comanager picture'}</option>
                     <option value="createdDate"{if $sort eq 'createdDate'} selected="selected"{/if}>{gt text='Creation date'}</option>
                     <option value="createdUserId"{if $sort eq 'createdUserId'} selected="selected"{/if}>{gt text='Creator'}</option>
                     <option value="updatedDate"{if $sort eq 'updatedDate'} selected="selected"{/if}>{gt text='Update date'}</option>
@@ -64,7 +64,7 @@
 <script type="text/javascript">
 /* <![CDATA[ */
     document.observe('dom:loaded', function() {
-        weeklyInitQuickNavigation('organisator', 'admin');
+        weeklyInitQuickNavigation('comanager', 'admin');
         {{if isset($searchFilter) && $searchFilter eq false}}
             {{* we can hide the submit button if we have no quick search field *}}
             $('quicknavSubmit').addClassName('z-hide');

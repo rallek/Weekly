@@ -88,21 +88,21 @@ class Weekly_Listener_Base_User
         $repo->updateLastEditor($uid, 2);
         // note you could also do: $repo->deleteLastEditor($uid);
         
-        $repo = $entityManager->getRepository('Weekly_Entity_Leader');
-        // delete all leaders created by this user
+        $repo = $entityManager->getRepository('Weekly_Entity_Manager');
+        // delete all managers created by this user
         $repo->deleteCreator($uid);
         // note you could also do: $repo->updateCreator($uid, 2);
         
-        // set last editor to admin (2) for all leaders updated by this user
+        // set last editor to admin (2) for all managers updated by this user
         $repo->updateLastEditor($uid, 2);
         // note you could also do: $repo->deleteLastEditor($uid);
         
-        $repo = $entityManager->getRepository('Weekly_Entity_Organisator');
-        // delete all organisators created by this user
+        $repo = $entityManager->getRepository('Weekly_Entity_Comanager');
+        // delete all comanagers created by this user
         $repo->deleteCreator($uid);
         // note you could also do: $repo->updateCreator($uid, 2);
         
-        // set last editor to admin (2) for all organisators updated by this user
+        // set last editor to admin (2) for all comanagers updated by this user
         $repo->updateLastEditor($uid, 2);
         // note you could also do: $repo->deleteLastEditor($uid);
         

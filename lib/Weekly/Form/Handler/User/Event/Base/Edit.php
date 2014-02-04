@@ -80,17 +80,17 @@ class Weekly_Form_Handler_User_Event_Base_Edit extends Weekly_Form_Handler_User_
             }
         }
         // editable relation, we store the id and assign it now to show it in UI
-        $this->relationPresets['leader'] = FormUtil::getPassedValue('leader', '', 'GET');
-        if (!empty($this->relationPresets['leader'])) {
-            $relObj = ModUtil::apiFunc($this->name, 'selection', 'getEntity', array('ot' => 'leader', 'id' => $this->relationPresets['leader']));
+        $this->relationPresets['manager'] = FormUtil::getPassedValue('manager', '', 'GET');
+        if (!empty($this->relationPresets['manager'])) {
+            $relObj = ModUtil::apiFunc($this->name, 'selection', 'getEntity', array('ot' => 'manager', 'id' => $this->relationPresets['manager']));
             if ($relObj != null) {
                 $relObj->addEvent($entity);
             }
         }
         // editable relation, we store the id and assign it now to show it in UI
-        $this->relationPresets['organisator'] = FormUtil::getPassedValue('organisator', '', 'GET');
-        if (!empty($this->relationPresets['organisator'])) {
-            $relObj = ModUtil::apiFunc($this->name, 'selection', 'getEntity', array('ot' => 'organisator', 'id' => $this->relationPresets['organisator']));
+        $this->relationPresets['comanager'] = FormUtil::getPassedValue('comanager', '', 'GET');
+        if (!empty($this->relationPresets['comanager'])) {
+            $relObj = ModUtil::apiFunc($this->name, 'selection', 'getEntity', array('ot' => 'comanager', 'id' => $this->relationPresets['comanager']));
             if ($relObj != null) {
                 $relObj->addEvent($entity);
             }
@@ -157,22 +157,22 @@ class Weekly_Form_Handler_User_Event_Base_Edit extends Weekly_Form_Handler_User_
         $codes[] = 'userViewLocation';
         // user display page of treated location
         $codes[] = 'userDisplayLocation';
-        // admin list of leaders
-        $codes[] = 'adminViewLeader';
-        // admin display page of treated leader
-        $codes[] = 'adminDisplayLeader';
-        // user list of leaders
-        $codes[] = 'userViewLeader';
-        // user display page of treated leader
-        $codes[] = 'userDisplayLeader';
-        // admin list of organisators
-        $codes[] = 'adminViewOrganisator';
-        // admin display page of treated organisator
-        $codes[] = 'adminDisplayOrganisator';
-        // user list of organisators
-        $codes[] = 'userViewOrganisator';
-        // user display page of treated organisator
-        $codes[] = 'userDisplayOrganisator';
+        // admin list of managers
+        $codes[] = 'adminViewManager';
+        // admin display page of treated manager
+        $codes[] = 'adminDisplayManager';
+        // user list of managers
+        $codes[] = 'userViewManager';
+        // user display page of treated manager
+        $codes[] = 'userDisplayManager';
+        // admin list of comanagers
+        $codes[] = 'adminViewComanager';
+        // admin display page of treated comanager
+        $codes[] = 'adminDisplayComanager';
+        // user list of comanagers
+        $codes[] = 'userViewComanager';
+        // user display page of treated comanager
+        $codes[] = 'userDisplayComanager';
     
         return $codes;
     }

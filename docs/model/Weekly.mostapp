@@ -43,8 +43,8 @@ application Weekly {
 					displayPattern "#eventDay# #eventBeginText#: #eventName#"
 					incoming ( "kind.event",
 					"location.event",
-					"leader.event",
-					"organisator.event" )
+					"manager.event",
+					"comanager.event" )
 					fields {
 						datetime eventBegin readonly {
 							defaultValue "2013-12-17 00:00:00"
@@ -96,33 +96,33 @@ application Weekly {
 						}
 					}
 				},
-				entity leader {
-					nameMultiple leaders
-					displayPattern "#leaderName#"
-					outgoing ( "leader.event" )
+				entity manager {
+					nameMultiple managers
+					displayPattern "#managerName#"
+					outgoing ( "manager.event" )
 					fields {
-						string leaderName unique,
-						text leaderDescription {
+						string managerName unique,
+						text managerDescription {
 							mandatory false
 						},
-						upload leaderPicture {
+						upload managerPicture {
 							mandatory false
 							allowedFileSize 102400
 						}
 					}
 				},
-				entity organisator {
-					nameMultiple organisators
-					displayPattern "#organisatorName#"
-					outgoing ( "organisator.event" )
+				entity comanager {
+					nameMultiple comanagers
+					displayPattern "#comanagerName#"
+					outgoing ( "comanager.event" )
 					fields {
-						string organisatorName {
+						string comanagerName {
 							defaultValue ""
 						},
-						text organisatorText {
+						text comanagerText {
 							mandatory false
 						},
-						upload organisatorPicture {
+						upload comanagerPicture {
 							mandatory false
 							allowedFileSize 102400
 						}
@@ -175,16 +175,16 @@ application Weekly {
 					cascadeReverse PERSIST
 				},
 				one2many bidirectional {
-					source leader
-					sourceAlias leader
+					source manager
+					sourceAlias manager
 					target event
 					targetAlias event
 					cascade PERSIST
 					cascadeReverse PERSIST
 				},
 				one2many bidirectional {
-					source organisator
-					sourceAlias organisator
+					source comanager
+					sourceAlias comanager
 					target event
 					targetAlias event
 					cascade PERSIST
@@ -203,12 +203,12 @@ application Weekly {
 							documentation "in bytes"
 							value "102400"
 						},
-						boolVar showLeader {
-							documentation "we can switch the usage of leader table off"
+						boolVar showManager {
+							documentation "we can switch the usage of manager table off"
 							value ^true
 						},
-						boolVar showOrganisator {
-							documentation "we can switch the usage of Organisator table off"
+						boolVar showComanager {
+							documentation "we can switch the usage of Comanager table off"
 							value ^true
 						},
 						boolVar showKind {

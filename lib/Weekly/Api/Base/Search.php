@@ -43,8 +43,8 @@ class Weekly_Api_Base_Search extends Zikula_AbstractApi
         $view = Zikula_View::getInstance($this->name);
     
         $view->assign('active_event', (!isset($args['active_event']) || isset($args['active']['active_event'])));
-        $view->assign('active_leader', (!isset($args['active_leader']) || isset($args['active']['active_leader'])));
-        $view->assign('active_organisator', (!isset($args['active_organisator']) || isset($args['active']['active_organisator'])));
+        $view->assign('active_manager', (!isset($args['active_manager']) || isset($args['active']['active_manager'])));
+        $view->assign('active_comanager', (!isset($args['active_comanager']) || isset($args['active']['active_comanager'])));
         $view->assign('active_kind', (!isset($args['active_kind']) || isset($args['active']['active_kind'])));
         $view->assign('active_location', (!isset($args['active_location']) || isset($args['active']['active_location'])));
     
@@ -98,17 +98,17 @@ class Weekly_Api_Base_Search extends Zikula_AbstractApi
                     $whereArray[] = 'tbl.eventMessage';
                     $whereArray[] = 'tbl.eventText';
                     break;
-                case 'leader':
+                case 'manager':
                     $whereArray[] = 'tbl.workflowState';
-                    $whereArray[] = 'tbl.leaderName';
-                    $whereArray[] = 'tbl.leaderDescription';
-                    $whereArray[] = 'tbl.leaderPicture';
+                    $whereArray[] = 'tbl.managerName';
+                    $whereArray[] = 'tbl.managerDescription';
+                    $whereArray[] = 'tbl.managerPicture';
                     break;
-                case 'organisator':
+                case 'comanager':
                     $whereArray[] = 'tbl.workflowState';
-                    $whereArray[] = 'tbl.organisatorName';
-                    $whereArray[] = 'tbl.organisatorText';
-                    $whereArray[] = 'tbl.organisatorPicture';
+                    $whereArray[] = 'tbl.comanagerName';
+                    $whereArray[] = 'tbl.comanagerText';
+                    $whereArray[] = 'tbl.comanagerPicture';
                     break;
                 case 'kind':
                     $whereArray[] = 'tbl.workflowState';

@@ -19,16 +19,16 @@ use DoctrineExtensions\StandardFields\Mapping\Annotation as ZK;
 /**
  * Entity class that defines the entity structure and behaviours.
  *
- * This is the concrete entity class for organisator entities.
- * @ORM\Entity(repositoryClass="Weekly_Entity_Repository_Organisator")
-  * @ORM\Table(name="weekly_organisator",
+ * This is the concrete entity class for comanager entities.
+ * @ORM\Entity(repositoryClass="Weekly_Entity_Repository_Comanager")
+  * @ORM\Table(name="weekly_comanager",
   *     indexes={
  *         @ORM\Index(name="workflowstateindex", columns={"workflowState"})
   *     }
   * )
  * @ORM\HasLifecycleCallbacks
  */
-class Weekly_Entity_Organisator extends Weekly_Entity_Base_Organisator
+class Weekly_Entity_Comanager extends Weekly_Entity_Base_Comanager
 {
     // feel free to add your own methods here
 
@@ -37,7 +37,7 @@ class Weekly_Entity_Organisator extends Weekly_Entity_Base_Organisator
      * Post-Process the data after the entity has been constructed by the entity manager.
      *
      * @ORM\PostLoad
-     * @see Weekly_Entity_Organisator::performPostLoadCallback()
+     * @see Weekly_Entity_Comanager::performPostLoadCallback()
      * @return void.
      */
     public function postLoadCallback()
@@ -49,7 +49,7 @@ class Weekly_Entity_Organisator extends Weekly_Entity_Base_Organisator
      * Pre-Process the data prior to an insert operation.
      *
      * @ORM\PrePersist
-     * @see Weekly_Entity_Organisator::performPrePersistCallback()
+     * @see Weekly_Entity_Comanager::performPrePersistCallback()
      * @return void.
      */
     public function prePersistCallback()
@@ -61,7 +61,7 @@ class Weekly_Entity_Organisator extends Weekly_Entity_Base_Organisator
      * Post-Process the data after an insert operation.
      *
      * @ORM\PostPersist
-     * @see Weekly_Entity_Organisator::performPostPersistCallback()
+     * @see Weekly_Entity_Comanager::performPostPersistCallback()
      * @return void.
      */
     public function postPersistCallback()
@@ -73,7 +73,7 @@ class Weekly_Entity_Organisator extends Weekly_Entity_Base_Organisator
      * Pre-Process the data prior a delete operation.
      *
      * @ORM\PreRemove
-     * @see Weekly_Entity_Organisator::performPreRemoveCallback()
+     * @see Weekly_Entity_Comanager::performPreRemoveCallback()
      * @return void.
      */
     public function preRemoveCallback()
@@ -85,7 +85,7 @@ class Weekly_Entity_Organisator extends Weekly_Entity_Base_Organisator
      * Post-Process the data after a delete.
      *
      * @ORM\PostRemove
-     * @see Weekly_Entity_Organisator::performPostRemoveCallback()
+     * @see Weekly_Entity_Comanager::performPostRemoveCallback()
      * @return void
      */
     public function postRemoveCallback()
@@ -97,7 +97,7 @@ class Weekly_Entity_Organisator extends Weekly_Entity_Base_Organisator
      * Pre-Process the data prior to an update operation.
      *
      * @ORM\PreUpdate
-     * @see Weekly_Entity_Organisator::performPreUpdateCallback()
+     * @see Weekly_Entity_Comanager::performPreUpdateCallback()
      * @return void.
      */
     public function preUpdateCallback()
@@ -109,7 +109,7 @@ class Weekly_Entity_Organisator extends Weekly_Entity_Base_Organisator
      * Post-Process the data after an update operation.
      *
      * @ORM\PostUpdate
-     * @see Weekly_Entity_Organisator::performPostUpdateCallback()
+     * @see Weekly_Entity_Comanager::performPostUpdateCallback()
      * @return void.
      */
     public function postUpdateCallback()
@@ -122,7 +122,7 @@ class Weekly_Entity_Organisator extends Weekly_Entity_Base_Organisator
      *
      * @ORM\PrePersist
      * @ORM\PreUpdate
-     * @see Weekly_Entity_Organisator::performPreSaveCallback()
+     * @see Weekly_Entity_Comanager::performPreSaveCallback()
      * @return void.
      */
     public function preSaveCallback()
@@ -135,7 +135,7 @@ class Weekly_Entity_Organisator extends Weekly_Entity_Base_Organisator
      *
      * @ORM\PostPersist
      * @ORM\PostUpdate
-     * @see Weekly_Entity_Organisator::performPostSaveCallback()
+     * @see Weekly_Entity_Comanager::performPostSaveCallback()
      * @return void.
      */
     public function postSaveCallback()

@@ -45,10 +45,10 @@ class Weekly_Util_Base_Model extends Zikula_AbstractBase
             case 'event':
                 $result = true;
                 break;
-            case 'leader':
+            case 'manager':
                 $result = true;
                 break;
-            case 'organisator':
+            case 'comanager':
                 $result = true;
                 break;
             case 'kind':

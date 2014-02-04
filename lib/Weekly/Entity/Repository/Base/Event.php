@@ -220,8 +220,8 @@ class Weekly_Entity_Repository_Base_Event extends EntityRepository
         $parameters = array();
         $parameters['kind'] = isset($this->controllerArguments['kind']) ? $this->controllerArguments['kind'] : FormUtil::getPassedValue('kind', 0, 'GET');
         $parameters['location'] = isset($this->controllerArguments['location']) ? $this->controllerArguments['location'] : FormUtil::getPassedValue('location', 0, 'GET');
-        $parameters['leader'] = isset($this->controllerArguments['leader']) ? $this->controllerArguments['leader'] : FormUtil::getPassedValue('leader', 0, 'GET');
-        $parameters['organisator'] = isset($this->controllerArguments['organisator']) ? $this->controllerArguments['organisator'] : FormUtil::getPassedValue('organisator', 0, 'GET');
+        $parameters['manager'] = isset($this->controllerArguments['manager']) ? $this->controllerArguments['manager'] : FormUtil::getPassedValue('manager', 0, 'GET');
+        $parameters['comanager'] = isset($this->controllerArguments['comanager']) ? $this->controllerArguments['comanager'] : FormUtil::getPassedValue('comanager', 0, 'GET');
         $parameters['workflowState'] = isset($this->controllerArguments['workflowState']) ? $this->controllerArguments['workflowState'] : FormUtil::getPassedValue('workflowState', '', 'GET');
         $parameters['eventDay'] = isset($this->controllerArguments['eventDay']) ? $this->controllerArguments['eventDay'] : FormUtil::getPassedValue('eventDay', '', 'GET');
         $parameters['searchterm'] = isset($this->controllerArguments['searchterm']) ? $this->controllerArguments['searchterm'] : FormUtil::getPassedValue('searchterm', '', 'GET');
@@ -895,7 +895,7 @@ class Weekly_Entity_Repository_Base_Event extends EntityRepository
      */
     protected function addJoinsToSelection()
     {
-        $selection = ', tblKind, tblLocation, tblLeader, tblOrganisator';
+        $selection = ', tblKind, tblLocation, tblManager, tblComanager';
     
         return $selection;
     }
@@ -911,8 +911,8 @@ class Weekly_Entity_Repository_Base_Event extends EntityRepository
     {
         $qb->leftJoin('tbl.kind', 'tblKind');
         $qb->leftJoin('tbl.location', 'tblLocation');
-        $qb->leftJoin('tbl.leader', 'tblLeader');
-        $qb->leftJoin('tbl.organisator', 'tblOrganisator');
+        $qb->leftJoin('tbl.manager', 'tblManager');
+        $qb->leftJoin('tbl.comanager', 'tblComanager');
     
         return $qb;
     }

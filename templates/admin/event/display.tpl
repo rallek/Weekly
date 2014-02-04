@@ -74,45 +74,45 @@
             {gt text='Not set.'}
         {/if}
         </dd>
-        <dt>{gt text='Leader'}</dt>
+        <dt>{gt text='Manager'}</dt>
         <dd>
-        {if isset($event.Leader) && $event.Leader ne null}
+        {if isset($event.Manager) && $event.Manager ne null}
           {if !isset($smarty.get.theme) || $smarty.get.theme ne 'Printer'}
-          <a href="{modurl modname='Weekly' type='admin' func='display' ot='leader' id=$event.Leader.id}">{strip}
-            {$event.Leader->getTitleFromDisplayPattern()|default:""}
+          <a href="{modurl modname='Weekly' type='admin' func='display' ot='manager' id=$event.Manager.id}">{strip}
+            {$event.Manager->getTitleFromDisplayPattern()|default:""}
           {/strip}</a>
-          <a id="leaderItem{$event.Leader.id}Display" href="{modurl modname='Weekly' type='admin' func='display' ot='leader' id=$event.Leader.id theme='Printer'}" title="{gt text='Open quick view window'}" class="z-hide">{icon type='view' size='extrasmall' __alt='Quick view'}</a>
+          <a id="managerItem{$event.Manager.id}Display" href="{modurl modname='Weekly' type='admin' func='display' ot='manager' id=$event.Manager.id theme='Printer'}" title="{gt text='Open quick view window'}" class="z-hide">{icon type='view' size='extrasmall' __alt='Quick view'}</a>
           <script type="text/javascript">
           /* <![CDATA[ */
               document.observe('dom:loaded', function() {
-                  weeklyInitInlineWindow($('leaderItem{{$event.Leader.id}}Display'), '{{$event.Leader->getTitleFromDisplayPattern()|replace:"'":""}}');
+                  weeklyInitInlineWindow($('managerItem{{$event.Manager.id}}Display'), '{{$event.Manager->getTitleFromDisplayPattern()|replace:"'":""}}');
               });
           /* ]]> */
           </script>
           {else}
-            {$event.Leader->getTitleFromDisplayPattern()|default:""}
+            {$event.Manager->getTitleFromDisplayPattern()|default:""}
           {/if}
         {else}
             {gt text='Not set.'}
         {/if}
         </dd>
-        <dt>{gt text='Organisator'}</dt>
+        <dt>{gt text='Comanager'}</dt>
         <dd>
-        {if isset($event.Organisator) && $event.Organisator ne null}
+        {if isset($event.Comanager) && $event.Comanager ne null}
           {if !isset($smarty.get.theme) || $smarty.get.theme ne 'Printer'}
-          <a href="{modurl modname='Weekly' type='admin' func='display' ot='organisator' id=$event.Organisator.id}">{strip}
-            {$event.Organisator->getTitleFromDisplayPattern()|default:""}
+          <a href="{modurl modname='Weekly' type='admin' func='display' ot='comanager' id=$event.Comanager.id}">{strip}
+            {$event.Comanager->getTitleFromDisplayPattern()|default:""}
           {/strip}</a>
-          <a id="organisatorItem{$event.Organisator.id}Display" href="{modurl modname='Weekly' type='admin' func='display' ot='organisator' id=$event.Organisator.id theme='Printer'}" title="{gt text='Open quick view window'}" class="z-hide">{icon type='view' size='extrasmall' __alt='Quick view'}</a>
+          <a id="comanagerItem{$event.Comanager.id}Display" href="{modurl modname='Weekly' type='admin' func='display' ot='comanager' id=$event.Comanager.id theme='Printer'}" title="{gt text='Open quick view window'}" class="z-hide">{icon type='view' size='extrasmall' __alt='Quick view'}</a>
           <script type="text/javascript">
           /* <![CDATA[ */
               document.observe('dom:loaded', function() {
-                  weeklyInitInlineWindow($('organisatorItem{{$event.Organisator.id}}Display'), '{{$event.Organisator->getTitleFromDisplayPattern()|replace:"'":""}}');
+                  weeklyInitInlineWindow($('comanagerItem{{$event.Comanager.id}}Display'), '{{$event.Comanager->getTitleFromDisplayPattern()|replace:"'":""}}');
               });
           /* ]]> */
           </script>
           {else}
-            {$event.Organisator->getTitleFromDisplayPattern()|default:""}
+            {$event.Comanager->getTitleFromDisplayPattern()|default:""}
           {/if}
         {else}
             {gt text='Not set.'}

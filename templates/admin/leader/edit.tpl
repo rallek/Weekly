@@ -1,19 +1,19 @@
-{* purpose of this template: build the Form to edit an instance of leader *}
+{* purpose of this template: build the Form to edit an instance of manager *}
 {include file='admin/header.tpl'}
 {pageaddvar name='javascript' value='modules/Weekly/javascript/Weekly_editFunctions.js'}
 {pageaddvar name='javascript' value='modules/Weekly/javascript/Weekly_validation.js'}
 
 {if $mode eq 'edit'}
-    {gt text='Edit leader' assign='templateTitle'}
+    {gt text='Edit manager' assign='templateTitle'}
     {assign var='adminPageIcon' value='edit'}
 {elseif $mode eq 'create'}
-    {gt text='Create leader' assign='templateTitle'}
+    {gt text='Create manager' assign='templateTitle'}
     {assign var='adminPageIcon' value='new'}
 {else}
-    {gt text='Edit leader' assign='templateTitle'}
+    {gt text='Edit manager' assign='templateTitle'}
     {assign var='adminPageIcon' value='edit'}
 {/if}
-<div class="weekly-leader weekly-edit">
+<div class="weekly-manager weekly-edit">
     {pagesetvar name='title' value=$templateTitle}
     <div class="z-admin-content-pagetitle">
         {icon type=$adminPageIcon size='small' alt=$templateTitle}
@@ -22,62 +22,62 @@
 {form enctype='multipart/form-data' cssClass='z-form'}
     {* add validation summary and a <div> element for styling the form *}
     {weeklyFormFrame}
-    {formsetinitialfocus inputId='leaderName'}
+    {formsetinitialfocus inputId='managerName'}
 
     <fieldset>
         <legend>{gt text='Content'}</legend>
         
         <div class="z-formrow">
-            {formlabel for='leaderName' __text='Leader name' mandatorysym='1' cssClass=''}
-            {formtextinput group='leader' id='leaderName' mandatory=true readOnly=false __title='Enter the leader name of the leader' textMode='singleline' maxLength=255 cssClass='required validate-unique' }
-            {weeklyValidationError id='leaderName' class='required'}
-            {weeklyValidationError id='leaderName' class='validate-unique'}
+            {formlabel for='managerName' __text='Manager name' mandatorysym='1' cssClass=''}
+            {formtextinput group='manager' id='managerName' mandatory=true readOnly=false __title='Enter the manager name of the manager' textMode='singleline' maxLength=255 cssClass='required validate-unique' }
+            {weeklyValidationError id='managerName' class='required'}
+            {weeklyValidationError id='managerName' class='validate-unique'}
         </div>
         
         <div class="z-formrow">
-            {formlabel for='leaderDescription' __text='Leader description' cssClass=''}
-            {formtextinput group='leader' id='leaderDescription' mandatory=false __title='Enter the leader description of the leader' textMode='multiline' rows='6' cols='50' cssClass='' }
+            {formlabel for='managerDescription' __text='Manager description' cssClass=''}
+            {formtextinput group='manager' id='managerDescription' mandatory=false __title='Enter the manager description of the manager' textMode='multiline' rows='6' cols='50' cssClass='' }
         </div>
         
         <div class="z-formrow">
-            {formlabel for='leaderPicture' __text='Leader picture' cssClass=''}<br />{* break required for Google Chrome *}
-            {formuploadinput group='leader' id='leaderPicture' mandatory=false readOnly=false cssClass=' validate-upload' }
-            <span class="z-formnote"><a id="resetLeaderPictureVal" href="javascript:void(0);" class="z-hide">{gt text='Reset to empty value'}</a></span>
+            {formlabel for='managerPicture' __text='Manager picture' cssClass=''}<br />{* break required for Google Chrome *}
+            {formuploadinput group='manager' id='managerPicture' mandatory=false readOnly=false cssClass=' validate-upload' }
+            <span class="z-formnote"><a id="resetManagerPictureVal" href="javascript:void(0);" class="z-hide">{gt text='Reset to empty value'}</a></span>
             
-                <span class="z-formnote">{gt text='Allowed file extensions:'} <span id="leaderPictureFileExtensions">gif, jpeg, jpg, png</span></span>
+                <span class="z-formnote">{gt text='Allowed file extensions:'} <span id="managerPictureFileExtensions">gif, jpeg, jpg, png</span></span>
             <span class="z-formnote">{gt text='Allowed file size:'} {'102400'|weeklyGetFileSize:'':false:false}</span>
             {if $mode ne 'create'}
-                {if $leader.leaderPicture ne ''}
+                {if $manager.managerPicture ne ''}
                     <span class="z-formnote">
                         {gt text='Current file'}:
-                        <a href="{$leader.leaderPictureFullPathUrl}" title="{$formattedEntityTitle|replace:"\"":""}"{if $leader.leaderPictureMeta.isImage} rel="imageviewer[leader]"{/if}>
-                        {if $leader.leaderPictureMeta.isImage}
-                            {thumb image=$leader.leaderPictureFullPath objectid="leader-`$leader.id`" preset=$leaderThumbPresetLeaderPicture tag=true img_alt=$formattedEntityTitle}
+                        <a href="{$manager.managerPictureFullPathUrl}" title="{$formattedEntityTitle|replace:"\"":""}"{if $manager.managerPictureMeta.isImage} rel="imageviewer[manager]"{/if}>
+                        {if $manager.managerPictureMeta.isImage}
+                            {thumb image=$manager.managerPictureFullPath objectid="manager-`$manager.id`" preset=$managerThumbPresetManagerPicture tag=true img_alt=$formattedEntityTitle}
                         {else}
-                            {gt text='Download'} ({$leader.leaderPictureMeta.size|weeklyGetFileSize:$leader.leaderPictureFullPath:false:false})
+                            {gt text='Download'} ({$manager.managerPictureMeta.size|weeklyGetFileSize:$manager.managerPictureFullPath:false:false})
                         {/if}
                         </a>
                     </span>
                     <span class="z-formnote">
-                        {formcheckbox group='leader' id='leaderPictureDeleteFile' readOnly=false __title='Delete leader picture ?'}
-                        {formlabel for='leaderPictureDeleteFile' __text='Delete existing file'}
+                        {formcheckbox group='manager' id='managerPictureDeleteFile' readOnly=false __title='Delete manager picture ?'}
+                        {formlabel for='managerPictureDeleteFile' __text='Delete existing file'}
                     </span>
                 {/if}
             {/if}
-            {weeklyValidationError id='leaderPicture' class='validate-upload'}
+            {weeklyValidationError id='managerPicture' class='validate-upload'}
         </div>
     </fieldset>
     
     {if $mode ne 'create'}
-        {include file='admin/include_standardfields_edit.tpl' obj=$leader}
+        {include file='admin/include_standardfields_edit.tpl' obj=$manager}
     {/if}
     
     {* include display hooks *}
     {if $mode ne 'create'}
-        {assign var='hookId' value=$leader.id}
-        {notifydisplayhooks eventname='weekly.ui_hooks.leaders.form_edit' id=$hookId assign='hooks'}
+        {assign var='hookId' value=$manager.id}
+        {notifydisplayhooks eventname='weekly.ui_hooks.managers.form_edit' id=$hookId assign='hooks'}
     {else}
-        {notifydisplayhooks eventname='weekly.ui_hooks.leaders.form_edit' id=null assign='hooks'}
+        {notifydisplayhooks eventname='weekly.ui_hooks.managers.form_edit' id=null assign='hooks'}
     {/if}
     {if is_array($hooks) && count($hooks)}
         {foreach key='providerArea' item='hook' from=$hooks}
@@ -93,7 +93,7 @@
             <legend>{gt text='Return control'}</legend>
             <div class="z-formrow">
                 {formlabel for='repeatCreation' __text='Create another item after save'}
-                    {formcheckbox group='leader' id='repeatCreation' readOnly=false}
+                    {formcheckbox group='manager' id='repeatCreation' readOnly=false}
             </div>
         </fieldset>
     {/if}
@@ -105,7 +105,7 @@
         {gt text=$action.title assign='actionTitle'}
         {*gt text=$action.description assign='actionDescription'*}{* TODO: formbutton could support title attributes *}
         {if $action.id eq 'delete'}
-            {gt text='Really delete this leader?' assign='deleteConfirmMsg'}
+            {gt text='Really delete this manager?' assign='deleteConfirmMsg'}
             {formbutton id="btn`$actionIdCapital`" commandName=$action.id text=$actionTitle class=$action.buttonClass confirmMessage=$deleteConfirmMsg}
         {else}
             {formbutton id="btn`$actionIdCapital`" commandName=$action.id text=$actionTitle class=$action.buttonClass}
@@ -144,7 +144,7 @@
 
     document.observe('dom:loaded', function() {
 
-        weeklyAddCommonValidationRules('leader', '{{if $mode ne 'create'}}{{$leader.id}}{{/if}}');
+        weeklyAddCommonValidationRules('manager', '{{if $mode ne 'create'}}{{$manager.id}}{{/if}}');
         {{* observe validation on button events instead of form submit to exclude the cancel command *}}
         formValidator = new Validation('{{$__formid}}', {onSubmit: false, immediate: true, focusOnError: false});
         {{if $mode ne 'create'}}
@@ -160,7 +160,7 @@
         });
 
         Zikula.UI.Tooltips($$('.weekly-form-tooltips'));
-        weeklyInitUploadField('leaderPicture');
+        weeklyInitUploadField('managerPicture');
     });
 
 /* ]]> */

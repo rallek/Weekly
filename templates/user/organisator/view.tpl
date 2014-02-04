@@ -1,14 +1,14 @@
-{* purpose of this template: organisators view view in user area *}
+{* purpose of this template: comanagers view view in user area *}
 {include file='user/header.tpl'}
-<div class="weekly-organisator weekly-view">
-    {gt text='Organisator list' assign='templateTitle'}
+<div class="weekly-comanager weekly-view">
+    {gt text='Comanager list' assign='templateTitle'}
     {pagesetvar name='title' value=$templateTitle}
     <h2>{$templateTitle}</h2>
 
     {if $canBeCreated}
-        {checkpermissionblock component='Weekly:Organisator:' instance='::' level='ACCESS_EDIT'}
-            {gt text='Create organisator' assign='createTitle'}
-            <a href="{modurl modname='Weekly' type='user' func='edit' ot='organisator'}" title="{$createTitle}" class="z-icon-es-add">{$createTitle}</a>
+        {checkpermissionblock component='Weekly:Comanager:' instance='::' level='ACCESS_EDIT'}
+            {gt text='Create comanager' assign='createTitle'}
+            <a href="{modurl modname='Weekly' type='user' func='edit' ot='comanager'}" title="{$createTitle}" class="z-icon-es-add">{$createTitle}</a>
         {/checkpermissionblock}
     {/if}
     {assign var='own' value=0}
@@ -18,69 +18,69 @@
     {assign var='all' value=0}
     {if isset($showAllEntries) && $showAllEntries eq 1}
         {gt text='Back to paginated view' assign='linkTitle'}
-        <a href="{modurl modname='Weekly' type='user' func='view' ot='organisator'}" title="{$linkTitle}" class="z-icon-es-view">
+        <a href="{modurl modname='Weekly' type='user' func='view' ot='comanager'}" title="{$linkTitle}" class="z-icon-es-view">
             {$linkTitle}
         </a>
         {assign var='all' value=1}
     {else}
         {gt text='Show all entries' assign='linkTitle'}
-        <a href="{modurl modname='Weekly' type='user' func='view' ot='organisator' all=1}" title="{$linkTitle}" class="z-icon-es-view">{$linkTitle}</a>
+        <a href="{modurl modname='Weekly' type='user' func='view' ot='comanager' all=1}" title="{$linkTitle}" class="z-icon-es-view">{$linkTitle}</a>
     {/if}
 
-    {include file='user/organisator/view_quickNav.tpl' all=$all own=$own workflowStateFilter=false}{* see template file for available options *}
+    {include file='user/comanager/view_quickNav.tpl' all=$all own=$own workflowStateFilter=false}{* see template file for available options *}
 
     <table class="z-datatable">
         <colgroup>
-            <col id="cOrganisatorName" />
-            <col id="cOrganisatorText" />
-            <col id="cOrganisatorPicture" />
+            <col id="cComanagerName" />
+            <col id="cComanagerText" />
+            <col id="cComanagerPicture" />
             <col id="cItemActions" />
         </colgroup>
         <thead>
         <tr>
-            <th id="hOrganisatorName" scope="col" class="z-left">
-                {sortlink __linktext='Organisator name' currentsort=$sort modname='Weekly' type='user' func='view' ot='organisator' sort='organisatorName' sortdir=$sdir all=$all own=$own workflowState=$workflowState searchterm=$searchterm pageSize=$pageSize}
+            <th id="hComanagerName" scope="col" class="z-left">
+                {sortlink __linktext='Comanager name' currentsort=$sort modname='Weekly' type='user' func='view' ot='comanager' sort='comanagerName' sortdir=$sdir all=$all own=$own workflowState=$workflowState searchterm=$searchterm pageSize=$pageSize}
             </th>
-            <th id="hOrganisatorText" scope="col" class="z-left">
-                {sortlink __linktext='Organisator text' currentsort=$sort modname='Weekly' type='user' func='view' ot='organisator' sort='organisatorText' sortdir=$sdir all=$all own=$own workflowState=$workflowState searchterm=$searchterm pageSize=$pageSize}
+            <th id="hComanagerText" scope="col" class="z-left">
+                {sortlink __linktext='Comanager text' currentsort=$sort modname='Weekly' type='user' func='view' ot='comanager' sort='comanagerText' sortdir=$sdir all=$all own=$own workflowState=$workflowState searchterm=$searchterm pageSize=$pageSize}
             </th>
-            <th id="hOrganisatorPicture" scope="col" class="z-left">
-                {sortlink __linktext='Organisator picture' currentsort=$sort modname='Weekly' type='user' func='view' ot='organisator' sort='organisatorPicture' sortdir=$sdir all=$all own=$own workflowState=$workflowState searchterm=$searchterm pageSize=$pageSize}
+            <th id="hComanagerPicture" scope="col" class="z-left">
+                {sortlink __linktext='Comanager picture' currentsort=$sort modname='Weekly' type='user' func='view' ot='comanager' sort='comanagerPicture' sortdir=$sdir all=$all own=$own workflowState=$workflowState searchterm=$searchterm pageSize=$pageSize}
             </th>
             <th id="hItemActions" scope="col" class="z-right z-order-unsorted">{gt text='Actions'}</th>
         </tr>
         </thead>
         <tbody>
     
-    {foreach item='organisator' from=$items}
+    {foreach item='comanager' from=$items}
         <tr class="{cycle values='z-odd, z-even'}">
-            <td headers="hOrganisatorName" class="z-left">
-                {$organisator.organisatorName}
+            <td headers="hComanagerName" class="z-left">
+                {$comanager.comanagerName}
             </td>
-            <td headers="hOrganisatorText" class="z-left">
-                {$organisator.organisatorText}
+            <td headers="hComanagerText" class="z-left">
+                {$comanager.comanagerText}
             </td>
-            <td headers="hOrganisatorPicture" class="z-left">
-                {if $organisator.organisatorPicture ne ''}
-                  <a href="{$organisator.organisatorPictureFullPathURL}" title="{$organisator->getTitleFromDisplayPattern()|replace:"\"":""}"{if $organisator.organisatorPictureMeta.isImage} rel="imageviewer[organisator]"{/if}>
-                  {if $organisator.organisatorPictureMeta.isImage}
-                      {thumb image=$organisator.organisatorPictureFullPath objectid="organisator-`$organisator.id`" preset=$organisatorThumbPresetOrganisatorPicture tag=true img_alt=$organisator->getTitleFromDisplayPattern()}
+            <td headers="hComanagerPicture" class="z-left">
+                {if $comanager.comanagerPicture ne ''}
+                  <a href="{$comanager.comanagerPictureFullPathURL}" title="{$comanager->getTitleFromDisplayPattern()|replace:"\"":""}"{if $comanager.comanagerPictureMeta.isImage} rel="imageviewer[comanager]"{/if}>
+                  {if $comanager.comanagerPictureMeta.isImage}
+                      {thumb image=$comanager.comanagerPictureFullPath objectid="comanager-`$comanager.id`" preset=$comanagerThumbPresetComanagerPicture tag=true img_alt=$comanager->getTitleFromDisplayPattern()}
                   {else}
-                      {gt text='Download'} ({$organisator.organisatorPictureMeta.size|weeklyGetFileSize:$organisator.organisatorPictureFullPath:false:false})
+                      {gt text='Download'} ({$comanager.comanagerPictureMeta.size|weeklyGetFileSize:$comanager.comanagerPictureFullPath:false:false})
                   {/if}
                   </a>
                 {else}&nbsp;{/if}
             </td>
-            <td id="itemActions{$organisator.id}" headers="hItemActions" class="z-right z-nowrap z-w02">
-                {if count($organisator._actions) gt 0}
-                    {foreach item='option' from=$organisator._actions}
+            <td id="itemActions{$comanager.id}" headers="hItemActions" class="z-right z-nowrap z-w02">
+                {if count($comanager._actions) gt 0}
+                    {foreach item='option' from=$comanager._actions}
                         <a href="{$option.url.type|weeklyActionUrl:$option.url.func:$option.url.arguments}" title="{$option.linkTitle|safetext}"{if $option.icon eq 'preview'} target="_blank"{/if}>{icon type=$option.icon size='extrasmall' alt=$option.linkText|safetext}</a>
                     {/foreach}
-                    {icon id="itemActions`$organisator.id`Trigger" type='options' size='extrasmall' __alt='Actions' class='z-pointer z-hide'}
+                    {icon id="itemActions`$comanager.id`Trigger" type='options' size='extrasmall' __alt='Actions' class='z-pointer z-hide'}
                     <script type="text/javascript">
                     /* <![CDATA[ */
                         document.observe('dom:loaded', function() {
-                            weeklyInitItemActions('organisator', 'view', 'itemActions{{$organisator.id}}');
+                            weeklyInitItemActions('comanager', 'view', 'itemActions{{$comanager.id}}');
                         });
                     /* ]]> */
                     </script>
@@ -90,7 +90,7 @@
     {foreachelse}
         <tr class="z-datatableempty">
           <td class="z-left" colspan="4">
-        {gt text='No organisators found.'}
+        {gt text='No comanagers found.'}
           </td>
         </tr>
     {/foreach}
@@ -99,11 +99,11 @@
     </table>
     
     {if !isset($showAllEntries) || $showAllEntries ne 1}
-        {pager rowcount=$pager.numitems limit=$pager.itemsperpage display='page' modname='Weekly' type='user' func='view' ot='organisator'}
+        {pager rowcount=$pager.numitems limit=$pager.itemsperpage display='page' modname='Weekly' type='user' func='view' ot='comanager'}
     {/if}
 
     
-    {notifydisplayhooks eventname='weekly.ui_hooks.organisators.display_view' urlobject=$currentUrlObject assign='hooks'}
+    {notifydisplayhooks eventname='weekly.ui_hooks.comanagers.display_view' urlobject=$currentUrlObject assign='hooks'}
     {foreach key='providerArea' item='hook' from=$hooks}
         {$hook}
     {/foreach}

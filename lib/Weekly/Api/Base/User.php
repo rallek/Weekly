@@ -42,17 +42,17 @@ class Weekly_Api_Base_User extends Zikula_AbstractApi
                              'text' => $this->__('Events'),
                              'title' => $this->__('Event list'));
         }
-        if (in_array('leader', $allowedObjectTypes)
-            && SecurityUtil::checkPermission($this->name . ':Leader:', '::', ACCESS_READ)) {
-            $links[] = array('url' => ModUtil::url($this->name, 'user', 'view', array('ot' => 'leader')),
-                             'text' => $this->__('Leaders'),
-                             'title' => $this->__('Leader list'));
+        if (in_array('manager', $allowedObjectTypes)
+            && SecurityUtil::checkPermission($this->name . ':Manager:', '::', ACCESS_READ)) {
+            $links[] = array('url' => ModUtil::url($this->name, 'user', 'view', array('ot' => 'manager')),
+                             'text' => $this->__('Managers'),
+                             'title' => $this->__('Manager list'));
         }
-        if (in_array('organisator', $allowedObjectTypes)
-            && SecurityUtil::checkPermission($this->name . ':Organisator:', '::', ACCESS_READ)) {
-            $links[] = array('url' => ModUtil::url($this->name, 'user', 'view', array('ot' => 'organisator')),
-                             'text' => $this->__('Organisators'),
-                             'title' => $this->__('Organisator list'));
+        if (in_array('comanager', $allowedObjectTypes)
+            && SecurityUtil::checkPermission($this->name . ':Comanager:', '::', ACCESS_READ)) {
+            $links[] = array('url' => ModUtil::url($this->name, 'user', 'view', array('ot' => 'comanager')),
+                             'text' => $this->__('Comanagers'),
+                             'title' => $this->__('Comanager list'));
         }
         if (in_array('kind', $allowedObjectTypes)
             && SecurityUtil::checkPermission($this->name . ':Kind:', '::', ACCESS_READ)) {

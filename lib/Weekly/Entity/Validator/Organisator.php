@@ -14,9 +14,9 @@
 /**
  * Validator class for encapsulating entity validation methods.
  *
- * This is the concrete validation class for organisator entities.
+ * This is the concrete validation class for comanager entities.
  */
-class Weekly_Entity_Validator_Organisator extends Weekly_Entity_Validator_Base_Organisator
+class Weekly_Entity_Validator_Comanager extends Weekly_Entity_Validator_Base_Comanager
 {
     // here you can add custom validation methods or override existing checks
 }

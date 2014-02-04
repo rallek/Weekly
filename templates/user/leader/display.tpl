@@ -1,65 +1,65 @@
-{* purpose of this template: leaders display view in user area *}
+{* purpose of this template: managers display view in user area *}
 {include file='user/header.tpl'}
-<div class="weekly-leader weekly-display with-rightbox">
-    {gt text='Leader' assign='templateTitle'}
-    {assign var='templateTitle' value=$leader->getTitleFromDisplayPattern()|default:$templateTitle}
+<div class="weekly-manager weekly-display with-rightbox">
+    {gt text='Manager' assign='templateTitle'}
+    {assign var='templateTitle' value=$manager->getTitleFromDisplayPattern()|default:$templateTitle}
     {pagesetvar name='title' value=$templateTitle|@html_entity_decode}
-    <h2>{$templateTitle|notifyfilters:'weekly.filter_hooks.leaders.filter'}{icon id='itemActionsTrigger' type='options' size='extrasmall' __alt='Actions' class='z-pointer z-hide'}</h2>
+    <h2>{$templateTitle|notifyfilters:'weekly.filter_hooks.managers.filter'}{icon id='itemActionsTrigger' type='options' size='extrasmall' __alt='Actions' class='z-pointer z-hide'}</h2>
 
     {if !isset($smarty.get.theme) || $smarty.get.theme ne 'Printer'}
         <div class="weekly-rightbox">
             <h3>{gt text='Events'}</h3>
             
-            {if isset($leader.event) && $leader.event ne null}
-                {include file='user/event/include_displayItemListMany.tpl' items=$leader.event}
+            {if isset($manager.event) && $manager.event ne null}
+                {include file='user/event/include_displayItemListMany.tpl' items=$manager.event}
             {/if}
             
-            {checkpermission component='Weekly:Leader:' instance="`$leader.id`::" level='ACCESS_EDIT' assign='mayManage'}
-            {if $mayManage || (isset($uid) && isset($leader.createdUserId) && $leader.createdUserId eq $uid)}
+            {checkpermission component='Weekly:Manager:' instance="`$manager.id`::" level='ACCESS_EDIT' assign='mayManage'}
+            {if $mayManage || (isset($uid) && isset($manager.createdUserId) && $manager.createdUserId eq $uid)}
             <p class="managelink">
                 {gt text='Create event' assign='createTitle'}
-                <a href="{modurl modname='Weekly' type='user' func='edit' ot='event' leader="`$leader.id`" returnTo='userDisplayLeader'}" title="{$createTitle}" class="z-icon-es-add">{$createTitle}</a>
+                <a href="{modurl modname='Weekly' type='user' func='edit' ot='event' manager="`$manager.id`" returnTo='userDisplayManager'}" title="{$createTitle}" class="z-icon-es-add">{$createTitle}</a>
             </p>
             {/if}
         </div>
     {/if}
 
     <dl>
-        <dt>{gt text='Leader name'}</dt>
-        <dd>{$leader.leaderName}</dd>
-        <dt>{gt text='Leader description'}</dt>
-        <dd>{$leader.leaderDescription}</dd>
-        <dt>{gt text='Leader picture'}</dt>
-        <dd>{if $leader.leaderPicture ne ''}
-          <a href="{$leader.leaderPictureFullPathURL}" title="{$leader->getTitleFromDisplayPattern()|replace:"\"":""}"{if $leader.leaderPictureMeta.isImage} rel="imageviewer[leader]"{/if}>
-          {if $leader.leaderPictureMeta.isImage}
-              {thumb image=$leader.leaderPictureFullPath objectid="leader-`$leader.id`" preset=$leaderThumbPresetLeaderPicture tag=true img_alt=$leader->getTitleFromDisplayPattern()}
+        <dt>{gt text='Manager name'}</dt>
+        <dd>{$manager.managerName}</dd>
+        <dt>{gt text='Manager description'}</dt>
+        <dd>{$manager.managerDescription}</dd>
+        <dt>{gt text='Manager picture'}</dt>
+        <dd>{if $manager.managerPicture ne ''}
+          <a href="{$manager.managerPictureFullPathURL}" title="{$manager->getTitleFromDisplayPattern()|replace:"\"":""}"{if $manager.managerPictureMeta.isImage} rel="imageviewer[manager]"{/if}>
+          {if $manager.managerPictureMeta.isImage}
+              {thumb image=$manager.managerPictureFullPath objectid="manager-`$manager.id`" preset=$managerThumbPresetManagerPicture tag=true img_alt=$manager->getTitleFromDisplayPattern()}
           {else}
-              {gt text='Download'} ({$leader.leaderPictureMeta.size|weeklyGetFileSize:$leader.leaderPictureFullPath:false:false})
+              {gt text='Download'} ({$manager.managerPictureMeta.size|weeklyGetFileSize:$manager.managerPictureFullPath:false:false})
           {/if}
           </a>
         {else}&nbsp;{/if}
         </dd>
         
     </dl>
-    {include file='user/include_standardfields_display.tpl' obj=$leader}
+    {include file='user/include_standardfields_display.tpl' obj=$manager}
 
     {if !isset($smarty.get.theme) || $smarty.get.theme ne 'Printer'}
         {* include display hooks *}
-        {notifydisplayhooks eventname='weekly.ui_hooks.leaders.display_view' id=$leader.id urlobject=$currentUrlObject assign='hooks'}
+        {notifydisplayhooks eventname='weekly.ui_hooks.managers.display_view' id=$manager.id urlobject=$currentUrlObject assign='hooks'}
         {foreach key='providerArea' item='hook' from=$hooks}
             {$hook}
         {/foreach}
-        {if count($leader._actions) gt 0}
+        {if count($manager._actions) gt 0}
             <p id="itemActions">
-            {foreach item='option' from=$leader._actions}
+            {foreach item='option' from=$manager._actions}
                 <a href="{$option.url.type|weeklyActionUrl:$option.url.func:$option.url.arguments}" title="{$option.linkTitle|safetext}" class="z-icon-es-{$option.icon}">{$option.linkText|safetext}</a>
             {/foreach}
             </p>
             <script type="text/javascript">
             /* <![CDATA[ */
                 document.observe('dom:loaded', function() {
-                    weeklyInitItemActions('leader', 'display', 'itemActions');
+                    weeklyInitItemActions('manager', 'display', 'itemActions');
                 });
             /* ]]> */
             </script>

@@ -114,14 +114,14 @@ class Weekly_Util_Base_ListEntries extends Zikula_AbstractBase
                         break;
                 }
                 break;
-            case 'leader':
+            case 'manager':
                 switch ($fieldName) {
                     case 'workflowState':
                         $result = false;
                         break;
                 }
                 break;
-            case 'organisator':
+            case 'comanager':
                 switch ($fieldName) {
                     case 'workflowState':
                         $result = false;
@@ -174,17 +174,17 @@ class Weekly_Util_Base_ListEntries extends Zikula_AbstractBase
                         break;
                 }
                 break;
-            case 'leader':
+            case 'manager':
                 switch ($fieldName) {
                     case 'workflowState':
-                        $entries = $this->getWorkflowStateEntriesForLeader();
+                        $entries = $this->getWorkflowStateEntriesForManager();
                         break;
                 }
                 break;
-            case 'organisator':
+            case 'comanager':
                 switch ($fieldName) {
                     case 'workflowState':
-                        $entries = $this->getWorkflowStateEntriesForOrganisator();
+                        $entries = $this->getWorkflowStateEntriesForComanager();
                         break;
                 }
                 break;
@@ -282,7 +282,7 @@ class Weekly_Util_Base_ListEntries extends Zikula_AbstractBase
      *
      * @return array Array with desired list entries.
      */
-    public function getWorkflowStateEntriesForLeader()
+    public function getWorkflowStateEntriesForManager()
     {
         $states = array();
         $states[] = array('value'   => 'approved',
@@ -304,7 +304,7 @@ class Weekly_Util_Base_ListEntries extends Zikula_AbstractBase
      *
      * @return array Array with desired list entries.
      */
-    public function getWorkflowStateEntriesForOrganisator()
+    public function getWorkflowStateEntriesForComanager()
     {
         $states = array();
         $states[] = array('value'   => 'approved',

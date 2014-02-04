@@ -40,14 +40,14 @@
         <thead>
         <tr>
             <th id="hEventBegin" scope="col" class="z-left">
-                {sortlink __linktext='Event begin' currentsort=$sort modname='Weekly' type='user' func='view' ot='event' sort='eventBegin' sortdir=$sdir all=$all own=$own kind=$kind location=$location leader=$leader organisator=$organisator workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
+                {sortlink __linktext='Event begin' currentsort=$sort modname='Weekly' type='user' func='view' ot='event' sort='eventBegin' sortdir=$sdir all=$all own=$own kind=$kind location=$location manager=$manager comanager=$comanager workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
             </th>
             <th id="hEventName" scope="col" class="z-left">
-                {sortlink __linktext='Event name' currentsort=$sort modname='Weekly' type='user' func='view' ot='event' sort='eventName' sortdir=$sdir all=$all own=$own kind=$kind location=$location leader=$leader organisator=$organisator workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
+                {sortlink __linktext='Event name' currentsort=$sort modname='Weekly' type='user' func='view' ot='event' sort='eventName' sortdir=$sdir all=$all own=$own kind=$kind location=$location manager=$manager comanager=$comanager workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
             </th>
 
             <th id="hEventMessage" scope="col" class="z-left">
-                {sortlink __linktext='Event message' currentsort=$sort modname='Weekly' type='user' func='view' ot='event' sort='eventMessage' sortdir=$sdir all=$all own=$own kind=$kind location=$location leader=$leader organisator=$organisator workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
+                {sortlink __linktext='Event message' currentsort=$sort modname='Weekly' type='user' func='view' ot='event' sort='eventMessage' sortdir=$sdir all=$all own=$own kind=$kind location=$location manager=$manager comanager=$comanager workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
             </th>
 
         </tr>
@@ -104,16 +104,16 @@
 					
 				<a class="z-bold" href="{modurl modname='Weekly' type='user' func='display' ot='event' id=$event.id}" title="{gt text='View detail page'}">{$event.eventName}</a></br>
 				
-				{if $modvars.Weekly.showLeader}
+				{if $modvars.Weekly.showManager}
 					<span class="z-sub">
-					{if isset($event.Leader) && $event.Leader ne null}
-						<a href="{modurl modname='Weekly' type='user' func='display' ot='leader' id=$event.Leader.id}">{strip}
-						  {$event.Leader->getTitleFromDisplayPattern()|default:""}
+					{if isset($event.Manager) && $event.Manager ne null}
+						<a href="{modurl modname='Weekly' type='user' func='display' ot='manager' id=$event.Manager.id}">{strip}
+						  {$event.Manager->getTitleFromDisplayPattern()|default:""}
 						{/strip}</a>
 						<script type="text/javascript">
 						/* <![CDATA[ */
 							document.observe('dom:loaded', function() {
-								weeklyInitInlineWindow($('leaderItem{{$event.id}}_rel_{{$event.Leader.id}}Display'), '{{$event.Leader->getTitleFromDisplayPattern()|replace:"'":""}}');
+								weeklyInitInlineWindow($('managerItem{{$event.id}}_rel_{{$event.Manager.id}}Display'), '{{$event.Manager->getTitleFromDisplayPattern()|replace:"'":""}}');
 							});
 						/* ]]> */
 						</script>

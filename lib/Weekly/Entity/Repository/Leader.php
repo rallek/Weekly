@@ -14,9 +14,9 @@
 /**
  * Repository class used to implement own convenience methods for performing certain DQL queries.
  *
- * This is the concrete repository class for leader entities.
+ * This is the concrete repository class for manager entities.
  */
-class Weekly_Entity_Repository_Leader extends Weekly_Entity_Repository_Base_Leader
+class Weekly_Entity_Repository_Manager extends Weekly_Entity_Repository_Base_Manager
 {
     // feel free to add your own methods here, like for example reusable DQL queries
 }

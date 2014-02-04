@@ -13,9 +13,9 @@
 
 /**
  * This handler class handles the page events of the Form called by the weekly_user_edit() function.
- * It aims on the organisator object type.
+ * It aims on the comanager object type.
  */
-class Weekly_Form_Handler_User_Organisator_Edit extends Weekly_Form_Handler_User_Organisator_Base_Edit
+class Weekly_Form_Handler_User_Comanager_Edit extends Weekly_Form_Handler_User_Comanager_Base_Edit
 {
     // feel free to extend the base handler class here
 }

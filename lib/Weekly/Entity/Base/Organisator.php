@@ -19,19 +19,19 @@ use DoctrineExtensions\StandardFields\Mapping\Annotation as ZK;
 /**
  * Entity class that defines the entity structure and behaviours.
  *
- * This is the base entity class for organisator entities.
+ * This is the base entity class for comanager entities.
  *
  * @abstract
  */
-abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
+abstract class Weekly_Entity_Base_Comanager extends Zikula_EntityAccess
 {
     /**
      * @var string The tablename this object maps to.
      */
-    protected $_objectType = 'organisator';
+    protected $_objectType = 'comanager';
     
     /**
-     * @var Weekly_Entity_Validator_Organisator The validator for this entity.
+     * @var Weekly_Entity_Validator_Comanager The validator for this entity.
      */
     protected $_validator = null;
     
@@ -66,43 +66,43 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
     
     /**
      * @ORM\Column(length=255)
-     * @var string $organisatorName.
+     * @var string $comanagerName.
      */
-    protected $organisatorName = '';
+    protected $comanagerName = '';
     
     /**
      * @ORM\Column(type="text", length=2000)
-     * @var text $organisatorText.
+     * @var text $comanagerText.
      */
-    protected $organisatorText = '';
+    protected $comanagerText = '';
     
     /**
-     * Organisator picture meta data array.
+     * Comanager picture meta data array.
      *
      * @ORM\Column(type="array")
-     * @var array $organisatorPictureMeta.
+     * @var array $comanagerPictureMeta.
      */
-    protected $organisatorPictureMeta = array();
+    protected $comanagerPictureMeta = array();
     
     /**
      * @ORM\Column(length=255)
-     * @var string $organisatorPicture.
+     * @var string $comanagerPicture.
      */
-    protected $organisatorPicture = '';
+    protected $comanagerPicture = '';
     
     /**
-     * The full path to the organisator picture.
+     * The full path to the comanager picture.
      *
-     * @var string $organisatorPictureFullPath.
+     * @var string $comanagerPictureFullPath.
      */
-    protected $organisatorPictureFullPath = '';
+    protected $comanagerPictureFullPath = '';
     
     /**
-     * Full organisator picture path as url.
+     * Full comanager picture path as url.
      *
-     * @var string $organisatorPictureFullPathUrl.
+     * @var string $comanagerPictureFullPathUrl.
      */
-    protected $organisatorPictureFullPathUrl = '';
+    protected $comanagerPictureFullPathUrl = '';
     
     /**
      * @ORM\Column(type="integer")
@@ -133,10 +133,10 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
     protected $updatedDate;
     
     /**
-     * Bidirectional - One organisator [organisator] has many event [events] (INVERSE SIDE).
+     * Bidirectional - One comanager [comanager] has many event [events] (INVERSE SIDE).
      *
-     * @ORM\OneToMany(targetEntity="Weekly_Entity_Event", mappedBy="organisator", cascade={"persist"})
-     * @ORM\JoinTable(name="weekly_organisatorevent")
+     * @ORM\OneToMany(targetEntity="Weekly_Entity_Event", mappedBy="comanager", cascade={"persist"})
+     * @ORM\JoinTable(name="weekly_comanagerevent")
      * @var Weekly_Entity_Event[] $event.
      */
     protected $event = null;
@@ -183,7 +183,7 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
     /**
      * Get _validator.
      *
-     * @return Weekly_Entity_Validator_Organisator
+     * @return Weekly_Entity_Validator_Comanager
      */
     public function get_validator()
     {
@@ -193,11 +193,11 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
     /**
      * Set _validator.
      *
-     * @param Weekly_Entity_Validator_Organisator $_validator.
+     * @param Weekly_Entity_Validator_Comanager $_validator.
      *
      * @return void
      */
-    public function set_validator(Weekly_Entity_Validator_Organisator $_validator = null)
+    public function set_validator(Weekly_Entity_Validator_Comanager $_validator = null)
     {
         $this->_validator = $_validator;
     }
@@ -318,146 +318,146 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
     }
     
     /**
-     * Get organisator name.
+     * Get comanager name.
      *
      * @return string
      */
-    public function getOrganisatorName()
+    public function getComanagerName()
     {
-        return $this->organisatorName;
+        return $this->comanagerName;
     }
     
     /**
-     * Set organisator name.
+     * Set comanager name.
      *
-     * @param string $organisatorName.
+     * @param string $comanagerName.
      *
      * @return void
      */
-    public function setOrganisatorName($organisatorName)
+    public function setComanagerName($comanagerName)
     {
-        if ($organisatorName != $this->organisatorName) {
-            $this->organisatorName = $organisatorName;
+        if ($comanagerName != $this->comanagerName) {
+            $this->comanagerName = $comanagerName;
         }
     }
     
     /**
-     * Get organisator text.
+     * Get comanager text.
      *
      * @return text
      */
-    public function getOrganisatorText()
+    public function getComanagerText()
     {
-        return $this->organisatorText;
+        return $this->comanagerText;
     }
     
     /**
-     * Set organisator text.
+     * Set comanager text.
      *
-     * @param text $organisatorText.
+     * @param text $comanagerText.
      *
      * @return void
      */
-    public function setOrganisatorText($organisatorText)
+    public function setComanagerText($comanagerText)
     {
-        if ($organisatorText != $this->organisatorText) {
-            $this->organisatorText = $organisatorText;
+        if ($comanagerText != $this->comanagerText) {
+            $this->comanagerText = $comanagerText;
         }
     }
     
     /**
-     * Get organisator picture.
+     * Get comanager picture.
      *
      * @return string
      */
-    public function getOrganisatorPicture()
+    public function getComanagerPicture()
     {
-        return $this->organisatorPicture;
+        return $this->comanagerPicture;
     }
     
     /**
-     * Set organisator picture.
+     * Set comanager picture.
      *
-     * @param string $organisatorPicture.
+     * @param string $comanagerPicture.
      *
      * @return void
      */
-    public function setOrganisatorPicture($organisatorPicture)
+    public function setComanagerPicture($comanagerPicture)
     {
-        if ($organisatorPicture != $this->organisatorPicture) {
-            $this->organisatorPicture = $organisatorPicture;
+        if ($comanagerPicture != $this->comanagerPicture) {
+            $this->comanagerPicture = $comanagerPicture;
         }
     }
     
     /**
-     * Get organisator picture full path.
+     * Get comanager picture full path.
      *
      * @return string
      */
-    public function getOrganisatorPictureFullPath()
+    public function getComanagerPictureFullPath()
     {
-        return $this->organisatorPictureFullPath;
+        return $this->comanagerPictureFullPath;
     }
     
     /**
-     * Set organisator picture full path.
+     * Set comanager picture full path.
      *
-     * @param string $organisatorPictureFullPath.
+     * @param string $comanagerPictureFullPath.
      *
      * @return void
      */
-    public function setOrganisatorPictureFullPath($organisatorPictureFullPath)
+    public function setComanagerPictureFullPath($comanagerPictureFullPath)
     {
-        if ($organisatorPictureFullPath != $this->organisatorPictureFullPath) {
-            $this->organisatorPictureFullPath = $organisatorPictureFullPath;
+        if ($comanagerPictureFullPath != $this->comanagerPictureFullPath) {
+            $this->comanagerPictureFullPath = $comanagerPictureFullPath;
         }
     }
     
     /**
-     * Get organisator picture full path url.
+     * Get comanager picture full path url.
      *
      * @return string
      */
-    public function getOrganisatorPictureFullPathUrl()
+    public function getComanagerPictureFullPathUrl()
     {
-        return $this->organisatorPictureFullPathUrl;
+        return $this->comanagerPictureFullPathUrl;
     }
     
     /**
-     * Set organisator picture full path url.
+     * Set comanager picture full path url.
      *
-     * @param string $organisatorPictureFullPathUrl.
+     * @param string $comanagerPictureFullPathUrl.
      *
      * @return void
      */
-    public function setOrganisatorPictureFullPathUrl($organisatorPictureFullPathUrl)
+    public function setComanagerPictureFullPathUrl($comanagerPictureFullPathUrl)
     {
-        if ($organisatorPictureFullPathUrl != $this->organisatorPictureFullPathUrl) {
-            $this->organisatorPictureFullPathUrl = $organisatorPictureFullPathUrl;
+        if ($comanagerPictureFullPathUrl != $this->comanagerPictureFullPathUrl) {
+            $this->comanagerPictureFullPathUrl = $comanagerPictureFullPathUrl;
         }
     }
     
     /**
-     * Get organisator picture meta.
+     * Get comanager picture meta.
      *
      * @return array
      */
-    public function getOrganisatorPictureMeta()
+    public function getComanagerPictureMeta()
     {
-        return $this->organisatorPictureMeta;
+        return $this->comanagerPictureMeta;
     }
     
     /**
-     * Set organisator picture meta.
+     * Set comanager picture meta.
      *
-     * @param array $organisatorPictureMeta.
+     * @param array $comanagerPictureMeta.
      *
      * @return void
      */
-    public function setOrganisatorPictureMeta($organisatorPictureMeta = Array())
+    public function setComanagerPictureMeta($comanagerPictureMeta = Array())
     {
-        if ($organisatorPictureMeta != $this->organisatorPictureMeta) {
-            $this->organisatorPictureMeta = $organisatorPictureMeta;
+        if ($comanagerPictureMeta != $this->comanagerPictureMeta) {
+            $this->comanagerPictureMeta = $comanagerPictureMeta;
         }
     }
     
@@ -584,7 +584,7 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
     public function addEvent(Weekly_Entity_Event $event)
     {
         $this->event->add($event);
-        $event->setOrganisator($this);
+        $event->setComanager($this);
     }
     
     /**
@@ -597,21 +597,21 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
     public function removeEvent(Weekly_Entity_Event $event)
     {
         $this->event->removeElement($event);
-        $event->setOrganisator(null);
+        $event->setComanager(null);
     }
     
     
     /**
      * Initialise validator and return it's instance.
      *
-     * @return Weekly_Entity_Validator_Organisator The validator for this entity.
+     * @return Weekly_Entity_Validator_Comanager The validator for this entity.
      */
     public function initValidator()
     {
         if (!is_null($this->_validator)) {
             return $this->_validator;
         }
-        $this->_validator = new Weekly_Entity_Validator_Organisator($this);
+        $this->_validator = new Weekly_Entity_Validator_Comanager($this);
     
         return $this->_validator;
     }
@@ -712,30 +712,30 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
         if ($currentType == 'admin') {
             if (in_array($currentFunc, array('main', 'view'))) {
                 $this->_actions[] = array(
-                    'url' => array('type' => 'user', 'func' => 'display', 'arguments' => array('ot' => 'organisator', 'id' => $this['id'])),
+                    'url' => array('type' => 'user', 'func' => 'display', 'arguments' => array('ot' => 'comanager', 'id' => $this['id'])),
                     'icon' => 'preview',
                     'linkTitle' => __('Open preview page', $dom),
                     'linkText' => __('Preview', $dom)
                 );
                 $this->_actions[] = array(
-                    'url' => array('type' => 'admin', 'func' => 'display', 'arguments' => array('ot' => 'organisator', 'id' => $this['id'])),
+                    'url' => array('type' => 'admin', 'func' => 'display', 'arguments' => array('ot' => 'comanager', 'id' => $this['id'])),
                     'icon' => 'display',
                     'linkTitle' => str_replace('"', '', $this->getTitleFromDisplayPattern()),
                     'linkText' => __('Details', $dom)
                 );
             }
             if (in_array($currentFunc, array('main', 'view', 'display'))) {
-                $component = 'Weekly:Organisator:';
+                $component = 'Weekly:Comanager:';
                 $instance = $this->id . '::';
                 if (SecurityUtil::checkPermission($component, $instance, ACCESS_EDIT)) {
                     $this->_actions[] = array(
-                        'url' => array('type' => 'admin', 'func' => 'edit', 'arguments' => array('ot' => 'organisator', 'id' => $this['id'])),
+                        'url' => array('type' => 'admin', 'func' => 'edit', 'arguments' => array('ot' => 'comanager', 'id' => $this['id'])),
                         'icon' => 'edit',
                         'linkTitle' => __('Edit', $dom),
                         'linkText' => __('Edit', $dom)
                     );
                     $this->_actions[] = array(
-                        'url' => array('type' => 'admin', 'func' => 'edit', 'arguments' => array('ot' => 'organisator', 'astemplate' => $this['id'])),
+                        'url' => array('type' => 'admin', 'func' => 'edit', 'arguments' => array('ot' => 'comanager', 'astemplate' => $this['id'])),
                         'icon' => 'saveas',
                         'linkTitle' => __('Reuse for new item', $dom),
                         'linkText' => __('Reuse', $dom)
@@ -744,7 +744,7 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
             }
             if ($currentFunc == 'display') {
                 $this->_actions[] = array(
-                    'url' => array('type' => 'admin', 'func' => 'view', 'arguments' => array('ot' => 'organisator')),
+                    'url' => array('type' => 'admin', 'func' => 'view', 'arguments' => array('ot' => 'comanager')),
                     'icon' => 'back',
                     'linkTitle' => __('Back to overview', $dom),
                     'linkText' => __('Back to overview', $dom)
@@ -758,11 +758,11 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
             if ($authAdmin || (isset($uid) && isset($this->createdUserId) && $this->createdUserId == $uid)) {
     
                 $urlArgs = array('ot' => 'event',
-                                 'organisator' => $this->id);
+                                 'comanager' => $this->id);
                 if ($currentFunc == 'view') {
-                    $urlArgs['returnTo'] = 'adminViewOrganisator';
+                    $urlArgs['returnTo'] = 'adminViewComanager';
                 } elseif ($currentFunc == 'display') {
-                    $urlArgs['returnTo'] = 'adminDisplayOrganisator';
+                    $urlArgs['returnTo'] = 'adminDisplayComanager';
                 }
                 $this->_actions[] = array(
                     'url' => array('type' => 'admin', 'func' => 'edit', 'arguments' => $urlArgs),
@@ -775,24 +775,24 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
         if ($currentType == 'user') {
             if (in_array($currentFunc, array('main', 'view'))) {
                 $this->_actions[] = array(
-                    'url' => array('type' => 'user', 'func' => 'display', 'arguments' => array('ot' => 'organisator', 'id' => $this['id'])),
+                    'url' => array('type' => 'user', 'func' => 'display', 'arguments' => array('ot' => 'comanager', 'id' => $this['id'])),
                     'icon' => 'display',
                     'linkTitle' => str_replace('"', '', $this->getTitleFromDisplayPattern()),
                     'linkText' => __('Details', $dom)
                 );
             }
             if (in_array($currentFunc, array('main', 'view', 'display'))) {
-                $component = 'Weekly:Organisator:';
+                $component = 'Weekly:Comanager:';
                 $instance = $this->id . '::';
                 if (SecurityUtil::checkPermission($component, $instance, ACCESS_EDIT)) {
                     $this->_actions[] = array(
-                        'url' => array('type' => 'user', 'func' => 'edit', 'arguments' => array('ot' => 'organisator', 'id' => $this['id'])),
+                        'url' => array('type' => 'user', 'func' => 'edit', 'arguments' => array('ot' => 'comanager', 'id' => $this['id'])),
                         'icon' => 'edit',
                         'linkTitle' => __('Edit', $dom),
                         'linkText' => __('Edit', $dom)
                     );
                     $this->_actions[] = array(
-                        'url' => array('type' => 'user', 'func' => 'edit', 'arguments' => array('ot' => 'organisator', 'astemplate' => $this['id'])),
+                        'url' => array('type' => 'user', 'func' => 'edit', 'arguments' => array('ot' => 'comanager', 'astemplate' => $this['id'])),
                         'icon' => 'saveas',
                         'linkTitle' => __('Reuse for new item', $dom),
                         'linkText' => __('Reuse', $dom)
@@ -801,7 +801,7 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
             }
             if ($currentFunc == 'display') {
                 $this->_actions[] = array(
-                    'url' => array('type' => 'user', 'func' => 'view', 'arguments' => array('ot' => 'organisator')),
+                    'url' => array('type' => 'user', 'func' => 'view', 'arguments' => array('ot' => 'comanager')),
                     'icon' => 'back',
                     'linkTitle' => __('Back to overview', $dom),
                     'linkText' => __('Back to overview', $dom)
@@ -815,11 +815,11 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
             if ($authAdmin || (isset($uid) && isset($this->createdUserId) && $this->createdUserId == $uid)) {
     
                 $urlArgs = array('ot' => 'event',
-                                 'organisator' => $this->id);
+                                 'comanager' => $this->id);
                 if ($currentFunc == 'view') {
-                    $urlArgs['returnTo'] = 'userViewOrganisator';
+                    $urlArgs['returnTo'] = 'userViewComanager';
                 } elseif ($currentFunc == 'display') {
-                    $urlArgs['returnTo'] = 'userDisplayOrganisator';
+                    $urlArgs['returnTo'] = 'userDisplayComanager';
                 }
                 $this->_actions[] = array(
                     'url' => array('type' => 'user', 'func' => 'edit', 'arguments' => $urlArgs),
@@ -868,7 +868,7 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
      */
     public function getHookAreaPrefix()
     {
-        return 'weekly.ui_hooks.organisators';
+        return 'weekly.ui_hooks.comanagers';
     }
 
     
@@ -880,7 +880,7 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
      *     - no access to entity manager or unit of work apis
      *     - no access to associations (not initialised yet)
      *
-     * @see Weekly_Entity_Organisator::postLoadCallback()
+     * @see Weekly_Entity_Comanager::postLoadCallback()
      * @return boolean true if completed successfully else false.
      */
     protected function performPostLoadCallback()
@@ -896,23 +896,23 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
         
         $this['id'] = (int) ((isset($this['id']) && !empty($this['id'])) ? DataUtil::formatForDisplay($this['id']) : 0);
         $this->formatTextualField('workflowState', $currentFunc, $usesCsvOutput, true);
-        $this->formatTextualField('organisatorName', $currentFunc, $usesCsvOutput);
-        $this->formatTextualField('organisatorText', $currentFunc, $usesCsvOutput);
-        if (!empty($this['organisatorPicture'])) {
+        $this->formatTextualField('comanagerName', $currentFunc, $usesCsvOutput);
+        $this->formatTextualField('comanagerText', $currentFunc, $usesCsvOutput);
+        if (!empty($this['comanagerPicture'])) {
             try {
-                $basePath = $controllerHelper->getFileBaseFolder('organisator', 'organisatorPicture');
+                $basePath = $controllerHelper->getFileBaseFolder('comanager', 'comanagerPicture');
             } catch (\Exception $e) {
                 return LogUtil::registerError($e->getMessage());
             }
         
-            $fullPath = $basePath .  $this['organisatorPicture'];
-            $this['organisatorPictureFullPath'] = $fullPath;
-            $this['organisatorPictureFullPathURL'] = System::getBaseUrl() . $fullPath;
+            $fullPath = $basePath .  $this['comanagerPicture'];
+            $this['comanagerPictureFullPath'] = $fullPath;
+            $this['comanagerPictureFullPathURL'] = System::getBaseUrl() . $fullPath;
         
             // just some backwards compatibility stuff
-            /*if (!isset($this['organisatorPictureMeta']) || !is_array($this['organisatorPictureMeta']) || !count($this['organisatorPictureMeta'])) {
+            /*if (!isset($this['comanagerPictureMeta']) || !is_array($this['comanagerPictureMeta']) || !count($this['comanagerPictureMeta'])) {
                 // assign new meta data
-                $this['organisatorPictureMeta'] = $uploadManager->readMetaDataForFile($this['organisatorPicture'], $fullPath);
+                $this['comanagerPictureMeta'] = $uploadManager->readMetaDataForFile($this['comanagerPicture'], $fullPath);
             }*/
         }
     
@@ -981,7 +981,7 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
      *       if this method is called by cascade persist
      *     - no creation of other entities allowed
      *
-     * @see Weekly_Entity_Organisator::prePersistCallback()
+     * @see Weekly_Entity_Comanager::prePersistCallback()
      * @return boolean true if completed successfully else false.
      */
     protected function performPrePersistCallback()
@@ -1001,7 +1001,7 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
      * Restrictions:
      *     - no access to entity manager or unit of work apis
      *
-     * @see Weekly_Entity_Organisator::postPersistCallback()
+     * @see Weekly_Entity_Comanager::postPersistCallback()
      * @return boolean true if completed successfully else false.
      */
     protected function performPostPersistCallback()
@@ -1018,7 +1018,7 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
      *     - no access to entity manager or unit of work apis
      *     - will not be called for a DQL DELETE statement
      *
-     * @see Weekly_Entity_Organisator::preRemoveCallback()
+     * @see Weekly_Entity_Comanager::preRemoveCallback()
      * @return boolean true if completed successfully else false.
      */
     protected function performPreRemoveCallback()
@@ -1045,7 +1045,7 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
      *     - no access to entity manager or unit of work apis
      *     - will not be called for a DQL DELETE statement
      *
-     * @see Weekly_Entity_Organisator::postRemoveCallback()
+     * @see Weekly_Entity_Comanager::postRemoveCallback()
      * @return boolean true if completed successfully else false.
      */
     protected function performPostRemoveCallback()
@@ -1055,14 +1055,14 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
         // initialise the upload handler
         $uploadManager = new Weekly_UploadHandler();
     
-        $uploadFields = array('organisatorPicture');
+        $uploadFields = array('comanagerPicture');
         foreach ($uploadFields as $uploadField) {
             if (empty($this->$uploadField)) {
                 continue;
             }
     
             // remove upload file (and image thumbnails)
-            $uploadManager->deleteUploadFile('organisator', $this, $uploadField, $objectId);
+            $uploadManager->deleteUploadFile('comanager', $this, $uploadField, $objectId);
         }
     
         return true;
@@ -1079,7 +1079,7 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
      *     - changes on properties won't be recognized by flush as well
      *     - no creation of other entities allowed
      *
-     * @see Weekly_Entity_Organisator::preUpdateCallback()
+     * @see Weekly_Entity_Comanager::preUpdateCallback()
      * @return boolean true if completed successfully else false.
      */
     protected function performPreUpdateCallback()
@@ -1098,7 +1098,7 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
      *     - no access to entity manager or unit of work apis
      *     - will not be called for a DQL UPDATE statement
      *
-     * @see Weekly_Entity_Organisator::postUpdateCallback()
+     * @see Weekly_Entity_Comanager::postUpdateCallback()
      * @return boolean true if completed successfully else false.
      */
     protected function performPostUpdateCallback()
@@ -1112,7 +1112,7 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
      * This combines the PrePersist and PreUpdate events.
      * For more information see corresponding callback handlers.
      *
-     * @see Weekly_Entity_Organisator::preSaveCallback()
+     * @see Weekly_Entity_Comanager::preSaveCallback()
      * @return boolean true if completed successfully else false.
      */
     protected function performPreSaveCallback()
@@ -1128,7 +1128,7 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
      * This combines the PostPersist and PostUpdate events.
      * For more information see corresponding callback handlers.
      *
-     * @see Weekly_Entity_Organisator::postSaveCallback()
+     * @see Weekly_Entity_Comanager::postSaveCallback()
      * @return boolean true if completed successfully else false.
      */
     protected function performPostSaveCallback()
@@ -1148,7 +1148,7 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
         $listHelper = new Weekly_Util_ListEntries($serviceManager);
     
         $formattedTitle = ''
-                . $this->getOrganisatorName();
+                . $this->getComanagerName();
     
         return $formattedTitle;
     }
@@ -1179,16 +1179,16 @@ abstract class Weekly_Entity_Base_Organisator extends Zikula_EntityAccess
         if ($this->id) {
             // create new instance
             
-            $entity = new \Weekly_Entity_Organisator();
+            $entity = new \Weekly_Entity_Comanager();
             // unset identifiers
             $entity->setId(null);
             // copy simple fields
             $entity->set_objectType($this->get_objectType());
             $entity->set_actions($this->get_actions());
             $entity->initValidator();
-            $entity->setOrganisatorName($this->getOrganisatorName());
-            $entity->setOrganisatorText($this->getOrganisatorText());
-            $entity->setOrganisatorPicture($this->getOrganisatorPicture());
+            $entity->setComanagerName($this->getComanagerName());
+            $entity->setComanagerText($this->getComanagerText());
+            $entity->setComanagerPicture($this->getComanagerPicture());
     
             // handle related objects
             // prevent shared references by doing a deep copy - see (2) and (3) for more information

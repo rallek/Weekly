@@ -14,9 +14,9 @@
 /**
  * Validator class for encapsulating entity validation methods.
  *
- * This is the concrete validation class for leader entities.
+ * This is the concrete validation class for manager entities.
  */
-class Weekly_Entity_Validator_Leader extends Weekly_Entity_Validator_Base_Leader
+class Weekly_Entity_Validator_Manager extends Weekly_Entity_Validator_Base_Manager
 {
     // here you can add custom validation methods or override existing checks
 }

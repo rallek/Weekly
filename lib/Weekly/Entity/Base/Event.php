@@ -171,22 +171,22 @@ abstract class Weekly_Entity_Base_Event extends Zikula_EntityAccess
     protected $location;
     
     /**
-     * Bidirectional - Many event [events] are linked by one leader [leader] (OWNING SIDE).
+     * Bidirectional - Many event [events] are linked by one manager [manager] (OWNING SIDE).
      *
-     * @ORM\ManyToOne(targetEntity="Weekly_Entity_Leader", inversedBy="event", cascade={"persist"})
-     * @ORM\JoinTable(name="weekly_leader")
-     * @var Weekly_Entity_Leader $leader.
+     * @ORM\ManyToOne(targetEntity="Weekly_Entity_Manager", inversedBy="event", cascade={"persist"})
+     * @ORM\JoinTable(name="weekly_manager")
+     * @var Weekly_Entity_Manager $manager.
      */
-    protected $leader;
+    protected $manager;
     
     /**
-     * Bidirectional - Many event [events] are linked by one organisator [organisator] (OWNING SIDE).
+     * Bidirectional - Many event [events] are linked by one comanager [comanager] (OWNING SIDE).
      *
-     * @ORM\ManyToOne(targetEntity="Weekly_Entity_Organisator", inversedBy="event", cascade={"persist"})
-     * @ORM\JoinTable(name="weekly_organisator")
-     * @var Weekly_Entity_Organisator $organisator.
+     * @ORM\ManyToOne(targetEntity="Weekly_Entity_Comanager", inversedBy="event", cascade={"persist"})
+     * @ORM\JoinTable(name="weekly_comanager")
+     * @var Weekly_Entity_Comanager $comanager.
      */
-    protected $organisator;
+    protected $comanager;
     
     
     /**
@@ -754,47 +754,47 @@ abstract class Weekly_Entity_Base_Event extends Zikula_EntityAccess
     }
     
     /**
-     * Get leader.
+     * Get manager.
      *
-     * @return Weekly_Entity_Leader
+     * @return Weekly_Entity_Manager
      */
-    public function getLeader()
+    public function getManager()
     {
-        return $this->leader;
+        return $this->manager;
     }
     
     /**
-     * Set leader.
+     * Set manager.
      *
-     * @param Weekly_Entity_Leader $leader.
+     * @param Weekly_Entity_Manager $manager.
      *
      * @return void
      */
-    public function setLeader(Weekly_Entity_Leader $leader = null)
+    public function setManager(Weekly_Entity_Manager $manager = null)
     {
-        $this->leader = $leader;
+        $this->manager = $manager;
     }
     
     /**
-     * Get organisator.
+     * Get comanager.
      *
-     * @return Weekly_Entity_Organisator
+     * @return Weekly_Entity_Comanager
      */
-    public function getOrganisator()
+    public function getComanager()
     {
-        return $this->organisator;
+        return $this->comanager;
     }
     
     /**
-     * Set organisator.
+     * Set comanager.
      *
-     * @param Weekly_Entity_Organisator $organisator.
+     * @param Weekly_Entity_Comanager $comanager.
      *
      * @return void
      */
-    public function setOrganisator(Weekly_Entity_Organisator $organisator = null)
+    public function setComanager(Weekly_Entity_Comanager $comanager = null)
     {
-        $this->organisator = $organisator;
+        $this->comanager = $comanager;
     }
     
     
@@ -1338,13 +1338,13 @@ abstract class Weekly_Entity_Base_Event extends Zikula_EntityAccess
                 $this->location = clone $this->location;
                 $entity->setLocation($this->location);
             }
-            if ($this->getLeader() != null) {
-                $this->leader = clone $this->leader;
-                $entity->setLeader($this->leader);
+            if ($this->getManager() != null) {
+                $this->manager = clone $this->manager;
+                $entity->setManager($this->manager);
             }
-            if ($this->getOrganisator() != null) {
-                $this->organisator = clone $this->organisator;
-                $entity->setOrganisator($this->organisator);
+            if ($this->getComanager() != null) {
+                $this->comanager = clone $this->comanager;
+                $entity->setComanager($this->comanager);
             }
     
             return $entity;

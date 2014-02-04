@@ -122,11 +122,11 @@ class Weekly_Base_RouterFacade
                 case 'event':
                             $groupFolder = 'events';
                             break;
-                case 'leader':
-                            $groupFolder = 'leaders';
+                case 'manager':
+                            $groupFolder = 'managers';
                             break;
-                case 'organisator':
-                            $groupFolder = 'organisators';
+                case 'comanager':
+                            $groupFolder = 'comanagers';
                             break;
                 case 'kind':
                             $groupFolder = 'kind';
@@ -141,11 +141,11 @@ class Weekly_Base_RouterFacade
                 case 'event':
                             $groupFolder = 'event';
                             break;
-                case 'leader':
-                            $groupFolder = 'leader';
+                case 'manager':
+                            $groupFolder = 'manager';
                             break;
-                case 'organisator':
-                            $groupFolder = 'organisator';
+                case 'comanager':
+                            $groupFolder = 'comanager';
                             break;
                 case 'kind':
                             $groupFolder = 'kind';
@@ -178,11 +178,11 @@ class Weekly_Base_RouterFacade
                 case 'events':
                             $objectType = 'event';
                             break;
-                case 'leaders':
-                            $objectType = 'leader';
+                case 'managers':
+                            $objectType = 'manager';
                             break;
-                case 'organisators':
-                            $objectType = 'organisator';
+                case 'comanagers':
+                            $objectType = 'comanager';
                             break;
                 case 'kind':
                             $objectType = 'kind';
@@ -197,11 +197,11 @@ class Weekly_Base_RouterFacade
                 case 'event':
                             $objectType = 'event';
                             break;
-                case 'leader':
-                            $objectType = 'leader';
+                case 'manager':
+                            $objectType = 'manager';
                             break;
-                case 'organisator':
-                            $objectType = 'organisator';
+                case 'comanager':
+                            $objectType = 'comanager';
                             break;
                 case 'kind':
                             $objectType = 'kind';
@@ -234,10 +234,10 @@ class Weekly_Base_RouterFacade
             case 'event':
                 $slug = $itemid;
                         break;
-            case 'leader':
+            case 'manager':
                 $slug = $itemid;
                         break;
-            case 'organisator':
+            case 'comanager':
                 $slug = $itemid;
                         break;
             case 'kind':

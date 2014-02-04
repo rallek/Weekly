@@ -43,20 +43,20 @@ class Weekly_Api_User extends Weekly_Api_Base_User
                              'text' => $this->__('Events'),
                              'title' => $this->__('Event list'));
         }
-		if ($this->getVar('showLeader')) {
-			if (in_array('leader', $allowedObjectTypes)
-				&& SecurityUtil::checkPermission($this->name . ':Leader:', '::', ACCESS_READ)) {
-				$links[] = array('url' => ModUtil::url($this->name, 'user', 'view', array('ot' => 'leader')),
-								 'text' => $this->__('Leaders'),
-								 'title' => $this->__('Leader list'));
+		if ($this->getVar('showManager')) {
+			if (in_array('manager', $allowedObjectTypes)
+				&& SecurityUtil::checkPermission($this->name . ':Manager:', '::', ACCESS_READ)) {
+				$links[] = array('url' => ModUtil::url($this->name, 'user', 'view', array('ot' => 'manager')),
+								 'text' => $this->__('Managers'),
+								 'title' => $this->__('Manager list'));
 			}
 		}
-		if ($this->getVar('showOrganisator')) {
-			if (in_array('organisator', $allowedObjectTypes)
-				&& SecurityUtil::checkPermission($this->name . ':Organisator:', '::', ACCESS_READ)) {
-				$links[] = array('url' => ModUtil::url($this->name, 'user', 'view', array('ot' => 'organisator')),
-								 'text' => $this->__('Organisators'),
-								 'title' => $this->__('Organisator list'));
+		if ($this->getVar('showComanager')) {
+			if (in_array('comanager', $allowedObjectTypes)
+				&& SecurityUtil::checkPermission($this->name . ':Comanager:', '::', ACCESS_READ)) {
+				$links[] = array('url' => ModUtil::url($this->name, 'user', 'view', array('ot' => 'comanager')),
+								 'text' => $this->__('Comanagers'),
+								 'title' => $this->__('Comanager list'));
 			}
 		}
 		if ($this->getVar('showKind')) {

@@ -33,25 +33,25 @@
                 {/foreach}
                 </select>
         {/if}
-        {if !isset($leaderFilter) || $leaderFilter eq true}
-                <label for="leader">{gt text='Leaders'}</label>
-                {modapifunc modname='Weekly' type='selection' func='getEntities' ot='leader' useJoins=false assign='listEntries'}
-                <select id="leader" name="leader">
+        {if !isset($managerFilter) || $managerFilter eq true}
+                <label for="manager">{gt text='Managers'}</label>
+                {modapifunc modname='Weekly' type='selection' func='getEntities' ot='manager' useJoins=false assign='listEntries'}
+                <select id="manager" name="manager">
                     <option value="">{$lblDefault}</option>
                 {foreach item='option' from=$listEntries}
                     {assign var='entryId' value=$option.id}
-                    <option value="{$entryId}"{if $entryId eq $leader} selected="selected"{/if}>{$option->getTitleFromDisplayPattern()}</option>
+                    <option value="{$entryId}"{if $entryId eq $manager} selected="selected"{/if}>{$option->getTitleFromDisplayPattern()}</option>
                 {/foreach}
                 </select>
         {/if}
-        {if !isset($organisatorFilter) || $organisatorFilter eq true}
-                <label for="organisator">{gt text='Organisators'}</label>
-                {modapifunc modname='Weekly' type='selection' func='getEntities' ot='organisator' useJoins=false assign='listEntries'}
-                <select id="organisator" name="organisator">
+        {if !isset($comanagerFilter) || $comanagerFilter eq true}
+                <label for="comanager">{gt text='Comanagers'}</label>
+                {modapifunc modname='Weekly' type='selection' func='getEntities' ot='comanager' useJoins=false assign='listEntries'}
+                <select id="comanager" name="comanager">
                     <option value="">{$lblDefault}</option>
                 {foreach item='option' from=$listEntries}
                     {assign var='entryId' value=$option.id}
-                    <option value="{$entryId}"{if $entryId eq $organisator} selected="selected"{/if}>{$option->getTitleFromDisplayPattern()}</option>
+                    <option value="{$entryId}"{if $entryId eq $comanager} selected="selected"{/if}>{$option->getTitleFromDisplayPattern()}</option>
                 {/foreach}
                 </select>
         {/if}

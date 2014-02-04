@@ -14,11 +14,11 @@
 
 /**
  * This handler class handles the page events of the Form called by the weekly_admin_edit() function.
- * It aims on the organisator object type.
+ * It aims on the comanager object type.
  *
  * More documentation is provided in the parent class.
  */
-class Weekly_Form_Handler_Admin_Organisator_Base_Edit extends Weekly_Form_Handler_Admin_Edit
+class Weekly_Form_Handler_Admin_Comanager_Base_Edit extends Weekly_Form_Handler_Admin_Edit
 {
     /**
      * Pre-initialise hook.
@@ -29,13 +29,13 @@ class Weekly_Form_Handler_Admin_Organisator_Base_Edit extends Weekly_Form_Handle
     {
         parent::preInitialize();
 
-        $this->objectType = 'organisator';
-        $this->objectTypeCapital = 'Organisator';
-        $this->objectTypeLower = 'organisator';
+        $this->objectType = 'comanager';
+        $this->objectTypeCapital = 'Comanager';
+        $this->objectTypeLower = 'comanager';
 
         $this->hasPageLockSupport = true;
         // array with upload fields and mandatory flags
-        $this->uploadFields = array('organisatorPicture' => false);
+        $this->uploadFields = array('comanagerPicture' => false);
         // array with list fields and multiple flags
         $this->listFields = array('workflowState' => false);
     }
@@ -56,7 +56,7 @@ class Weekly_Form_Handler_Admin_Organisator_Base_Edit extends Weekly_Form_Handle
         if ($this->mode == 'create') {
             $modelHelper = new Weekly_Util_Model($this->view->getServiceManager());
             if (!$modelHelper->canBeCreated($this->objectType)) {
-                LogUtil::registerError($this->__('Sorry, but you can not create the organisator yet as other items are required which must be created before!'));
+                LogUtil::registerError($this->__('Sorry, but you can not create the comanager yet as other items are required which must be created before!'));
     
                 return $this->view->redirect($this->getRedirectUrl(null));
             }
@@ -123,7 +123,7 @@ class Weekly_Form_Handler_Admin_Organisator_Base_Edit extends Weekly_Form_Handle
      */
     protected function getDefaultReturnUrl($args)
     {
-        // redirect to the list of organisators
+        // redirect to the list of comanagers
         $viewArgs = array('ot' => $this->objectType);
         $url = ModUtil::url($this->name, 'admin', 'view', $viewArgs);
     
@@ -168,16 +168,16 @@ class Weekly_Form_Handler_Admin_Organisator_Base_Edit extends Weekly_Form_Handle
         switch ($args['commandName']) {
             case 'submit':
                         if ($this->mode == 'create') {
-                            $message = $this->__('Done! Organisator created.');
+                            $message = $this->__('Done! Comanager created.');
                         } else {
-                            $message = $this->__('Done! Organisator updated.');
+                            $message = $this->__('Done! Comanager updated.');
                         }
                         break;
             case 'delete':
-                        $message = $this->__('Done! Organisator deleted.');
+                        $message = $this->__('Done! Comanager deleted.');
                         break;
             default:
-                        $message = $this->__('Done! Organisator updated.');
+                        $message = $this->__('Done! Comanager updated.');
                         break;
         }
     

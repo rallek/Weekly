@@ -55,10 +55,10 @@ class Weekly_Base_Version extends Zikula_AbstractVersion
             'Weekly:Event:' => 'Event ID::',
             'Weekly:Kind:Event' => 'Kind ID:Event ID:',
             'Weekly:Location:Event' => 'Location ID:Event ID:',
-            'Weekly:Leader:Event' => 'Leader ID:Event ID:',
-            'Weekly:Organisator:Event' => 'Organisator ID:Event ID:',
-            'Weekly:Leader:' => 'Leader ID::',
-            'Weekly:Organisator:' => 'Organisator ID::',
+            'Weekly:Manager:Event' => 'Manager ID:Event ID:',
+            'Weekly:Comanager:Event' => 'Comanager ID:Event ID:',
+            'Weekly:Manager:' => 'Manager ID::',
+            'Weekly:Comanager:' => 'Comanager ID::',
             'Weekly:Kind:' => 'Kind ID::',
             'Weekly:Location:' => 'Location ID::',
         );
@@ -97,50 +97,50 @@ class Weekly_Base_Version extends Zikula_AbstractVersion
         $bundle->addEvent('filter', 'weekly.filter_hooks.events.filter');
         $this->registerHookSubscriberBundle($bundle);
         
-        $bundle = new Zikula_HookManager_SubscriberBundle($this->name, 'subscriber.weekly.ui_hooks.leaders', 'ui_hooks', __('weekly Leaders Display Hooks'));
+        $bundle = new Zikula_HookManager_SubscriberBundle($this->name, 'subscriber.weekly.ui_hooks.managers', 'ui_hooks', __('weekly Managers Display Hooks'));
         
         // Display hook for view/display templates.
-        $bundle->addEvent('display_view', 'weekly.ui_hooks.leaders.display_view');
+        $bundle->addEvent('display_view', 'weekly.ui_hooks.managers.display_view');
         // Display hook for create/edit forms.
-        $bundle->addEvent('form_edit', 'weekly.ui_hooks.leaders.form_edit');
+        $bundle->addEvent('form_edit', 'weekly.ui_hooks.managers.form_edit');
         // Display hook for delete dialogues.
-        $bundle->addEvent('form_delete', 'weekly.ui_hooks.leaders.form_delete');
+        $bundle->addEvent('form_delete', 'weekly.ui_hooks.managers.form_delete');
         // Validate input from an ui create/edit form.
-        $bundle->addEvent('validate_edit', 'weekly.ui_hooks.leaders.validate_edit');
+        $bundle->addEvent('validate_edit', 'weekly.ui_hooks.managers.validate_edit');
         // Validate input from an ui create/edit form (generally not used).
-        $bundle->addEvent('validate_delete', 'weekly.ui_hooks.leaders.validate_delete');
+        $bundle->addEvent('validate_delete', 'weekly.ui_hooks.managers.validate_delete');
         // Perform the final update actions for a ui create/edit form.
-        $bundle->addEvent('process_edit', 'weekly.ui_hooks.leaders.process_edit');
+        $bundle->addEvent('process_edit', 'weekly.ui_hooks.managers.process_edit');
         // Perform the final delete actions for a ui form.
-        $bundle->addEvent('process_delete', 'weekly.ui_hooks.leaders.process_delete');
+        $bundle->addEvent('process_delete', 'weekly.ui_hooks.managers.process_delete');
         $this->registerHookSubscriberBundle($bundle);
 
-        $bundle = new Zikula_HookManager_SubscriberBundle($this->name, 'subscriber.weekly.filter_hooks.leaders', 'filter_hooks', __('weekly Leaders Filter Hooks'));
+        $bundle = new Zikula_HookManager_SubscriberBundle($this->name, 'subscriber.weekly.filter_hooks.managers', 'filter_hooks', __('weekly Managers Filter Hooks'));
         // A filter applied to the given area.
-        $bundle->addEvent('filter', 'weekly.filter_hooks.leaders.filter');
+        $bundle->addEvent('filter', 'weekly.filter_hooks.managers.filter');
         $this->registerHookSubscriberBundle($bundle);
         
-        $bundle = new Zikula_HookManager_SubscriberBundle($this->name, 'subscriber.weekly.ui_hooks.organisators', 'ui_hooks', __('weekly Organisators Display Hooks'));
+        $bundle = new Zikula_HookManager_SubscriberBundle($this->name, 'subscriber.weekly.ui_hooks.comanagers', 'ui_hooks', __('weekly Comanagers Display Hooks'));
         
         // Display hook for view/display templates.
-        $bundle->addEvent('display_view', 'weekly.ui_hooks.organisators.display_view');
+        $bundle->addEvent('display_view', 'weekly.ui_hooks.comanagers.display_view');
         // Display hook for create/edit forms.
-        $bundle->addEvent('form_edit', 'weekly.ui_hooks.organisators.form_edit');
+        $bundle->addEvent('form_edit', 'weekly.ui_hooks.comanagers.form_edit');
         // Display hook for delete dialogues.
-        $bundle->addEvent('form_delete', 'weekly.ui_hooks.organisators.form_delete');
+        $bundle->addEvent('form_delete', 'weekly.ui_hooks.comanagers.form_delete');
         // Validate input from an ui create/edit form.
-        $bundle->addEvent('validate_edit', 'weekly.ui_hooks.organisators.validate_edit');
+        $bundle->addEvent('validate_edit', 'weekly.ui_hooks.comanagers.validate_edit');
         // Validate input from an ui create/edit form (generally not used).
-        $bundle->addEvent('validate_delete', 'weekly.ui_hooks.organisators.validate_delete');
+        $bundle->addEvent('validate_delete', 'weekly.ui_hooks.comanagers.validate_delete');
         // Perform the final update actions for a ui create/edit form.
-        $bundle->addEvent('process_edit', 'weekly.ui_hooks.organisators.process_edit');
+        $bundle->addEvent('process_edit', 'weekly.ui_hooks.comanagers.process_edit');
         // Perform the final delete actions for a ui form.
-        $bundle->addEvent('process_delete', 'weekly.ui_hooks.organisators.process_delete');
+        $bundle->addEvent('process_delete', 'weekly.ui_hooks.comanagers.process_delete');
         $this->registerHookSubscriberBundle($bundle);
 
-        $bundle = new Zikula_HookManager_SubscriberBundle($this->name, 'subscriber.weekly.filter_hooks.organisators', 'filter_hooks', __('weekly Organisators Filter Hooks'));
+        $bundle = new Zikula_HookManager_SubscriberBundle($this->name, 'subscriber.weekly.filter_hooks.comanagers', 'filter_hooks', __('weekly Comanagers Filter Hooks'));
         // A filter applied to the given area.
-        $bundle->addEvent('filter', 'weekly.filter_hooks.organisators.filter');
+        $bundle->addEvent('filter', 'weekly.filter_hooks.comanagers.filter');
         $this->registerHookSubscriberBundle($bundle);
         
         $bundle = new Zikula_HookManager_SubscriberBundle($this->name, 'subscriber.weekly.ui_hooks.kind', 'ui_hooks', __('weekly Kind Display Hooks'));

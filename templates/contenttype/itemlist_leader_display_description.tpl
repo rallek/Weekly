@@ -1,11 +1,11 @@
-{* Purpose of this template: Display leaders within an external context *}
+{* Purpose of this template: Display managers within an external context *}
 <dl>
-    {foreach item='leader' from=$items}
-        <dt>{$leader->getTitleFromDisplayPattern()}</dt>
-        {if $leader.leaderDescription}
-            <dd>{$leader.leaderDescription|truncate:200:"..."}</dd>
+    {foreach item='manager' from=$items}
+        <dt>{$manager->getTitleFromDisplayPattern()}</dt>
+        {if $manager.managerDescription}
+            <dd>{$manager.managerDescription|truncate:200:"..."}</dd>
         {/if}
-        <dd><a href="{modurl modname='Weekly' type='user' func='display' ot=$objectType id=$leader.id}">{gt text='Read more'}</a>
+        <dd><a href="{modurl modname='Weekly' type='user' func='display' ot=$objectType id=$manager.id}">{gt text='Read more'}</a>
         </dd>
     {foreachelse}
         <dt>{gt text='No entries found.'}</dt>

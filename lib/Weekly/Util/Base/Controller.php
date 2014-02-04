@@ -32,8 +32,8 @@ class Weekly_Util_Base_Controller extends Zikula_AbstractBase
     
         $allowedObjectTypes = array();
         $allowedObjectTypes[] = 'event';
-        $allowedObjectTypes[] = 'leader';
-        $allowedObjectTypes[] = 'organisator';
+        $allowedObjectTypes[] = 'manager';
+        $allowedObjectTypes[] = 'comanager';
         $allowedObjectTypes[] = 'kind';
         $allowedObjectTypes[] = 'location';
     
@@ -71,9 +71,9 @@ class Weekly_Util_Base_Controller extends Zikula_AbstractBase
         switch ($objectType) {
             case 'event':
                 return false;
-            case 'leader':
+            case 'manager':
                 return false;
-            case 'organisator':
+            case 'comanager':
                 return false;
             case 'kind':
                 return false;
@@ -176,11 +176,11 @@ class Weekly_Util_Base_Controller extends Zikula_AbstractBase
         $basePath = FileUtil::getDataDirectory() . '/Weekly/';
     
         switch ($objectType) {
-            case 'leader':
-                $basePath .= 'leaders/leaderpicture/';
+            case 'manager':
+                $basePath .= 'managers/managerpicture/';
             break;
-            case 'organisator':
-                $basePath .= 'organisators/organisatorpicture/';
+            case 'comanager':
+                $basePath .= 'comanagers/comanagerpicture/';
             break;
             case 'kind':
                 $basePath .= 'kind/kindpicture/';
@@ -212,9 +212,9 @@ class Weekly_Util_Base_Controller extends Zikula_AbstractBase
     {
         $result = true;
     
-        $result &= $this->checkAndCreateUploadFolder('leader', 'leaderPicture', 'gif, jpeg, jpg, png');
+        $result &= $this->checkAndCreateUploadFolder('manager', 'managerPicture', 'gif, jpeg, jpg, png');
     
-        $result &= $this->checkAndCreateUploadFolder('organisator', 'organisatorPicture', 'gif, jpeg, jpg, png');
+        $result &= $this->checkAndCreateUploadFolder('comanager', 'comanagerPicture', 'gif, jpeg, jpg, png');
     
         $result &= $this->checkAndCreateUploadFolder('kind', 'kindPicture', 'gif, jpeg, jpg, png');
     

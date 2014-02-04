@@ -3,8 +3,8 @@
     <label for="weeklyObjectType">{gt text='Object type'}:</label>
         <select id="weeklyObjectType" name="objecttype" size="1">
             <option value="event"{if $objectType eq 'event'} selected="selected"{/if}>{gt text='Events'}</option>
-            <option value="leader"{if $objectType eq 'leader'} selected="selected"{/if}>{gt text='Leaders'}</option>
-            <option value="organisator"{if $objectType eq 'organisator'} selected="selected"{/if}>{gt text='Organisators'}</option>
+            <option value="manager"{if $objectType eq 'manager'} selected="selected"{/if}>{gt text='Managers'}</option>
+            <option value="comanager"{if $objectType eq 'comanager'} selected="selected"{/if}>{gt text='Comanagers'}</option>
             <option value="kind"{if $objectType eq 'kind'} selected="selected"{/if}>{gt text='Kind'}</option>
             <option value="location"{if $objectType eq 'location'} selected="selected"{/if}>{gt text='Locations'}</option>
         </select>

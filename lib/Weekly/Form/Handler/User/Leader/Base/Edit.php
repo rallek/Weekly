@@ -14,11 +14,11 @@
 
 /**
  * This handler class handles the page events of the Form called by the weekly_user_edit() function.
- * It aims on the leader object type.
+ * It aims on the manager object type.
  *
  * More documentation is provided in the parent class.
  */
-class Weekly_Form_Handler_User_Leader_Base_Edit extends Weekly_Form_Handler_User_Edit
+class Weekly_Form_Handler_User_Manager_Base_Edit extends Weekly_Form_Handler_User_Edit
 {
     /**
      * Pre-initialise hook.
@@ -29,13 +29,13 @@ class Weekly_Form_Handler_User_Leader_Base_Edit extends Weekly_Form_Handler_User
     {
         parent::preInitialize();
 
-        $this->objectType = 'leader';
-        $this->objectTypeCapital = 'Leader';
-        $this->objectTypeLower = 'leader';
+        $this->objectType = 'manager';
+        $this->objectTypeCapital = 'Manager';
+        $this->objectTypeLower = 'manager';
 
         $this->hasPageLockSupport = true;
         // array with upload fields and mandatory flags
-        $this->uploadFields = array('leaderPicture' => false);
+        $this->uploadFields = array('managerPicture' => false);
         // array with list fields and multiple flags
         $this->listFields = array('workflowState' => false);
     }
@@ -56,7 +56,7 @@ class Weekly_Form_Handler_User_Leader_Base_Edit extends Weekly_Form_Handler_User
         if ($this->mode == 'create') {
             $modelHelper = new Weekly_Util_Model($this->view->getServiceManager());
             if (!$modelHelper->canBeCreated($this->objectType)) {
-                LogUtil::registerError($this->__('Sorry, but you can not create the leader yet as other items are required which must be created before!'));
+                LogUtil::registerError($this->__('Sorry, but you can not create the manager yet as other items are required which must be created before!'));
     
                 return $this->view->redirect($this->getRedirectUrl(null));
             }
@@ -123,7 +123,7 @@ class Weekly_Form_Handler_User_Leader_Base_Edit extends Weekly_Form_Handler_User
      */
     protected function getDefaultReturnUrl($args)
     {
-        // redirect to the list of leaders
+        // redirect to the list of managers
         $viewArgs = array('ot' => $this->objectType);
         $url = ModUtil::url($this->name, 'user', 'view', $viewArgs);
     
@@ -168,16 +168,16 @@ class Weekly_Form_Handler_User_Leader_Base_Edit extends Weekly_Form_Handler_User
         switch ($args['commandName']) {
             case 'submit':
                         if ($this->mode == 'create') {
-                            $message = $this->__('Done! Leader created.');
+                            $message = $this->__('Done! Manager created.');
                         } else {
-                            $message = $this->__('Done! Leader updated.');
+                            $message = $this->__('Done! Manager updated.');
                         }
                         break;
             case 'delete':
-                        $message = $this->__('Done! Leader deleted.');
+                        $message = $this->__('Done! Manager deleted.');
                         break;
             default:
-                        $message = $this->__('Done! Leader updated.');
+                        $message = $this->__('Done! Manager updated.');
                         break;
         }
     

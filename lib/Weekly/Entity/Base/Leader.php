@@ -19,19 +19,19 @@ use DoctrineExtensions\StandardFields\Mapping\Annotation as ZK;
 /**
  * Entity class that defines the entity structure and behaviours.
  *
- * This is the base entity class for leader entities.
+ * This is the base entity class for manager entities.
  *
  * @abstract
  */
-abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
+abstract class Weekly_Entity_Base_Manager extends Zikula_EntityAccess
 {
     /**
      * @var string The tablename this object maps to.
      */
-    protected $_objectType = 'leader';
+    protected $_objectType = 'manager';
     
     /**
-     * @var Weekly_Entity_Validator_Leader The validator for this entity.
+     * @var Weekly_Entity_Validator_Manager The validator for this entity.
      */
     protected $_validator = null;
     
@@ -66,43 +66,43 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
     
     /**
      * @ORM\Column(length=255, unique=true)
-     * @var string $leaderName.
+     * @var string $managerName.
      */
-    protected $leaderName = '';
+    protected $managerName = '';
     
     /**
      * @ORM\Column(type="text", length=2000)
-     * @var text $leaderDescription.
+     * @var text $managerDescription.
      */
-    protected $leaderDescription = '';
+    protected $managerDescription = '';
     
     /**
-     * Leader picture meta data array.
+     * Manager picture meta data array.
      *
      * @ORM\Column(type="array")
-     * @var array $leaderPictureMeta.
+     * @var array $managerPictureMeta.
      */
-    protected $leaderPictureMeta = array();
+    protected $managerPictureMeta = array();
     
     /**
      * @ORM\Column(length=255)
-     * @var string $leaderPicture.
+     * @var string $managerPicture.
      */
-    protected $leaderPicture = '';
+    protected $managerPicture = '';
     
     /**
-     * The full path to the leader picture.
+     * The full path to the manager picture.
      *
-     * @var string $leaderPictureFullPath.
+     * @var string $managerPictureFullPath.
      */
-    protected $leaderPictureFullPath = '';
+    protected $managerPictureFullPath = '';
     
     /**
-     * Full leader picture path as url.
+     * Full manager picture path as url.
      *
-     * @var string $leaderPictureFullPathUrl.
+     * @var string $managerPictureFullPathUrl.
      */
-    protected $leaderPictureFullPathUrl = '';
+    protected $managerPictureFullPathUrl = '';
     
     /**
      * @ORM\Column(type="integer")
@@ -133,10 +133,10 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
     protected $updatedDate;
     
     /**
-     * Bidirectional - One leader [leader] has many event [events] (INVERSE SIDE).
+     * Bidirectional - One manager [manager] has many event [events] (INVERSE SIDE).
      *
-     * @ORM\OneToMany(targetEntity="Weekly_Entity_Event", mappedBy="leader", cascade={"persist"})
-     * @ORM\JoinTable(name="weekly_leaderevent")
+     * @ORM\OneToMany(targetEntity="Weekly_Entity_Event", mappedBy="manager", cascade={"persist"})
+     * @ORM\JoinTable(name="weekly_managerevent")
      * @var Weekly_Entity_Event[] $event.
      */
     protected $event = null;
@@ -183,7 +183,7 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
     /**
      * Get _validator.
      *
-     * @return Weekly_Entity_Validator_Leader
+     * @return Weekly_Entity_Validator_Manager
      */
     public function get_validator()
     {
@@ -193,11 +193,11 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
     /**
      * Set _validator.
      *
-     * @param Weekly_Entity_Validator_Leader $_validator.
+     * @param Weekly_Entity_Validator_Manager $_validator.
      *
      * @return void
      */
-    public function set_validator(Weekly_Entity_Validator_Leader $_validator = null)
+    public function set_validator(Weekly_Entity_Validator_Manager $_validator = null)
     {
         $this->_validator = $_validator;
     }
@@ -318,146 +318,146 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
     }
     
     /**
-     * Get leader name.
+     * Get manager name.
      *
      * @return string
      */
-    public function getLeaderName()
+    public function getManagerName()
     {
-        return $this->leaderName;
+        return $this->managerName;
     }
     
     /**
-     * Set leader name.
+     * Set manager name.
      *
-     * @param string $leaderName.
+     * @param string $managerName.
      *
      * @return void
      */
-    public function setLeaderName($leaderName)
+    public function setManagerName($managerName)
     {
-        if ($leaderName != $this->leaderName) {
-            $this->leaderName = $leaderName;
+        if ($managerName != $this->managerName) {
+            $this->managerName = $managerName;
         }
     }
     
     /**
-     * Get leader description.
+     * Get manager description.
      *
      * @return text
      */
-    public function getLeaderDescription()
+    public function getManagerDescription()
     {
-        return $this->leaderDescription;
+        return $this->managerDescription;
     }
     
     /**
-     * Set leader description.
+     * Set manager description.
      *
-     * @param text $leaderDescription.
+     * @param text $managerDescription.
      *
      * @return void
      */
-    public function setLeaderDescription($leaderDescription)
+    public function setManagerDescription($managerDescription)
     {
-        if ($leaderDescription != $this->leaderDescription) {
-            $this->leaderDescription = $leaderDescription;
+        if ($managerDescription != $this->managerDescription) {
+            $this->managerDescription = $managerDescription;
         }
     }
     
     /**
-     * Get leader picture.
+     * Get manager picture.
      *
      * @return string
      */
-    public function getLeaderPicture()
+    public function getManagerPicture()
     {
-        return $this->leaderPicture;
+        return $this->managerPicture;
     }
     
     /**
-     * Set leader picture.
+     * Set manager picture.
      *
-     * @param string $leaderPicture.
+     * @param string $managerPicture.
      *
      * @return void
      */
-    public function setLeaderPicture($leaderPicture)
+    public function setManagerPicture($managerPicture)
     {
-        if ($leaderPicture != $this->leaderPicture) {
-            $this->leaderPicture = $leaderPicture;
+        if ($managerPicture != $this->managerPicture) {
+            $this->managerPicture = $managerPicture;
         }
     }
     
     /**
-     * Get leader picture full path.
+     * Get manager picture full path.
      *
      * @return string
      */
-    public function getLeaderPictureFullPath()
+    public function getManagerPictureFullPath()
     {
-        return $this->leaderPictureFullPath;
+        return $this->managerPictureFullPath;
     }
     
     /**
-     * Set leader picture full path.
+     * Set manager picture full path.
      *
-     * @param string $leaderPictureFullPath.
+     * @param string $managerPictureFullPath.
      *
      * @return void
      */
-    public function setLeaderPictureFullPath($leaderPictureFullPath)
+    public function setManagerPictureFullPath($managerPictureFullPath)
     {
-        if ($leaderPictureFullPath != $this->leaderPictureFullPath) {
-            $this->leaderPictureFullPath = $leaderPictureFullPath;
+        if ($managerPictureFullPath != $this->managerPictureFullPath) {
+            $this->managerPictureFullPath = $managerPictureFullPath;
         }
     }
     
     /**
-     * Get leader picture full path url.
+     * Get manager picture full path url.
      *
      * @return string
      */
-    public function getLeaderPictureFullPathUrl()
+    public function getManagerPictureFullPathUrl()
     {
-        return $this->leaderPictureFullPathUrl;
+        return $this->managerPictureFullPathUrl;
     }
     
     /**
-     * Set leader picture full path url.
+     * Set manager picture full path url.
      *
-     * @param string $leaderPictureFullPathUrl.
+     * @param string $managerPictureFullPathUrl.
      *
      * @return void
      */
-    public function setLeaderPictureFullPathUrl($leaderPictureFullPathUrl)
+    public function setManagerPictureFullPathUrl($managerPictureFullPathUrl)
     {
-        if ($leaderPictureFullPathUrl != $this->leaderPictureFullPathUrl) {
-            $this->leaderPictureFullPathUrl = $leaderPictureFullPathUrl;
+        if ($managerPictureFullPathUrl != $this->managerPictureFullPathUrl) {
+            $this->managerPictureFullPathUrl = $managerPictureFullPathUrl;
         }
     }
     
     /**
-     * Get leader picture meta.
+     * Get manager picture meta.
      *
      * @return array
      */
-    public function getLeaderPictureMeta()
+    public function getManagerPictureMeta()
     {
-        return $this->leaderPictureMeta;
+        return $this->managerPictureMeta;
     }
     
     /**
-     * Set leader picture meta.
+     * Set manager picture meta.
      *
-     * @param array $leaderPictureMeta.
+     * @param array $managerPictureMeta.
      *
      * @return void
      */
-    public function setLeaderPictureMeta($leaderPictureMeta = Array())
+    public function setManagerPictureMeta($managerPictureMeta = Array())
     {
-        if ($leaderPictureMeta != $this->leaderPictureMeta) {
-            $this->leaderPictureMeta = $leaderPictureMeta;
+        if ($managerPictureMeta != $this->managerPictureMeta) {
+            $this->managerPictureMeta = $managerPictureMeta;
         }
     }
     
@@ -584,7 +584,7 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
     public function addEvent(Weekly_Entity_Event $event)
     {
         $this->event->add($event);
-        $event->setLeader($this);
+        $event->setManager($this);
     }
     
     /**
@@ -597,21 +597,21 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
     public function removeEvent(Weekly_Entity_Event $event)
     {
         $this->event->removeElement($event);
-        $event->setLeader(null);
+        $event->setManager(null);
     }
     
     
     /**
      * Initialise validator and return it's instance.
      *
-     * @return Weekly_Entity_Validator_Leader The validator for this entity.
+     * @return Weekly_Entity_Validator_Manager The validator for this entity.
      */
     public function initValidator()
     {
         if (!is_null($this->_validator)) {
             return $this->_validator;
         }
-        $this->_validator = new Weekly_Entity_Validator_Leader($this);
+        $this->_validator = new Weekly_Entity_Validator_Manager($this);
     
         return $this->_validator;
     }
@@ -712,30 +712,30 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
         if ($currentType == 'admin') {
             if (in_array($currentFunc, array('main', 'view'))) {
                 $this->_actions[] = array(
-                    'url' => array('type' => 'user', 'func' => 'display', 'arguments' => array('ot' => 'leader', 'id' => $this['id'])),
+                    'url' => array('type' => 'user', 'func' => 'display', 'arguments' => array('ot' => 'manager', 'id' => $this['id'])),
                     'icon' => 'preview',
                     'linkTitle' => __('Open preview page', $dom),
                     'linkText' => __('Preview', $dom)
                 );
                 $this->_actions[] = array(
-                    'url' => array('type' => 'admin', 'func' => 'display', 'arguments' => array('ot' => 'leader', 'id' => $this['id'])),
+                    'url' => array('type' => 'admin', 'func' => 'display', 'arguments' => array('ot' => 'manager', 'id' => $this['id'])),
                     'icon' => 'display',
                     'linkTitle' => str_replace('"', '', $this->getTitleFromDisplayPattern()),
                     'linkText' => __('Details', $dom)
                 );
             }
             if (in_array($currentFunc, array('main', 'view', 'display'))) {
-                $component = 'Weekly:Leader:';
+                $component = 'Weekly:Manager:';
                 $instance = $this->id . '::';
                 if (SecurityUtil::checkPermission($component, $instance, ACCESS_EDIT)) {
                     $this->_actions[] = array(
-                        'url' => array('type' => 'admin', 'func' => 'edit', 'arguments' => array('ot' => 'leader', 'id' => $this['id'])),
+                        'url' => array('type' => 'admin', 'func' => 'edit', 'arguments' => array('ot' => 'manager', 'id' => $this['id'])),
                         'icon' => 'edit',
                         'linkTitle' => __('Edit', $dom),
                         'linkText' => __('Edit', $dom)
                     );
                     $this->_actions[] = array(
-                        'url' => array('type' => 'admin', 'func' => 'edit', 'arguments' => array('ot' => 'leader', 'astemplate' => $this['id'])),
+                        'url' => array('type' => 'admin', 'func' => 'edit', 'arguments' => array('ot' => 'manager', 'astemplate' => $this['id'])),
                         'icon' => 'saveas',
                         'linkTitle' => __('Reuse for new item', $dom),
                         'linkText' => __('Reuse', $dom)
@@ -744,7 +744,7 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
             }
             if ($currentFunc == 'display') {
                 $this->_actions[] = array(
-                    'url' => array('type' => 'admin', 'func' => 'view', 'arguments' => array('ot' => 'leader')),
+                    'url' => array('type' => 'admin', 'func' => 'view', 'arguments' => array('ot' => 'manager')),
                     'icon' => 'back',
                     'linkTitle' => __('Back to overview', $dom),
                     'linkText' => __('Back to overview', $dom)
@@ -758,11 +758,11 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
             if ($authAdmin || (isset($uid) && isset($this->createdUserId) && $this->createdUserId == $uid)) {
     
                 $urlArgs = array('ot' => 'event',
-                                 'leader' => $this->id);
+                                 'manager' => $this->id);
                 if ($currentFunc == 'view') {
-                    $urlArgs['returnTo'] = 'adminViewLeader';
+                    $urlArgs['returnTo'] = 'adminViewManager';
                 } elseif ($currentFunc == 'display') {
-                    $urlArgs['returnTo'] = 'adminDisplayLeader';
+                    $urlArgs['returnTo'] = 'adminDisplayManager';
                 }
                 $this->_actions[] = array(
                     'url' => array('type' => 'admin', 'func' => 'edit', 'arguments' => $urlArgs),
@@ -775,24 +775,24 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
         if ($currentType == 'user') {
             if (in_array($currentFunc, array('main', 'view'))) {
                 $this->_actions[] = array(
-                    'url' => array('type' => 'user', 'func' => 'display', 'arguments' => array('ot' => 'leader', 'id' => $this['id'])),
+                    'url' => array('type' => 'user', 'func' => 'display', 'arguments' => array('ot' => 'manager', 'id' => $this['id'])),
                     'icon' => 'display',
                     'linkTitle' => str_replace('"', '', $this->getTitleFromDisplayPattern()),
                     'linkText' => __('Details', $dom)
                 );
             }
             if (in_array($currentFunc, array('main', 'view', 'display'))) {
-                $component = 'Weekly:Leader:';
+                $component = 'Weekly:Manager:';
                 $instance = $this->id . '::';
                 if (SecurityUtil::checkPermission($component, $instance, ACCESS_EDIT)) {
                     $this->_actions[] = array(
-                        'url' => array('type' => 'user', 'func' => 'edit', 'arguments' => array('ot' => 'leader', 'id' => $this['id'])),
+                        'url' => array('type' => 'user', 'func' => 'edit', 'arguments' => array('ot' => 'manager', 'id' => $this['id'])),
                         'icon' => 'edit',
                         'linkTitle' => __('Edit', $dom),
                         'linkText' => __('Edit', $dom)
                     );
                     $this->_actions[] = array(
-                        'url' => array('type' => 'user', 'func' => 'edit', 'arguments' => array('ot' => 'leader', 'astemplate' => $this['id'])),
+                        'url' => array('type' => 'user', 'func' => 'edit', 'arguments' => array('ot' => 'manager', 'astemplate' => $this['id'])),
                         'icon' => 'saveas',
                         'linkTitle' => __('Reuse for new item', $dom),
                         'linkText' => __('Reuse', $dom)
@@ -801,7 +801,7 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
             }
             if ($currentFunc == 'display') {
                 $this->_actions[] = array(
-                    'url' => array('type' => 'user', 'func' => 'view', 'arguments' => array('ot' => 'leader')),
+                    'url' => array('type' => 'user', 'func' => 'view', 'arguments' => array('ot' => 'manager')),
                     'icon' => 'back',
                     'linkTitle' => __('Back to overview', $dom),
                     'linkText' => __('Back to overview', $dom)
@@ -815,11 +815,11 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
             if ($authAdmin || (isset($uid) && isset($this->createdUserId) && $this->createdUserId == $uid)) {
     
                 $urlArgs = array('ot' => 'event',
-                                 'leader' => $this->id);
+                                 'manager' => $this->id);
                 if ($currentFunc == 'view') {
-                    $urlArgs['returnTo'] = 'userViewLeader';
+                    $urlArgs['returnTo'] = 'userViewManager';
                 } elseif ($currentFunc == 'display') {
-                    $urlArgs['returnTo'] = 'userDisplayLeader';
+                    $urlArgs['returnTo'] = 'userDisplayManager';
                 }
                 $this->_actions[] = array(
                     'url' => array('type' => 'user', 'func' => 'edit', 'arguments' => $urlArgs),
@@ -868,7 +868,7 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
      */
     public function getHookAreaPrefix()
     {
-        return 'weekly.ui_hooks.leaders';
+        return 'weekly.ui_hooks.managers';
     }
 
     
@@ -880,7 +880,7 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
      *     - no access to entity manager or unit of work apis
      *     - no access to associations (not initialised yet)
      *
-     * @see Weekly_Entity_Leader::postLoadCallback()
+     * @see Weekly_Entity_Manager::postLoadCallback()
      * @return boolean true if completed successfully else false.
      */
     protected function performPostLoadCallback()
@@ -896,23 +896,23 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
         
         $this['id'] = (int) ((isset($this['id']) && !empty($this['id'])) ? DataUtil::formatForDisplay($this['id']) : 0);
         $this->formatTextualField('workflowState', $currentFunc, $usesCsvOutput, true);
-        $this->formatTextualField('leaderName', $currentFunc, $usesCsvOutput);
-        $this->formatTextualField('leaderDescription', $currentFunc, $usesCsvOutput);
-        if (!empty($this['leaderPicture'])) {
+        $this->formatTextualField('managerName', $currentFunc, $usesCsvOutput);
+        $this->formatTextualField('managerDescription', $currentFunc, $usesCsvOutput);
+        if (!empty($this['managerPicture'])) {
             try {
-                $basePath = $controllerHelper->getFileBaseFolder('leader', 'leaderPicture');
+                $basePath = $controllerHelper->getFileBaseFolder('manager', 'managerPicture');
             } catch (\Exception $e) {
                 return LogUtil::registerError($e->getMessage());
             }
         
-            $fullPath = $basePath .  $this['leaderPicture'];
-            $this['leaderPictureFullPath'] = $fullPath;
-            $this['leaderPictureFullPathURL'] = System::getBaseUrl() . $fullPath;
+            $fullPath = $basePath .  $this['managerPicture'];
+            $this['managerPictureFullPath'] = $fullPath;
+            $this['managerPictureFullPathURL'] = System::getBaseUrl() . $fullPath;
         
             // just some backwards compatibility stuff
-            /*if (!isset($this['leaderPictureMeta']) || !is_array($this['leaderPictureMeta']) || !count($this['leaderPictureMeta'])) {
+            /*if (!isset($this['managerPictureMeta']) || !is_array($this['managerPictureMeta']) || !count($this['managerPictureMeta'])) {
                 // assign new meta data
-                $this['leaderPictureMeta'] = $uploadManager->readMetaDataForFile($this['leaderPicture'], $fullPath);
+                $this['managerPictureMeta'] = $uploadManager->readMetaDataForFile($this['managerPicture'], $fullPath);
             }*/
         }
     
@@ -981,7 +981,7 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
      *       if this method is called by cascade persist
      *     - no creation of other entities allowed
      *
-     * @see Weekly_Entity_Leader::prePersistCallback()
+     * @see Weekly_Entity_Manager::prePersistCallback()
      * @return boolean true if completed successfully else false.
      */
     protected function performPrePersistCallback()
@@ -1001,7 +1001,7 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
      * Restrictions:
      *     - no access to entity manager or unit of work apis
      *
-     * @see Weekly_Entity_Leader::postPersistCallback()
+     * @see Weekly_Entity_Manager::postPersistCallback()
      * @return boolean true if completed successfully else false.
      */
     protected function performPostPersistCallback()
@@ -1018,7 +1018,7 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
      *     - no access to entity manager or unit of work apis
      *     - will not be called for a DQL DELETE statement
      *
-     * @see Weekly_Entity_Leader::preRemoveCallback()
+     * @see Weekly_Entity_Manager::preRemoveCallback()
      * @return boolean true if completed successfully else false.
      */
     protected function performPreRemoveCallback()
@@ -1045,7 +1045,7 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
      *     - no access to entity manager or unit of work apis
      *     - will not be called for a DQL DELETE statement
      *
-     * @see Weekly_Entity_Leader::postRemoveCallback()
+     * @see Weekly_Entity_Manager::postRemoveCallback()
      * @return boolean true if completed successfully else false.
      */
     protected function performPostRemoveCallback()
@@ -1055,14 +1055,14 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
         // initialise the upload handler
         $uploadManager = new Weekly_UploadHandler();
     
-        $uploadFields = array('leaderPicture');
+        $uploadFields = array('managerPicture');
         foreach ($uploadFields as $uploadField) {
             if (empty($this->$uploadField)) {
                 continue;
             }
     
             // remove upload file (and image thumbnails)
-            $uploadManager->deleteUploadFile('leader', $this, $uploadField, $objectId);
+            $uploadManager->deleteUploadFile('manager', $this, $uploadField, $objectId);
         }
     
         return true;
@@ -1079,7 +1079,7 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
      *     - changes on properties won't be recognized by flush as well
      *     - no creation of other entities allowed
      *
-     * @see Weekly_Entity_Leader::preUpdateCallback()
+     * @see Weekly_Entity_Manager::preUpdateCallback()
      * @return boolean true if completed successfully else false.
      */
     protected function performPreUpdateCallback()
@@ -1098,7 +1098,7 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
      *     - no access to entity manager or unit of work apis
      *     - will not be called for a DQL UPDATE statement
      *
-     * @see Weekly_Entity_Leader::postUpdateCallback()
+     * @see Weekly_Entity_Manager::postUpdateCallback()
      * @return boolean true if completed successfully else false.
      */
     protected function performPostUpdateCallback()
@@ -1112,7 +1112,7 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
      * This combines the PrePersist and PreUpdate events.
      * For more information see corresponding callback handlers.
      *
-     * @see Weekly_Entity_Leader::preSaveCallback()
+     * @see Weekly_Entity_Manager::preSaveCallback()
      * @return boolean true if completed successfully else false.
      */
     protected function performPreSaveCallback()
@@ -1128,7 +1128,7 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
      * This combines the PostPersist and PostUpdate events.
      * For more information see corresponding callback handlers.
      *
-     * @see Weekly_Entity_Leader::postSaveCallback()
+     * @see Weekly_Entity_Manager::postSaveCallback()
      * @return boolean true if completed successfully else false.
      */
     protected function performPostSaveCallback()
@@ -1148,7 +1148,7 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
         $listHelper = new Weekly_Util_ListEntries($serviceManager);
     
         $formattedTitle = ''
-                . $this->getLeaderName();
+                . $this->getManagerName();
     
         return $formattedTitle;
     }
@@ -1179,16 +1179,16 @@ abstract class Weekly_Entity_Base_Leader extends Zikula_EntityAccess
         if ($this->id) {
             // create new instance
             
-            $entity = new \Weekly_Entity_Leader();
+            $entity = new \Weekly_Entity_Manager();
             // unset identifiers
             $entity->setId(null);
             // copy simple fields
             $entity->set_objectType($this->get_objectType());
             $entity->set_actions($this->get_actions());
             $entity->initValidator();
-            $entity->setLeaderName($this->getLeaderName());
-            $entity->setLeaderDescription($this->getLeaderDescription());
-            $entity->setLeaderPicture($this->getLeaderPicture());
+            $entity->setManagerName($this->getManagerName());
+            $entity->setManagerDescription($this->getManagerDescription());
+            $entity->setManagerPicture($this->getManagerPicture());
     
             // handle related objects
             // prevent shared references by doing a deep copy - see (2) and (3) for more information

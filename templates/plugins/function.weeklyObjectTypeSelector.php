@@ -28,8 +28,8 @@ function smarty_function_weeklyObjectTypeSelector($params, $view)
     $result = array();
 
     $result[] = array('text' => __('Events', $dom), 'value' => 'event');
-    $result[] = array('text' => __('Leaders', $dom), 'value' => 'leader');
-    $result[] = array('text' => __('Organisators', $dom), 'value' => 'organisator');
+    $result[] = array('text' => __('Managers', $dom), 'value' => 'manager');
+    $result[] = array('text' => __('Comanagers', $dom), 'value' => 'comanager');
     $result[] = array('text' => __('Kind', $dom), 'value' => 'kind');
     $result[] = array('text' => __('Locations', $dom), 'value' => 'location');
 

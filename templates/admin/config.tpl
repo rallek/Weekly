@@ -29,14 +29,14 @@
                         {formintinput id='pictureSize' group='config' maxLength=255 __title='Enter the picture size. Only digits are allowed.'}
                 </div>
                 <div class="z-formrow">
-                    {gt text='we can switch the usage of leader table off' assign='toolTip'}
-                    {formlabel for='showLeader' __text='Show leader' cssClass='weekly-form-tooltips ' title=$toolTip}
-                        {formcheckbox id='showLeader' group='config'}
+                    {gt text='we can switch the usage of manager table off' assign='toolTip'}
+                    {formlabel for='showManager' __text='Show manager' cssClass='weekly-form-tooltips ' title=$toolTip}
+                        {formcheckbox id='showManager' group='config'}
                 </div>
                 <div class="z-formrow">
-                    {gt text='we can switch the usage of Organisator table off' assign='toolTip'}
-                    {formlabel for='showOrganisator' __text='Show organisator' cssClass='weekly-form-tooltips ' title=$toolTip}
-                        {formcheckbox id='showOrganisator' group='config'}
+                    {gt text='we can switch the usage of Comanager table off' assign='toolTip'}
+                    {formlabel for='showComanager' __text='Show comanager' cssClass='weekly-form-tooltips ' title=$toolTip}
+                        {formcheckbox id='showComanager' group='config'}
                 </div>
                 <div class="z-formrow">
                     {gt text='we can switch the usage of kind table off' assign='toolTip'}

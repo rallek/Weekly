@@ -14,9 +14,9 @@
 /**
  * Validator class for encapsulating entity validation methods.
  *
- * This is the base validation class for leader entities.
+ * This is the base validation class for manager entities.
  */
-class Weekly_Entity_Validator_Base_Leader extends Weekly_Validator
+class Weekly_Entity_Validator_Base_Manager extends Weekly_Validator
 {
     /**
      * Performs all validation rules.
@@ -31,24 +31,24 @@ class Weekly_Entity_Validator_Base_Leader extends Weekly_Validator
             $errorInfo['message'] = __f('Error! Field value must not be empty (%s).', array('workflow state'), $dom);
             return $errorInfo;
         }
-        if (!$this->isStringNotLongerThan('leaderName', 255)) {
-            $errorInfo['message'] = __f('Error! Length of field value must not be higher than %2$s (%1$s).', array('leader name', 255), $dom);
+        if (!$this->isStringNotLongerThan('managerName', 255)) {
+            $errorInfo['message'] = __f('Error! Length of field value must not be higher than %2$s (%1$s).', array('manager name', 255), $dom);
             return $errorInfo;
         }
-        if (!$this->isStringNotEmpty('leaderName')) {
-            $errorInfo['message'] = __f('Error! Field value must not be empty (%s).', array('leader name'), $dom);
+        if (!$this->isStringNotEmpty('managerName')) {
+            $errorInfo['message'] = __f('Error! Field value must not be empty (%s).', array('manager name'), $dom);
             return $errorInfo;
         }
-        if (!$this->isStringNotLongerThan('leaderDescription', 2000)) {
-            $errorInfo['message'] = __f('Error! Length of field value must not be higher than %2$s (%1$s).', array('leader description', 2000), $dom);
+        if (!$this->isStringNotLongerThan('managerDescription', 2000)) {
+            $errorInfo['message'] = __f('Error! Length of field value must not be higher than %2$s (%1$s).', array('manager description', 2000), $dom);
             return $errorInfo;
         }
-        if (!$this->isStringNotLongerThan('leaderPicture', 255)) {
-            $errorInfo['message'] = __f('Error! Length of field value must not be higher than %2$s (%1$s).', array('leader picture', 255), $dom);
+        if (!$this->isStringNotLongerThan('managerPicture', 255)) {
+            $errorInfo['message'] = __f('Error! Length of field value must not be higher than %2$s (%1$s).', array('manager picture', 255), $dom);
             return $errorInfo;
         }
-        if (!$this->isUniqueValue('leaderName')) {
-            $errorInfo['message'] = __f('The %1$s %2$s is already assigned. Please choose another %1$s.', array('leader name', $this->entity['leaderName']), $dom);
+        if (!$this->isUniqueValue('managerName')) {
+            $errorInfo['message'] = __f('The %1$s %2$s is already assigned. Please choose another %1$s.', array('manager name', $this->entity['managerName']), $dom);
             return $errorInfo;
         }
     
@@ -58,10 +58,10 @@ class Weekly_Entity_Validator_Base_Leader extends Weekly_Validator
     /**
      * Check for unique values.
      *
-     * This method determines if there already exist leaders with the same leader.
+     * This method determines if there already exist managers with the same manager.
      *
      * @param string $fieldName The name of the property to be checked
-     * @return boolean result of this check, true if the given leader does not already exist
+     * @return boolean result of this check, true if the given manager does not already exist
      */
     public function isUniqueValue($fieldName)
     {
@@ -69,7 +69,7 @@ class Weekly_Entity_Validator_Base_Leader extends Weekly_Validator
             return false;
         }
     
-        $entityClass = 'Weekly_Entity_Leader';
+        $entityClass = 'Weekly_Entity_Manager';
         $serviceManager = ServiceUtil::getManager();
         $entityManager = $serviceManager->getService('doctrine.entitymanager');
         $repository = $entityManager->getRepository($entityClass);

@@ -5,12 +5,12 @@
     <label for="active_weeklyEvents">{gt text='Events' domain='module_weekly'}</label>
 </div>
 <div>
-    <input type="checkbox" id="weeklyLeaders" name="weeklySearchTypes[]" value="leader"{if $active_leader} checked="checked"{/if} />
-    <label for="active_weeklyLeaders">{gt text='Leaders' domain='module_weekly'}</label>
+    <input type="checkbox" id="weeklyManagers" name="weeklySearchTypes[]" value="manager"{if $active_manager} checked="checked"{/if} />
+    <label for="active_weeklyManagers">{gt text='Managers' domain='module_weekly'}</label>
 </div>
 <div>
-    <input type="checkbox" id="weeklyOrganisators" name="weeklySearchTypes[]" value="organisator"{if $active_organisator} checked="checked"{/if} />
-    <label for="active_weeklyOrganisators">{gt text='Organisators' domain='module_weekly'}</label>
+    <input type="checkbox" id="weeklyComanagers" name="weeklySearchTypes[]" value="comanager"{if $active_comanager} checked="checked"{/if} />
+    <label for="active_weeklyComanagers">{gt text='Comanagers' domain='module_weekly'}</label>
 </div>
 <div>
     <input type="checkbox" id="weeklyKind" name="weeklySearchTypes[]" value="kind"{if $active_kind} checked="checked"{/if} />

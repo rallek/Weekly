@@ -108,11 +108,11 @@ class Weekly_Form_Plugin_Base_RelationSelectorAutoComplete extends Weekly_Form_P
             case 'event':
                 $entityNameTranslated = __('event', $dom);
                 break;
-            case 'leader':
-                $entityNameTranslated = __('leader', $dom);
+            case 'manager':
+                $entityNameTranslated = __('manager', $dom);
                 break;
-            case 'organisator':
-                $entityNameTranslated = __('organisator', $dom);
+            case 'comanager':
+                $entityNameTranslated = __('comanager', $dom);
                 break;
             case 'kind':
                 $entityNameTranslated = __('kind', $dom);

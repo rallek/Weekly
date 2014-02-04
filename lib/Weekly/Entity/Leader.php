@@ -19,16 +19,16 @@ use DoctrineExtensions\StandardFields\Mapping\Annotation as ZK;
 /**
  * Entity class that defines the entity structure and behaviours.
  *
- * This is the concrete entity class for leader entities.
- * @ORM\Entity(repositoryClass="Weekly_Entity_Repository_Leader")
-  * @ORM\Table(name="weekly_leader",
+ * This is the concrete entity class for manager entities.
+ * @ORM\Entity(repositoryClass="Weekly_Entity_Repository_Manager")
+  * @ORM\Table(name="weekly_manager",
   *     indexes={
  *         @ORM\Index(name="workflowstateindex", columns={"workflowState"})
   *     }
   * )
  * @ORM\HasLifecycleCallbacks
  */
-class Weekly_Entity_Leader extends Weekly_Entity_Base_Leader
+class Weekly_Entity_Manager extends Weekly_Entity_Base_Manager
 {
     // feel free to add your own methods here
 
@@ -37,7 +37,7 @@ class Weekly_Entity_Leader extends Weekly_Entity_Base_Leader
      * Post-Process the data after the entity has been constructed by the entity manager.
      *
      * @ORM\PostLoad
-     * @see Weekly_Entity_Leader::performPostLoadCallback()
+     * @see Weekly_Entity_Manager::performPostLoadCallback()
      * @return void.
      */
     public function postLoadCallback()
@@ -49,7 +49,7 @@ class Weekly_Entity_Leader extends Weekly_Entity_Base_Leader
      * Pre-Process the data prior to an insert operation.
      *
      * @ORM\PrePersist
-     * @see Weekly_Entity_Leader::performPrePersistCallback()
+     * @see Weekly_Entity_Manager::performPrePersistCallback()
      * @return void.
      */
     public function prePersistCallback()
@@ -61,7 +61,7 @@ class Weekly_Entity_Leader extends Weekly_Entity_Base_Leader
      * Post-Process the data after an insert operation.
      *
      * @ORM\PostPersist
-     * @see Weekly_Entity_Leader::performPostPersistCallback()
+     * @see Weekly_Entity_Manager::performPostPersistCallback()
      * @return void.
      */
     public function postPersistCallback()
@@ -73,7 +73,7 @@ class Weekly_Entity_Leader extends Weekly_Entity_Base_Leader
      * Pre-Process the data prior a delete operation.
      *
      * @ORM\PreRemove
-     * @see Weekly_Entity_Leader::performPreRemoveCallback()
+     * @see Weekly_Entity_Manager::performPreRemoveCallback()
      * @return void.
      */
     public function preRemoveCallback()
@@ -85,7 +85,7 @@ class Weekly_Entity_Leader extends Weekly_Entity_Base_Leader
      * Post-Process the data after a delete.
      *
      * @ORM\PostRemove
-     * @see Weekly_Entity_Leader::performPostRemoveCallback()
+     * @see Weekly_Entity_Manager::performPostRemoveCallback()
      * @return void
      */
     public function postRemoveCallback()
@@ -97,7 +97,7 @@ class Weekly_Entity_Leader extends Weekly_Entity_Base_Leader
      * Pre-Process the data prior to an update operation.
      *
      * @ORM\PreUpdate
-     * @see Weekly_Entity_Leader::performPreUpdateCallback()
+     * @see Weekly_Entity_Manager::performPreUpdateCallback()
      * @return void.
      */
     public function preUpdateCallback()
@@ -109,7 +109,7 @@ class Weekly_Entity_Leader extends Weekly_Entity_Base_Leader
      * Post-Process the data after an update operation.
      *
      * @ORM\PostUpdate
-     * @see Weekly_Entity_Leader::performPostUpdateCallback()
+     * @see Weekly_Entity_Manager::performPostUpdateCallback()
      * @return void.
      */
     public function postUpdateCallback()
@@ -122,7 +122,7 @@ class Weekly_Entity_Leader extends Weekly_Entity_Base_Leader
      *
      * @ORM\PrePersist
      * @ORM\PreUpdate
-     * @see Weekly_Entity_Leader::performPreSaveCallback()
+     * @see Weekly_Entity_Manager::performPreSaveCallback()
      * @return void.
      */
     public function preSaveCallback()
@@ -135,7 +135,7 @@ class Weekly_Entity_Leader extends Weekly_Entity_Base_Leader
      *
      * @ORM\PostPersist
      * @ORM\PostUpdate
-     * @see Weekly_Entity_Leader::performPostSaveCallback()
+     * @see Weekly_Entity_Manager::performPostSaveCallback()
      * @return void.
      */
     public function postSaveCallback()

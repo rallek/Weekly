@@ -248,8 +248,8 @@ class Weekly_Controller_Base_Ajax extends Zikula_Controller_AbstractAjax
         // check if the given field is existing and unique
         $uniqueFields = array();
         switch ($objectType) {
-            case 'leader':
-                    $uniqueFields = array('leaderName');
+            case 'manager':
+                    $uniqueFields = array('managerName');
                     break;
         }
         if (!count($uniqueFields) || !in_array($fieldName, $uniqueFields)) {
@@ -263,11 +263,11 @@ class Weekly_Controller_Base_Ajax extends Zikula_Controller_AbstractAjax
     
         $result = false;
         switch ($objectType) {
-        case 'leader':
+        case 'manager':
             $repository = $this->entityManager->getRepository($entityClass);
             switch ($fieldName) {
-            case 'leaderName':
-                    $result = $repository->detectUniqueState('leaderName', $value, $exclude);
+            case 'managerName':
+                    $result = $repository->detectUniqueState('managerName', $value, $exclude);
                     break;
             }
             break;

@@ -73,10 +73,10 @@ class Weekly_Util_Base_Workflow extends Zikula_AbstractBase
             case 'event':
                 $result = 'none';
                 break;
-            case 'leader':
+            case 'manager':
                 $result = 'none';
                 break;
-            case 'organisator':
+            case 'comanager':
                 $result = 'none';
                 break;
             case 'kind':

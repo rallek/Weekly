@@ -1,9 +1,9 @@
-{* purpose of this template: inclusion template for display of related leader in user area *}
+{* purpose of this template: inclusion template for display of related manager in user area *}
 {icon type='delete' size='extrasmall' assign='removeImageArray'}
 {assign var='removeImage' value="<img src=\"`$removeImageArray.src`\" width=\"16\" height=\"16\" alt=\"\" />"}
 
 {if isset($item) && is_array($item) && isset($item[0]) && !is_object($item[0])}
-    {modapifunc modname='Weekly' type='selection' func='getEntity' objectType='leader' id=$item[0] assign='item'}
+    {modapifunc modname='Weekly' type='selection' func='getEntity' objectType='manager' id=$item[0] assign='item'}
 {/if}
 
 <input type="hidden" id="{$idPrefix}ItemList" name="{$idPrefix}ItemList" value="{if isset($item) && (is_array($item) || is_object($item)) && isset($item.id)}{$item.id}{/if}" />
@@ -16,8 +16,8 @@
     {$item->getTitleFromDisplayPattern()}
      <a id="{$idPrefixItem}Remove" href="javascript:weeklyRemoveRelatedItem('{$idPrefix}', '{$item.id}');">{$removeImage}</a>
     <br />
-    {if $item.leaderPicture ne '' && isset($item.leaderPictureFullPath) && $item.leaderPictureMeta.isImage}
-        {thumb image=$item.leaderPictureFullPath objectid="leader-`$item.id`" preset=$relationThumbPreset tag=true img_alt=$item->getTitleFromDisplayPattern()}
+    {if $item.managerPicture ne '' && isset($item.managerPictureFullPath) && $item.managerPictureMeta.isImage}
+        {thumb image=$item.managerPictureFullPath objectid="manager-`$item.id`" preset=$relationThumbPreset tag=true img_alt=$item->getTitleFromDisplayPattern()}
     {/if}
 </li>
 {/if}

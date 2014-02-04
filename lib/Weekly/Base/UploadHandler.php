@@ -41,10 +41,10 @@ class Weekly_Base_UploadHandler
      */
     public function __construct()
     {
-        $this->allowedObjectTypes = array('leader', 'organisator', 'kind', 'location');
+        $this->allowedObjectTypes = array('manager', 'comanager', 'kind', 'location');
         $this->imageFileTypes = array('gif', 'jpeg', 'jpg', 'png', 'swf');
         $this->forbiddenFileTypes = array('cgi', 'pl', 'asp', 'phtml', 'php', 'php3', 'php4', 'php5', 'exe', 'com', 'bat', 'jsp', 'cfm', 'shtml');
-        $this->allowedFileSizes = array('leader' => array('leaderPicture' => 102400), 'organisator' => array('organisatorPicture' => 102400), 'kind' => array('kindPicture' => 0), 'location' => array('locationPicture' => 0));
+        $this->allowedFileSizes = array('manager' => array('managerPicture' => 102400), 'comanager' => array('comanagerPicture' => 102400), 'kind' => array('kindPicture' => 0), 'location' => array('locationPicture' => 0));
     }
 
     /**
@@ -227,10 +227,10 @@ class Weekly_Base_UploadHandler
         // determine the allowed extensions
         $allowedExtensions = array();
         switch ($objectType) {
-            case 'leader':
+            case 'manager':
                 $allowedExtensions = array('gif', 'jpeg', 'jpg', 'png');
                     break;
-            case 'organisator':
+            case 'comanager':
                 $allowedExtensions = array('gif', 'jpeg', 'jpg', 'png');
                     break;
             case 'kind':
@@ -274,10 +274,10 @@ class Weekly_Base_UploadHandler
         $namingScheme = 0;
     
         switch ($objectType) {
-            case 'leader':
+            case 'manager':
                 $namingScheme = 0;
                     break;
-            case 'organisator':
+            case 'comanager':
                 $namingScheme = 0;
                     break;
             case 'kind':

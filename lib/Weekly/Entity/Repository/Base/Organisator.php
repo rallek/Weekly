@@ -20,14 +20,14 @@ use DoctrineExtensions\Paginate\Paginate;
 /**
  * Repository class used to implement own convenience methods for performing certain DQL queries.
  *
- * This is the base repository class for organisator entities.
+ * This is the base repository class for comanager entities.
  */
-class Weekly_Entity_Repository_Base_Organisator extends EntityRepository
+class Weekly_Entity_Repository_Base_Comanager extends EntityRepository
 {
     /**
      * @var string The default sorting field/expression.
      */
-    protected $defaultSortingField = 'organisatorName';
+    protected $defaultSortingField = 'comanagerName';
 
     /**
      * @var array Additional arguments given by the calling controller.
@@ -44,9 +44,9 @@ class Weekly_Entity_Repository_Base_Organisator extends EntityRepository
         return array(
             'id',
             'workflowState',
-            'organisatorName',
-            'organisatorText',
-            'organisatorPicture',
+            'comanagerName',
+            'comanagerText',
+            'comanagerPicture',
             'createdUserId',
             'updatedUserId',
             'createdDate',
@@ -106,7 +106,7 @@ class Weekly_Entity_Repository_Base_Organisator extends EntityRepository
      */
     public function getTitleFieldName()
     {
-        $fieldName = 'organisatorName';
+        $fieldName = 'comanagerName';
 
         return $fieldName;
     }
@@ -118,7 +118,7 @@ class Weekly_Entity_Repository_Base_Organisator extends EntityRepository
      */
     public function getDescriptionFieldName()
    {
-        $fieldName = 'organisatorText';
+        $fieldName = 'comanagerText';
 
         return $fieldName;
     }
@@ -130,7 +130,7 @@ class Weekly_Entity_Repository_Base_Organisator extends EntityRepository
      */
     public function getPreviewFieldName()
     {
-        $fieldName = 'organisatorPicture';
+        $fieldName = 'comanagerPicture';
 
         return $fieldName;
     }
@@ -171,14 +171,14 @@ class Weekly_Entity_Repository_Base_Organisator extends EntityRepository
             if (in_array($args['action'], array('main', 'view'))) {
                 $templateParameters = $this->getViewQuickNavParameters($context, $args);
                 $listHelper = new Weekly_Util_ListEntries(ServiceUtil::getManager());
-                $templateParameters['workflowStateItems'] = $listHelper->getEntries('organisator', 'workflowState');
+                $templateParameters['workflowStateItems'] = $listHelper->getEntries('comanager', 'workflowState');
             }
     
             // initialise Imagine preset instances
             $imageHelper = new Weekly_Util_Image(ServiceUtil::getManager());
     
-            $objectType = 'organisator';
-            $templateParameters[$objectType . 'ThumbPresetOrganisatorPicture'] = $imageHelper->getPreset($objectType, 'organisatorPicture', $context, $args);
+            $objectType = 'comanager';
+            $templateParameters[$objectType . 'ThumbPresetComanagerPicture'] = $imageHelper->getPreset($objectType, 'comanagerPicture', $context, $args);
             if (in_array($args['action'], array('display', 'view'))) {
                 // use separate preset for images in related items
                 $templateParameters['relationThumbPreset'] = $imageHelper->getCustomPreset('', '', 'Weekly_relateditem', $context, $args);
@@ -229,7 +229,7 @@ class Weekly_Entity_Repository_Base_Organisator extends EntityRepository
     public function truncateTable()
     {
         $qb = $this->getEntityManager()->createQueryBuilder();
-        $qb->delete('Weekly_Entity_Organisator', 'tbl');
+        $qb->delete('Weekly_Entity_Comanager', 'tbl');
         $query = $qb->getQuery();
     
         $query->execute();
@@ -252,7 +252,7 @@ class Weekly_Entity_Repository_Base_Organisator extends EntityRepository
         }
     
         $qb = $this->getEntityManager()->createQueryBuilder();
-        $qb->delete('Weekly_Entity_Organisator', 'tbl')
+        $qb->delete('Weekly_Entity_Comanager', 'tbl')
            ->where('tbl.createdUserId = :creator')
            ->setParameter('creator', $userId);
         $query = $qb->getQuery();
@@ -277,7 +277,7 @@ class Weekly_Entity_Repository_Base_Organisator extends EntityRepository
         }
     
         $qb = $this->getEntityManager()->createQueryBuilder();
-        $qb->delete('Weekly_Entity_Organisator', 'tbl')
+        $qb->delete('Weekly_Entity_Comanager', 'tbl')
            ->where('tbl.updatedUserId = :editor')
            ->setParameter('editor', $userId);
         $query = $qb->getQuery();
@@ -304,7 +304,7 @@ class Weekly_Entity_Repository_Base_Organisator extends EntityRepository
         }
     
         $qb = $this->getEntityManager()->createQueryBuilder();
-        $qb->update('Weekly_Entity_Organisator', 'tbl')
+        $qb->update('Weekly_Entity_Comanager', 'tbl')
            ->set('tbl.createdUserId', $newUserId)
            ->where('tbl.createdUserId = :creator')
            ->setParameter('creator', $userId);
@@ -331,7 +331,7 @@ class Weekly_Entity_Repository_Base_Organisator extends EntityRepository
         }
     
         $qb = $this->getEntityManager()->createQueryBuilder();
-        $qb->update('Weekly_Entity_Organisator', 'tbl')
+        $qb->update('Weekly_Entity_Comanager', 'tbl')
            ->set('tbl.updatedUserId', $newUserId)
            ->where('tbl.updatedUserId = :editor')
            ->setParameter('editor', $userId);
@@ -368,7 +368,7 @@ class Weekly_Entity_Repository_Base_Organisator extends EntityRepository
      * @param boolean $useJoins Whether to include joining related objects (optional) (default=true).
      * @param boolean $slimMode If activated only some basic fields are selected without using any joins (optional) (default=false).
      *
-     * @return array|Weekly_Entity_Organisator retrieved data array or Weekly_Entity_Organisator instance
+     * @return array|Weekly_Entity_Comanager retrieved data array or Weekly_Entity_Comanager instance
      *
      * @throws InvalidArgumentException Thrown if invalid parameters are received
      */
@@ -416,7 +416,7 @@ class Weekly_Entity_Repository_Base_Organisator extends EntityRepository
      * @param boolean $useJoins Whether to include joining related objects (optional) (default=true).
      * @param boolean $slimMode If activated only some basic fields are selected without using any joins (optional) (default=false).
      *
-     * @return ArrayCollection collection containing retrieved Weekly_Entity_Organisator instances
+     * @return ArrayCollection collection containing retrieved Weekly_Entity_Comanager instances
      */
     public function selectWhere($where = '', $orderBy = '', $useJoins = true, $slimMode = false)
     {
@@ -506,7 +506,7 @@ class Weekly_Entity_Repository_Base_Organisator extends EntityRepository
                 $qb->andWhere('tblCategories.category IN (:categories)')
                    ->setParameter('categories', $v);
                  */
-                $qb = ModUtil::apiFunc('Weekly', 'category', 'buildFilterClauses', array('qb' => $qb, 'ot' => 'organisator', 'catids' => $v));
+                $qb = ModUtil::apiFunc('Weekly', 'category', 'buildFilterClauses', array('qb' => $qb, 'ot' => 'comanager', 'catids' => $v));
             } elseif ($k == 'searchterm') {
                 // quick search
                 if (!empty($v)) {
@@ -551,7 +551,7 @@ class Weekly_Entity_Repository_Base_Organisator extends EntityRepository
         }
     
         if (!in_array('workflowState', array_keys($parameters)) || empty($parameters['workflowState'])) {
-            // per default we show approved organisators only
+            // per default we show approved comanagers only
             $onlineStates = array('approved');
             $qb->andWhere('tbl.workflowState IN (:onlineStates)')
                ->setParameter('onlineStates', $onlineStates);
@@ -609,18 +609,18 @@ class Weekly_Entity_Repository_Base_Organisator extends EntityRepository
         $where = '';
         if (!$fragmentIsNumeric) {
             $where .= ((!empty($where)) ? ' OR ' : '');
-            $where .= 'tbl.organisatorName LIKE \'%' . $fragment . '%\'';
+            $where .= 'tbl.comanagerName LIKE \'%' . $fragment . '%\'';
             $where .= ((!empty($where)) ? ' OR ' : '');
-            $where .= 'tbl.organisatorText LIKE \'%' . $fragment . '%\'';
+            $where .= 'tbl.comanagerText LIKE \'%' . $fragment . '%\'';
             $where .= ((!empty($where)) ? ' OR ' : '');
-            $where .= 'tbl.organisatorPicture = \'' . $fragment . '\'';
+            $where .= 'tbl.comanagerPicture = \'' . $fragment . '\'';
         } else {
             $where .= ((!empty($where)) ? ' OR ' : '');
-            $where .= 'tbl.organisatorName LIKE \'%' . $fragment . '%\'';
+            $where .= 'tbl.comanagerName LIKE \'%' . $fragment . '%\'';
             $where .= ((!empty($where)) ? ' OR ' : '');
-            $where .= 'tbl.organisatorText LIKE \'%' . $fragment . '%\'';
+            $where .= 'tbl.comanagerText LIKE \'%' . $fragment . '%\'';
             $where .= ((!empty($where)) ? ' OR ' : '');
-            $where .= 'tbl.organisatorPicture = \'' . $fragment . '\'';
+            $where .= 'tbl.comanagerPicture = \'' . $fragment . '\'';
         }
         $where = '(' . $where . ')';
     
@@ -667,14 +667,14 @@ class Weekly_Entity_Repository_Base_Organisator extends EntityRepository
     {
         $useJoins = false;
     
-        $selection = 'COUNT(tbl.id) AS numOrganisators';
+        $selection = 'COUNT(tbl.id) AS numComanagers';
         if ($useJoins === true) {
             $selection .= $this->addJoinsToSelection();
         }
     
         $qb = $this->getEntityManager()->createQueryBuilder();
         $qb->select($selection)
-           ->from('Weekly_Entity_Organisator', 'tbl');
+           ->from('Weekly_Entity_Comanager', 'tbl');
     
         if ($useJoins === true) {
             $this->addJoinsToFrom($qb);
@@ -711,9 +711,9 @@ class Weekly_Entity_Repository_Base_Organisator extends EntityRepository
      *
      * @param string $fieldName  The name of the property to be checked
      * @param string $fieldValue The value of the property to be checked
-     * @param int    $excludeId  Id of organisators to exclude (optional).
+     * @param int    $excludeId  Id of comanagers to exclude (optional).
      *
-     * @return boolean result of this check, true if the given organisator does not already exist
+     * @return boolean result of this check, true if the given comanager does not already exist
      */
     public function detectUniqueState($fieldName, $fieldValue, $excludeId = 0)
     {
@@ -751,7 +751,7 @@ class Weekly_Entity_Repository_Base_Organisator extends EntityRepository
             $selection = 'tbl.id';
             
             
-            $selection .= ', tbl.organisatorName';
+            $selection .= ', tbl.comanagerName';
             $useJoins = false;
         }
     
@@ -761,7 +761,7 @@ class Weekly_Entity_Repository_Base_Organisator extends EntityRepository
     
         $qb = $this->getEntityManager()->createQueryBuilder();
         $qb->select($selection)
-           ->from('Weekly_Entity_Organisator', 'tbl');
+           ->from('Weekly_Entity_Comanager', 'tbl');
     
         if ($useJoins === true) {
             $this->addJoinsToFrom($qb);

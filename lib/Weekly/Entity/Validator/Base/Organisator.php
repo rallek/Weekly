@@ -14,9 +14,9 @@
 /**
  * Validator class for encapsulating entity validation methods.
  *
- * This is the base validation class for organisator entities.
+ * This is the base validation class for comanager entities.
  */
-class Weekly_Entity_Validator_Base_Organisator extends Weekly_Validator
+class Weekly_Entity_Validator_Base_Comanager extends Weekly_Validator
 {
     /**
      * Performs all validation rules.
@@ -31,20 +31,20 @@ class Weekly_Entity_Validator_Base_Organisator extends Weekly_Validator
             $errorInfo['message'] = __f('Error! Field value must not be empty (%s).', array('workflow state'), $dom);
             return $errorInfo;
         }
-        if (!$this->isStringNotLongerThan('organisatorName', 255)) {
-            $errorInfo['message'] = __f('Error! Length of field value must not be higher than %2$s (%1$s).', array('organisator name', 255), $dom);
+        if (!$this->isStringNotLongerThan('comanagerName', 255)) {
+            $errorInfo['message'] = __f('Error! Length of field value must not be higher than %2$s (%1$s).', array('comanager name', 255), $dom);
             return $errorInfo;
         }
-        if (!$this->isStringNotEmpty('organisatorName')) {
-            $errorInfo['message'] = __f('Error! Field value must not be empty (%s).', array('organisator name'), $dom);
+        if (!$this->isStringNotEmpty('comanagerName')) {
+            $errorInfo['message'] = __f('Error! Field value must not be empty (%s).', array('comanager name'), $dom);
             return $errorInfo;
         }
-        if (!$this->isStringNotLongerThan('organisatorText', 2000)) {
-            $errorInfo['message'] = __f('Error! Length of field value must not be higher than %2$s (%1$s).', array('organisator text', 2000), $dom);
+        if (!$this->isStringNotLongerThan('comanagerText', 2000)) {
+            $errorInfo['message'] = __f('Error! Length of field value must not be higher than %2$s (%1$s).', array('comanager text', 2000), $dom);
             return $errorInfo;
         }
-        if (!$this->isStringNotLongerThan('organisatorPicture', 255)) {
-            $errorInfo['message'] = __f('Error! Length of field value must not be higher than %2$s (%1$s).', array('organisator picture', 255), $dom);
+        if (!$this->isStringNotLongerThan('comanagerPicture', 255)) {
+            $errorInfo['message'] = __f('Error! Length of field value must not be higher than %2$s (%1$s).', array('comanager picture', 255), $dom);
             return $errorInfo;
         }
     
@@ -54,10 +54,10 @@ class Weekly_Entity_Validator_Base_Organisator extends Weekly_Validator
     /**
      * Check for unique values.
      *
-     * This method determines if there already exist organisators with the same organisator.
+     * This method determines if there already exist comanagers with the same comanager.
      *
      * @param string $fieldName The name of the property to be checked
-     * @return boolean result of this check, true if the given organisator does not already exist
+     * @return boolean result of this check, true if the given comanager does not already exist
      */
     public function isUniqueValue($fieldName)
     {
@@ -65,7 +65,7 @@ class Weekly_Entity_Validator_Base_Organisator extends Weekly_Validator
             return false;
         }
     
-        $entityClass = 'Weekly_Entity_Organisator';
+        $entityClass = 'Weekly_Entity_Comanager';
         $serviceManager = ServiceUtil::getManager();
         $entityManager = $serviceManager->getService('doctrine.entitymanager');
         $repository = $entityManager->getRepository($entityClass);

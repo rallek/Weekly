@@ -47,8 +47,8 @@ class Weekly_Base_Installer extends Zikula_AbstractInstaller
         // set up all our vars with initial values
         $this->setVar('pageSize', 20);
         $this->setVar('pictureSize', 102400);
-        $this->setVar('showLeader', true);
-        $this->setVar('showOrganisator', true);
+        $this->setVar('showManager', true);
+        $this->setVar('showComanager', true);
         $this->setVar('showKind', true);
         $this->setVar('showLocation', true);
         $this->setVar('showParticipants', true);
@@ -158,8 +158,8 @@ class Weekly_Base_Installer extends Zikula_AbstractInstaller
     {
         $classNames = array();
         $classNames[] = 'Weekly_Entity_Event';
-        $classNames[] = 'Weekly_Entity_Leader';
-        $classNames[] = 'Weekly_Entity_Organisator';
+        $classNames[] = 'Weekly_Entity_Manager';
+        $classNames[] = 'Weekly_Entity_Comanager';
         $classNames[] = 'Weekly_Entity_Kind';
         $classNames[] = 'Weekly_Entity_Location';
     
@@ -177,9 +177,9 @@ class Weekly_Base_Installer extends Zikula_AbstractInstaller
     {
         $entityClass = 'Weekly_Entity_Event';
         $this->entityManager->getRepository($entityClass)->truncateTable();
-        $entityClass = 'Weekly_Entity_Leader';
+        $entityClass = 'Weekly_Entity_Manager';
         $this->entityManager->getRepository($entityClass)->truncateTable();
-        $entityClass = 'Weekly_Entity_Organisator';
+        $entityClass = 'Weekly_Entity_Comanager';
         $this->entityManager->getRepository($entityClass)->truncateTable();
         $entityClass = 'Weekly_Entity_Kind';
         $this->entityManager->getRepository($entityClass)->truncateTable();

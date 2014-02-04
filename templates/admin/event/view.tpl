@@ -53,8 +53,8 @@
                     <col id="cActive" />
                     <col id="cKind" />
                     <col id="cLocation" />
-                    <col id="cLeader" />
-                    <col id="cOrganisator" />
+                    <col id="cManager" />
+                    <col id="cComanager" />
                     <col id="cItemActions" />
                 </colgroup>
                 <thead>
@@ -63,46 +63,46 @@
                         <input type="checkbox" id="toggleEvents" />
                     </th>
                     <th id="hEventBegin" scope="col" class="z-left">
-                        {sortlink __linktext='Event begin' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='eventBegin' sortdir=$sdir all=$all own=$own kind=$kind location=$location leader=$leader organisator=$organisator workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
+                        {sortlink __linktext='Event begin' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='eventBegin' sortdir=$sdir all=$all own=$own kind=$kind location=$location manager=$manager comanager=$comanager workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
                     </th>
                     <th id="hEventName" scope="col" class="z-left">
-                        {sortlink __linktext='Event name' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='eventName' sortdir=$sdir all=$all own=$own kind=$kind location=$location leader=$leader organisator=$organisator workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
+                        {sortlink __linktext='Event name' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='eventName' sortdir=$sdir all=$all own=$own kind=$kind location=$location manager=$manager comanager=$comanager workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
                     </th>
                     <th id="hEventDay" scope="col" class="z-left">
-                        {sortlink __linktext='Event day' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='eventDay' sortdir=$sdir all=$all own=$own kind=$kind location=$location leader=$leader organisator=$organisator workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
+                        {sortlink __linktext='Event day' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='eventDay' sortdir=$sdir all=$all own=$own kind=$kind location=$location manager=$manager comanager=$comanager workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
                     </th>
                     <th id="hEventBeginText" scope="col" class="z-left">
-                        {sortlink __linktext='Event begin text' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='eventBeginText' sortdir=$sdir all=$all own=$own kind=$kind location=$location leader=$leader organisator=$organisator workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
+                        {sortlink __linktext='Event begin text' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='eventBeginText' sortdir=$sdir all=$all own=$own kind=$kind location=$location manager=$manager comanager=$comanager workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
                     </th>
                     <th id="hEventDuration" scope="col" class="z-right">
-                        {sortlink __linktext='Event duration' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='eventDuration' sortdir=$sdir all=$all own=$own kind=$kind location=$location leader=$leader organisator=$organisator workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
+                        {sortlink __linktext='Event duration' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='eventDuration' sortdir=$sdir all=$all own=$own kind=$kind location=$location manager=$manager comanager=$comanager workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
                     </th>
                     <th id="hEventMessage" scope="col" class="z-left">
-                        {sortlink __linktext='Event message' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='eventMessage' sortdir=$sdir all=$all own=$own kind=$kind location=$location leader=$leader organisator=$organisator workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
+                        {sortlink __linktext='Event message' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='eventMessage' sortdir=$sdir all=$all own=$own kind=$kind location=$location manager=$manager comanager=$comanager workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
                     </th>
                     <th id="hEventText" scope="col" class="z-left">
-                        {sortlink __linktext='Event text' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='eventText' sortdir=$sdir all=$all own=$own kind=$kind location=$location leader=$leader organisator=$organisator workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
+                        {sortlink __linktext='Event text' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='eventText' sortdir=$sdir all=$all own=$own kind=$kind location=$location manager=$manager comanager=$comanager workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
                     </th>
                     <th id="hMaxParticipants" scope="col" class="z-right">
-                        {sortlink __linktext='Max participants' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='maxParticipants' sortdir=$sdir all=$all own=$own kind=$kind location=$location leader=$leader organisator=$organisator workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
+                        {sortlink __linktext='Max participants' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='maxParticipants' sortdir=$sdir all=$all own=$own kind=$kind location=$location manager=$manager comanager=$comanager workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
                     </th>
                     <th id="hCurrentParticipants" scope="col" class="z-right">
-                        {sortlink __linktext='Current participants' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='currentParticipants' sortdir=$sdir all=$all own=$own kind=$kind location=$location leader=$leader organisator=$organisator workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
+                        {sortlink __linktext='Current participants' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='currentParticipants' sortdir=$sdir all=$all own=$own kind=$kind location=$location manager=$manager comanager=$comanager workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
                     </th>
                     <th id="hActive" scope="col" class="z-center">
-                        {sortlink __linktext='Active' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='active' sortdir=$sdir all=$all own=$own kind=$kind location=$location leader=$leader organisator=$organisator workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
+                        {sortlink __linktext='Active' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='active' sortdir=$sdir all=$all own=$own kind=$kind location=$location manager=$manager comanager=$comanager workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
                     </th>
                     <th id="hKind" scope="col" class="z-left">
-                        {sortlink __linktext='Kind' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='kind' sortdir=$sdir all=$all own=$own kind=$kind location=$location leader=$leader organisator=$organisator workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
+                        {sortlink __linktext='Kind' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='kind' sortdir=$sdir all=$all own=$own kind=$kind location=$location manager=$manager comanager=$comanager workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
                     </th>
                     <th id="hLocation" scope="col" class="z-left">
-                        {sortlink __linktext='Location' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='location' sortdir=$sdir all=$all own=$own kind=$kind location=$location leader=$leader organisator=$organisator workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
+                        {sortlink __linktext='Location' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='location' sortdir=$sdir all=$all own=$own kind=$kind location=$location manager=$manager comanager=$comanager workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
                     </th>
-                    <th id="hLeader" scope="col" class="z-left">
-                        {sortlink __linktext='Leader' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='leader' sortdir=$sdir all=$all own=$own kind=$kind location=$location leader=$leader organisator=$organisator workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
+                    <th id="hManager" scope="col" class="z-left">
+                        {sortlink __linktext='Manager' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='manager' sortdir=$sdir all=$all own=$own kind=$kind location=$location manager=$manager comanager=$comanager workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
                     </th>
-                    <th id="hOrganisator" scope="col" class="z-left">
-                        {sortlink __linktext='Organisator' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='organisator' sortdir=$sdir all=$all own=$own kind=$kind location=$location leader=$leader organisator=$organisator workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
+                    <th id="hComanager" scope="col" class="z-left">
+                        {sortlink __linktext='Comanager' currentsort=$sort modname='Weekly' type='admin' func='view' ot='event' sort='comanager' sortdir=$sdir all=$all own=$own kind=$kind location=$location manager=$manager comanager=$comanager workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
                     </th>
                     <th id="hItemActions" scope="col" class="z-right z-order-unsorted">{gt text='Actions'}</th>
                 </tr>
@@ -178,16 +178,16 @@
                             {gt text='Not set.'}
                         {/if}
                     </td>
-                    <td headers="hLeader" class="z-left">
-                        {if isset($event.Leader) && $event.Leader ne null}
-                            <a href="{modurl modname='Weekly' type='admin' func='display' ot='leader' id=$event.Leader.id}">{strip}
-                              {$event.Leader->getTitleFromDisplayPattern()|default:""}
+                    <td headers="hManager" class="z-left">
+                        {if isset($event.Manager) && $event.Manager ne null}
+                            <a href="{modurl modname='Weekly' type='admin' func='display' ot='manager' id=$event.Manager.id}">{strip}
+                              {$event.Manager->getTitleFromDisplayPattern()|default:""}
                             {/strip}</a>
-                            <a id="leaderItem{$event.id}_rel_{$event.Leader.id}Display" href="{modurl modname='Weekly' type='admin' func='display' ot='leader' id=$event.Leader.id theme='Printer'}" title="{gt text='Open quick view window'}" class="z-hide">{icon type='view' size='extrasmall' __alt='Quick view'}</a>
+                            <a id="managerItem{$event.id}_rel_{$event.Manager.id}Display" href="{modurl modname='Weekly' type='admin' func='display' ot='manager' id=$event.Manager.id theme='Printer'}" title="{gt text='Open quick view window'}" class="z-hide">{icon type='view' size='extrasmall' __alt='Quick view'}</a>
                             <script type="text/javascript">
                             /* <![CDATA[ */
                                 document.observe('dom:loaded', function() {
-                                    weeklyInitInlineWindow($('leaderItem{{$event.id}}_rel_{{$event.Leader.id}}Display'), '{{$event.Leader->getTitleFromDisplayPattern()|replace:"'":""}}');
+                                    weeklyInitInlineWindow($('managerItem{{$event.id}}_rel_{{$event.Manager.id}}Display'), '{{$event.Manager->getTitleFromDisplayPattern()|replace:"'":""}}');
                                 });
                             /* ]]> */
                             </script>
@@ -195,16 +195,16 @@
                             {gt text='Not set.'}
                         {/if}
                     </td>
-                    <td headers="hOrganisator" class="z-left">
-                        {if isset($event.Organisator) && $event.Organisator ne null}
-                            <a href="{modurl modname='Weekly' type='admin' func='display' ot='organisator' id=$event.Organisator.id}">{strip}
-                              {$event.Organisator->getTitleFromDisplayPattern()|default:""}
+                    <td headers="hComanager" class="z-left">
+                        {if isset($event.Comanager) && $event.Comanager ne null}
+                            <a href="{modurl modname='Weekly' type='admin' func='display' ot='comanager' id=$event.Comanager.id}">{strip}
+                              {$event.Comanager->getTitleFromDisplayPattern()|default:""}
                             {/strip}</a>
-                            <a id="organisatorItem{$event.id}_rel_{$event.Organisator.id}Display" href="{modurl modname='Weekly' type='admin' func='display' ot='organisator' id=$event.Organisator.id theme='Printer'}" title="{gt text='Open quick view window'}" class="z-hide">{icon type='view' size='extrasmall' __alt='Quick view'}</a>
+                            <a id="comanagerItem{$event.id}_rel_{$event.Comanager.id}Display" href="{modurl modname='Weekly' type='admin' func='display' ot='comanager' id=$event.Comanager.id theme='Printer'}" title="{gt text='Open quick view window'}" class="z-hide">{icon type='view' size='extrasmall' __alt='Quick view'}</a>
                             <script type="text/javascript">
                             /* <![CDATA[ */
                                 document.observe('dom:loaded', function() {
-                                    weeklyInitInlineWindow($('organisatorItem{{$event.id}}_rel_{{$event.Organisator.id}}Display'), '{{$event.Organisator->getTitleFromDisplayPattern()|replace:"'":""}}');
+                                    weeklyInitInlineWindow($('comanagerItem{{$event.id}}_rel_{{$event.Comanager.id}}Display'), '{{$event.Comanager->getTitleFromDisplayPattern()|replace:"'":""}}');
                                 });
                             /* ]]> */
                             </script>

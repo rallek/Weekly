@@ -129,11 +129,11 @@ function weeklyInitQuickNavigation(objectType, controller)
         if ($('location') != undefined) {
             $('location').observe('change', function () { weeklySubmitQuickNavForm(objectType); });
         }
-        if ($('leader') != undefined) {
-            $('leader').observe('change', function () { weeklySubmitQuickNavForm(objectType); });
+        if ($('manager') != undefined) {
+            $('manager').observe('change', function () { weeklySubmitQuickNavForm(objectType); });
         }
-        if ($('organisator') != undefined) {
-            $('organisator').observe('change', function () { weeklySubmitQuickNavForm(objectType); });
+        if ($('comanager') != undefined) {
+            $('comanager').observe('change', function () { weeklySubmitQuickNavForm(objectType); });
         }
         if ($('workflowState') != undefined) {
             $('workflowState').observe('change', function () { weeklySubmitQuickNavForm(objectType); });
@@ -145,12 +145,12 @@ function weeklyInitQuickNavigation(objectType, controller)
             $('active').observe('change', function () { weeklySubmitQuickNavForm(objectType); });
         }
         break;
-    case 'leader':
+    case 'manager':
         if ($('workflowState') != undefined) {
             $('workflowState').observe('change', function () { weeklySubmitQuickNavForm(objectType); });
         }
         break;
-    case 'organisator':
+    case 'comanager':
         if ($('workflowState') != undefined) {
             $('workflowState').observe('change', function () { weeklySubmitQuickNavForm(objectType); });
         }

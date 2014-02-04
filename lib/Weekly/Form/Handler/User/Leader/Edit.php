@@ -13,9 +13,9 @@
 
 /**
  * This handler class handles the page events of the Form called by the weekly_user_edit() function.
- * It aims on the leader object type.
+ * It aims on the manager object type.
  */
-class Weekly_Form_Handler_User_Leader_Edit extends Weekly_Form_Handler_User_Leader_Base_Edit
+class Weekly_Form_Handler_User_Manager_Edit extends Weekly_Form_Handler_User_Manager_Base_Edit
 {
     // feel free to extend the base handler class here
 }

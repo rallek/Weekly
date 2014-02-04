@@ -98,11 +98,11 @@
 	{if $modvars.Weekly.showLocation}
 		{include file='user/location/include_selectOne.tpl' group='event' alias='location' aliasReverse='event' mandatory=false idPrefix='weeklyEvent_Location' linkingItem=$event displayMode='dropdown' allowEditing=false}
 	{/if}
-	{if $modvars.Weekly.showLeader}
-		{include file='user/leader/include_selectOne.tpl' group='event' alias='leader' aliasReverse='event' mandatory=false idPrefix='weeklyEvent_Leader' linkingItem=$event displayMode='dropdown' allowEditing=false}
+	{if $modvars.Weekly.showManager}
+		{include file='user/manager/include_selectOne.tpl' group='event' alias='manager' aliasReverse='event' mandatory=false idPrefix='weeklyEvent_Manager' linkingItem=$event displayMode='dropdown' allowEditing=false}
 	{/if}
-	{if $modvars.Weekly.showOrganisator}
-		{include file='user/organisator/include_selectOne.tpl' group='event' alias='organisator' aliasReverse='event' mandatory=false idPrefix='weeklyEvent_Organisator' linkingItem=$event displayMode='dropdown' allowEditing=false}
+	{if $modvars.Weekly.showComanager}
+		{include file='user/comanager/include_selectOne.tpl' group='event' alias='comanager' aliasReverse='event' mandatory=false idPrefix='weeklyEvent_Comanager' linkingItem=$event displayMode='dropdown' allowEditing=false}
 	{/if}
     {if $mode ne 'create'}
         {include file='user/include_standardfields_edit.tpl' obj=$event}

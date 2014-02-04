@@ -97,8 +97,8 @@
     
     {include file='admin/kind/include_selectOne.tpl' group='event' alias='kind' aliasReverse='event' mandatory=false idPrefix='weeklyEvent_Kind' linkingItem=$event displayMode='dropdown' allowEditing=false}
     {include file='admin/location/include_selectOne.tpl' group='event' alias='location' aliasReverse='event' mandatory=false idPrefix='weeklyEvent_Location' linkingItem=$event displayMode='dropdown' allowEditing=false}
-    {include file='admin/leader/include_selectOne.tpl' group='event' alias='leader' aliasReverse='event' mandatory=false idPrefix='weeklyEvent_Leader' linkingItem=$event displayMode='dropdown' allowEditing=false}
-    {include file='admin/organisator/include_selectOne.tpl' group='event' alias='organisator' aliasReverse='event' mandatory=false idPrefix='weeklyEvent_Organisator' linkingItem=$event displayMode='dropdown' allowEditing=false}
+    {include file='admin/manager/include_selectOne.tpl' group='event' alias='manager' aliasReverse='event' mandatory=false idPrefix='weeklyEvent_Manager' linkingItem=$event displayMode='dropdown' allowEditing=false}
+    {include file='admin/comanager/include_selectOne.tpl' group='event' alias='comanager' aliasReverse='event' mandatory=false idPrefix='weeklyEvent_Comanager' linkingItem=$event displayMode='dropdown' allowEditing=false}
     {if $mode ne 'create'}
         {include file='admin/include_standardfields_edit.tpl' obj=$event}
     {/if}

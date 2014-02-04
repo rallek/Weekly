@@ -14,9 +14,9 @@
 /**
  * Repository class used to implement own convenience methods for performing certain DQL queries.
  *
- * This is the concrete repository class for organisator entities.
+ * This is the concrete repository class for comanager entities.
  */
-class Weekly_Entity_Repository_Organisator extends Weekly_Entity_Repository_Base_Organisator
+class Weekly_Entity_Repository_Comanager extends Weekly_Entity_Repository_Base_Comanager
 {
     // feel free to add your own methods here, like for example reusable DQL queries
 }
