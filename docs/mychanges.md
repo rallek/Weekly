@@ -83,3 +83,9 @@ formatting of date:
 				
 sorting the table for nicer view. Use z-sub, z-normal and z-bold in span for nicer look
 
+## user/event/display.tpl
+
+## Weekly\lib\Weekly\Api\User.php
+
+copy from ``Weekly\lib\Weekly\Api\Base\User.php`` ...
+
