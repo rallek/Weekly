@@ -1,6 +1,6 @@
 # My changes from the original generated files by webgen
 
-## user and admin edtit.tpl
+## user/event/edit.tpl and admin/event/edit.tpl
 add following in the beginning:
 ````
 {pageaddvar name='javascript' value='jquery'}
@@ -25,7 +25,7 @@ use the following variables:
 
 ## day calculation
 
-create a file named include_eventbegin.tpl with the following content:
+create a file named **include_eventbegin.tpl** with the following content:
 ````
 <script type="text/javascript">
 /* <![CDATA[ */
@@ -68,17 +68,18 @@ extend the include:
 {include file='user/event/view_quickNav.tpl' all=$all own=$own workflowStateFilter=false sorting=false pageSizeSelector=false searchFilter=false activeFilter=false}
  ````
  
- reduce the table to 
+reduce the table to 
  * EventBegin
  * EventName
  * EventMessage
  
- formatting of date: 
+formatting of date: 
+ 
  ````
 <span class="z-normal">{$event.eventBegin|dateformat:'%A'}</span></br>
 <span class="z-bold">{$event.eventBegin|dateformat:'%H:%M'} {gt text='time'}</span></br>
 <span class="z-sub">{$event.eventDuration} {gt text='minutes'}</span>
 ````
 				
- sorting the table for nicer view. Use z-sub, z-normal and z-bold in span for nicer look
+sorting the table for nicer view. Use z-sub, z-normal and z-bold in span for nicer look
 
