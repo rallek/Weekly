@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: MUBoard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-17 18:54+0000\n"
-"PO-Revision-Date: 2014-01-18 13:15+0100\n"
+"PO-Revision-Date: 2014-02-04 21:23+0100\n"
 "Last-Translator: Ralf Köster <ralf@familie-koester.de>\n"
 "Language-Team: \n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.6.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"Language: de\n"
 
 #: workflows/function.none_permissioncheck.php:55
 msgid "None workflow (no approval)"
@@ -35,7 +35,7 @@ msgstr "Anfang"
 
 #: workflows/function.none_permissioncheck.php:60
 msgid "Pseudo-state for content which is just created and not persisted yet."
-msgstr ""
+msgstr "Pseudo-Status für Inhalt, welcher aus der Datenbank gelöscht wurde."
 
 #: workflows/function.none_permissioncheck.php:61
 #: lib/Weekly/Util/Base/ListEntries.php:220
@@ -63,7 +63,7 @@ msgstr "gelöscht"
 
 #: workflows/function.none_permissioncheck.php:62
 msgid "Pseudo-state for content which has been deleted from the database."
-msgstr ""
+msgstr "Pseudo-Status für Inhalt, welcher aus der Datenbank gelöscht wurde."
 
 #: workflows/function.none_permissioncheck.php:68
 #: templates/admin/kind/view.tpl:123 templates/admin/event/view.tpl:246
@@ -105,8 +105,9 @@ msgstr "Inhalt dauerhaft löschen."
 #: templates/admin/location/display.tpl:14
 #: templates/admin/manager/display.tpl:14 templates/user/kind/display.tpl:11
 #: templates/user/comanager/display.tpl:11
-#: templates/user/location/display.tpl:11 templates/user/manager/display.tpl:11
-#: templates/search/options.tpl:5 templates/block/itemlist_modify.tpl:5
+#: templates/user/location/display.tpl:11
+#: templates/user/manager/display.tpl:11 templates/search/options.tpl:5
+#: templates/block/itemlist_modify.tpl:5
 msgid "Events"
 msgstr "Trainingsstunden"
 
@@ -124,7 +125,7 @@ msgstr "Trainer"
 #: templates/user/event/view_quickNav.tpl:48 templates/search/options.tpl:13
 #: templates/block/itemlist_modify.tpl:7
 msgid "Comanagers"
-msgstr "Comanageren"
+msgstr "Organisatoren"
 
 #: templates/plugins/function.weeklyObjectTypeSelector.php:33
 #: lib/Weekly/Api/Base/User.php:60 lib/Weekly/Api/Base/Admin.php:60
@@ -338,7 +339,7 @@ msgstr "Kein solches Element"
 #: lib/Weekly/Form/Handler/Admin/Base/Edit.php:247
 #: lib/Weekly/Form/Handler/User/Base/Edit.php:247
 msgid "Error! Could not determine workflow actions."
-msgstr ""
+msgstr "Fehler! Kann den zugeordneten Workflow nicht laden."
 
 #: lib/Weekly/Form/Handler/Admin/Base/Edit.php:483
 #: lib/Weekly/Form/Handler/User/Base/Edit.php:483
@@ -383,26 +384,26 @@ msgstr "Erledigt! Moduleinstellungen aktualisiert."
 #: lib/Weekly/Form/Handler/Admin/Comanager/Base/Edit.php:59
 #: lib/Weekly/Form/Handler/User/Comanager/Base/Edit.php:59
 msgid ""
-"Sorry, but you can not create the comanager yet as other items are "
-"required which must be created before!"
+"Sorry, but you can not create the comanager yet as other items are required "
+"which must be created before!"
 msgstr ""
 
 #: lib/Weekly/Form/Handler/Admin/Comanager/Base/Edit.php:171
 #: lib/Weekly/Form/Handler/User/Comanager/Base/Edit.php:171
 msgid "Done! Comanager created."
-msgstr "Erledigt! Comanager erstellt."
+msgstr "Erledigt! Organisator erstellt."
 
 #: lib/Weekly/Form/Handler/Admin/Comanager/Base/Edit.php:173
 #: lib/Weekly/Form/Handler/Admin/Comanager/Base/Edit.php:180
 #: lib/Weekly/Form/Handler/User/Comanager/Base/Edit.php:173
 #: lib/Weekly/Form/Handler/User/Comanager/Base/Edit.php:180
 msgid "Done! Comanager updated."
-msgstr "Erledigt! Comanager aktualisiert."
+msgstr "Erledigt! Organisator aktualisiert."
 
 #: lib/Weekly/Form/Handler/Admin/Comanager/Base/Edit.php:177
 #: lib/Weekly/Form/Handler/User/Comanager/Base/Edit.php:177
 msgid "Done! Comanager deleted."
-msgstr "Erledigt! Comanager gelöscht."
+msgstr "Erledigt! Organisator gelöscht."
 
 #: lib/Weekly/Form/Handler/Admin/Location/Base/Edit.php:59
 #: lib/Weekly/Form/Handler/User/Location/Base/Edit.php:59
@@ -468,7 +469,7 @@ msgstr "Trainer"
 
 #: lib/Weekly/Form/Plugin/Base/RelationSelectorAutoComplete.php:115
 msgid "comanager"
-msgstr "Comanager"
+msgstr "Organisator"
 
 #: lib/Weekly/Form/Plugin/Base/RelationSelectorAutoComplete.php:118
 msgid "kind"
@@ -516,8 +517,8 @@ msgstr "Keine Ergebnis gefunden"
 #: templates/admin/event/edit.tpl:145 templates/admin/comanager/edit.tpl:113
 #: templates/admin/location/edit.tpl:112 templates/admin/manager/edit.tpl:114
 #: templates/user/kind/edit.tpl:106 templates/user/event/edit.tpl:139
-#: templates/user/comanager/edit.tpl:107
-#: templates/user/location/edit.tpl:106 templates/user/manager/edit.tpl:108
+#: templates/user/comanager/edit.tpl:107 templates/user/location/edit.tpl:106
+#: templates/user/manager/edit.tpl:108
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -582,7 +583,7 @@ msgstr ""
 #: lib/Weekly/Base/Installer.php:146
 #, php-format
 msgid "The upload directories at [%s] can be removed manually."
-msgstr ""
+msgstr "Das Upload-Verzeichnis [%s] kann manuell entfernt werden."
 
 #: lib/Weekly/Base/UploadHandler.php:97
 msgid "Error! Could not move your file to the destination folder."
@@ -669,11 +670,11 @@ msgstr "Trainer Filter Hooks"
 
 #: lib/Weekly/Base/Version.php:123
 msgid "weekly Comanagers Display Hooks"
-msgstr "Comanager Ansicht Hooks"
+msgstr "Organisator Ansicht Hooks"
 
 #: lib/Weekly/Base/Version.php:141
 msgid "weekly Comanagers Filter Hooks"
-msgstr "Comanager Filter Hook"
+msgstr "Organisator Filter Hook"
 
 #: lib/Weekly/Base/Version.php:146
 msgid "weekly Kind Display Hooks"
@@ -923,14 +924,15 @@ msgstr "Vorschau"
 
 #: lib/Weekly/Entity/Base/Kind.php:724 lib/Weekly/Entity/Base/Kind.php:781
 #: lib/Weekly/Entity/Base/Event.php:921 lib/Weekly/Entity/Base/Event.php:957
-#: lib/Weekly/Entity/Base/Manager.php:724 lib/Weekly/Entity/Base/Manager.php:781
+#: lib/Weekly/Entity/Base/Manager.php:724
+#: lib/Weekly/Entity/Base/Manager.php:781
 #: lib/Weekly/Entity/Base/Location.php:724
 #: lib/Weekly/Entity/Base/Location.php:781
 #: lib/Weekly/Entity/Base/Comanager.php:724
-#: lib/Weekly/Entity/Base/Comanager.php:781
-#: templates/admin/kind/display.tpl:8 templates/admin/event/display.tpl:8
-#: templates/admin/comanager/display.tpl:8
-#: templates/admin/location/display.tpl:8 templates/admin/manager/display.tpl:8
+#: lib/Weekly/Entity/Base/Comanager.php:781 templates/admin/kind/display.tpl:8
+#: templates/admin/event/display.tpl:8 templates/admin/comanager/display.tpl:8
+#: templates/admin/location/display.tpl:8
+#: templates/admin/manager/display.tpl:8
 msgid "Details"
 msgstr "Details"
 
@@ -938,8 +940,10 @@ msgstr "Details"
 #: lib/Weekly/Entity/Base/Kind.php:791 lib/Weekly/Entity/Base/Kind.php:792
 #: lib/Weekly/Entity/Base/Event.php:931 lib/Weekly/Entity/Base/Event.php:932
 #: lib/Weekly/Entity/Base/Event.php:967 lib/Weekly/Entity/Base/Event.php:968
-#: lib/Weekly/Entity/Base/Manager.php:734 lib/Weekly/Entity/Base/Manager.php:735
-#: lib/Weekly/Entity/Base/Manager.php:791 lib/Weekly/Entity/Base/Manager.php:792
+#: lib/Weekly/Entity/Base/Manager.php:734
+#: lib/Weekly/Entity/Base/Manager.php:735
+#: lib/Weekly/Entity/Base/Manager.php:791
+#: lib/Weekly/Entity/Base/Manager.php:792
 #: lib/Weekly/Entity/Base/Location.php:734
 #: lib/Weekly/Entity/Base/Location.php:735
 #: lib/Weekly/Entity/Base/Location.php:791
@@ -953,7 +957,8 @@ msgstr "Bearbeiten"
 
 #: lib/Weekly/Entity/Base/Kind.php:740 lib/Weekly/Entity/Base/Kind.php:797
 #: lib/Weekly/Entity/Base/Event.php:937 lib/Weekly/Entity/Base/Event.php:973
-#: lib/Weekly/Entity/Base/Manager.php:740 lib/Weekly/Entity/Base/Manager.php:797
+#: lib/Weekly/Entity/Base/Manager.php:740
+#: lib/Weekly/Entity/Base/Manager.php:797
 #: lib/Weekly/Entity/Base/Location.php:740
 #: lib/Weekly/Entity/Base/Location.php:797
 #: lib/Weekly/Entity/Base/Comanager.php:740
@@ -963,7 +968,8 @@ msgstr "Für ein neues Element benutzen"
 
 #: lib/Weekly/Entity/Base/Kind.php:741 lib/Weekly/Entity/Base/Kind.php:798
 #: lib/Weekly/Entity/Base/Event.php:938 lib/Weekly/Entity/Base/Event.php:974
-#: lib/Weekly/Entity/Base/Manager.php:741 lib/Weekly/Entity/Base/Manager.php:798
+#: lib/Weekly/Entity/Base/Manager.php:741
+#: lib/Weekly/Entity/Base/Manager.php:798
 #: lib/Weekly/Entity/Base/Location.php:741
 #: lib/Weekly/Entity/Base/Location.php:798
 #: lib/Weekly/Entity/Base/Comanager.php:741
@@ -975,8 +981,10 @@ msgstr "Wiederverwenden"
 #: lib/Weekly/Entity/Base/Kind.php:806 lib/Weekly/Entity/Base/Kind.php:807
 #: lib/Weekly/Entity/Base/Event.php:946 lib/Weekly/Entity/Base/Event.php:947
 #: lib/Weekly/Entity/Base/Event.php:982 lib/Weekly/Entity/Base/Event.php:983
-#: lib/Weekly/Entity/Base/Manager.php:749 lib/Weekly/Entity/Base/Manager.php:750
-#: lib/Weekly/Entity/Base/Manager.php:806 lib/Weekly/Entity/Base/Manager.php:807
+#: lib/Weekly/Entity/Base/Manager.php:749
+#: lib/Weekly/Entity/Base/Manager.php:750
+#: lib/Weekly/Entity/Base/Manager.php:806
+#: lib/Weekly/Entity/Base/Manager.php:807
 #: lib/Weekly/Entity/Base/Location.php:749
 #: lib/Weekly/Entity/Base/Location.php:750
 #: lib/Weekly/Entity/Base/Location.php:806
@@ -990,8 +998,10 @@ msgstr "Zurück zur Übersicht"
 
 #: lib/Weekly/Entity/Base/Kind.php:770 lib/Weekly/Entity/Base/Kind.php:771
 #: lib/Weekly/Entity/Base/Kind.php:827 lib/Weekly/Entity/Base/Kind.php:828
-#: lib/Weekly/Entity/Base/Manager.php:770 lib/Weekly/Entity/Base/Manager.php:771
-#: lib/Weekly/Entity/Base/Manager.php:827 lib/Weekly/Entity/Base/Manager.php:828
+#: lib/Weekly/Entity/Base/Manager.php:770
+#: lib/Weekly/Entity/Base/Manager.php:771
+#: lib/Weekly/Entity/Base/Manager.php:827
+#: lib/Weekly/Entity/Base/Manager.php:828
 #: lib/Weekly/Entity/Base/Location.php:770
 #: lib/Weekly/Entity/Base/Location.php:771
 #: lib/Weekly/Entity/Base/Location.php:827
@@ -1001,13 +1011,13 @@ msgstr "Zurück zur Übersicht"
 #: lib/Weekly/Entity/Base/Comanager.php:827
 #: lib/Weekly/Entity/Base/Comanager.php:828
 #: templates/admin/kind/display.tpl:23 templates/admin/event/view.tpl:15
-#: templates/admin/event/edit.tpl:12
-#: templates/admin/comanager/display.tpl:23
+#: templates/admin/event/edit.tpl:12 templates/admin/comanager/display.tpl:23
 #: templates/admin/location/display.tpl:23
 #: templates/admin/manager/display.tpl:23 templates/user/kind/display.tpl:20
 #: templates/user/event/view.tpl:12 templates/user/event/edit.tpl:11
 #: templates/user/comanager/display.tpl:20
-#: templates/user/location/display.tpl:20 templates/user/manager/display.tpl:20
+#: templates/user/location/display.tpl:20
+#: templates/user/manager/display.tpl:20
 msgid "Create event"
 msgstr "Stunde anlegen"
 
@@ -1047,10 +1057,9 @@ msgid "Manager list"
 msgstr "Trainerliste"
 
 #: lib/Weekly/Api/Base/User.php:55 lib/Weekly/Api/Base/Admin.php:55
-#: templates/admin/comanager/view.tpl:4
-#: templates/user/comanager/view.tpl:4
+#: templates/admin/comanager/view.tpl:4 templates/user/comanager/view.tpl:4
 msgid "Comanager list"
-msgstr "Comanagerliste"
+msgstr "Organisatorliste"
 
 #: lib/Weekly/Api/Base/User.php:61 lib/Weekly/Api/Base/Admin.php:61
 #: templates/admin/kind/view.tpl:4 templates/user/kind/view.tpl:4
@@ -1139,7 +1148,7 @@ msgstr "Gib die maximale Bildergröße ein. Nur Ziffern sind erlaubt."
 
 #: templates/admin/config.tpl:32
 msgid "we can switch the usage of manager table off"
-msgstr ""
+msgstr "Wir können die Nutzung der Managertabelle deaktivieren"
 
 #: templates/admin/config.tpl:33
 msgid "Show manager"
@@ -1147,15 +1156,15 @@ msgstr "Zeige Trainer"
 
 #: templates/admin/config.tpl:37
 msgid "we can switch the usage of Comanager table off"
-msgstr ""
+msgstr "Wir können die Nutzung der Comanagertabelle deaktivieren"
 
 #: templates/admin/config.tpl:38
 msgid "Show comanager"
-msgstr "Zeige Comanager"
+msgstr "Zeige Organisator"
 
 #: templates/admin/config.tpl:42
 msgid "we can switch the usage of kind table off"
-msgstr ""
+msgstr "Wir können die Nutzung der Disziplintabelle deaktivieren"
 
 #: templates/admin/config.tpl:43
 msgid "Show kind"
@@ -1163,7 +1172,7 @@ msgstr "Zeige Disziplin"
 
 #: templates/admin/config.tpl:47
 msgid "we can switch the usage of location table off"
-msgstr ""
+msgstr "Wir können die Nutzung der Orttabelle deaktivieren"
 
 #: templates/admin/config.tpl:48
 msgid "Show location"
@@ -1171,7 +1180,7 @@ msgstr "Zeige Platz"
 
 #: templates/admin/config.tpl:52
 msgid "we can switch the usage of participants off"
-msgstr ""
+msgstr "Wir können die Nutzung der Teilnehmeranzahl deaktivieren"
 
 #: templates/admin/config.tpl:53
 msgid "Show participants"
@@ -1236,19 +1245,17 @@ msgstr "Aktualisiert am %s"
 #: templates/admin/kind/view.tpl:93 templates/admin/event/display.tpl:9
 #: templates/admin/event/view.tpl:107 templates/admin/event/view.tpl:216
 #: templates/admin/comanager/display.tpl:9
-#: templates/admin/comanager/view.tpl:61
-#: templates/admin/comanager/view.tpl:93
+#: templates/admin/comanager/view.tpl:61 templates/admin/comanager/view.tpl:93
 #: templates/admin/location/display.tpl:9 templates/admin/location/view.tpl:61
 #: templates/admin/location/view.tpl:93 templates/admin/manager/display.tpl:9
 #: templates/admin/manager/view.tpl:61 templates/admin/manager/view.tpl:93
 #: templates/user/kind/display.tpl:7 templates/user/kind/view.tpl:50
 #: templates/user/kind/view.tpl:79 templates/user/event/display.tpl:7
-#: templates/user/comanager/display.tpl:7
-#: templates/user/comanager/view.tpl:50
-#: templates/user/comanager/view.tpl:79
-#: templates/user/location/display.tpl:7 templates/user/location/view.tpl:50
-#: templates/user/location/view.tpl:79 templates/user/manager/display.tpl:7
-#: templates/user/manager/view.tpl:50 templates/user/manager/view.tpl:79
+#: templates/user/comanager/display.tpl:7 templates/user/comanager/view.tpl:50
+#: templates/user/comanager/view.tpl:79 templates/user/location/display.tpl:7
+#: templates/user/location/view.tpl:50 templates/user/location/view.tpl:79
+#: templates/user/manager/display.tpl:7 templates/user/manager/view.tpl:50
+#: templates/user/manager/view.tpl:79
 msgid "Actions"
 msgstr "Aktionen"
 
@@ -1278,16 +1285,14 @@ msgstr "Bild"
 
 #: templates/admin/kind/display.tpl:41 templates/admin/kind/view.tpl:83
 #: templates/admin/kind/edit.tpl:55 templates/admin/comanager/display.tpl:41
-#: templates/admin/comanager/view.tpl:83
-#: templates/admin/comanager/edit.tpl:56
+#: templates/admin/comanager/view.tpl:83 templates/admin/comanager/edit.tpl:56
 #: templates/admin/location/display.tpl:41
 #: templates/admin/location/view.tpl:83 templates/admin/location/edit.tpl:55
 #: templates/admin/manager/display.tpl:41 templates/admin/manager/view.tpl:83
 #: templates/admin/manager/edit.tpl:57 templates/user/kind/display.tpl:38
 #: templates/user/kind/view.tpl:69 templates/user/kind/edit.tpl:49
 #: templates/user/comanager/display.tpl:38
-#: templates/user/comanager/view.tpl:69
-#: templates/user/comanager/edit.tpl:50
+#: templates/user/comanager/view.tpl:69 templates/user/comanager/edit.tpl:50
 #: templates/user/location/display.tpl:38 templates/user/location/view.tpl:69
 #: templates/user/location/edit.tpl:49 templates/user/manager/display.tpl:38
 #: templates/user/manager/view.tpl:69 templates/user/manager/edit.tpl:51
@@ -1304,7 +1309,7 @@ msgstr "Wähle Disziplin aus"
 #: templates/user/kind/include_selectOne.tpl:18
 #: templates/user/kind/include_selectOne.tpl:24
 msgid "Choose the kind"
-msgstr "Wähle den Typ aus"
+msgstr "Wähle die Disziplin aus"
 
 #: templates/admin/kind/view_quickNav.tpl:6
 #: templates/admin/event/view_quickNav.tpl:6
@@ -1537,20 +1542,18 @@ msgid "Create kind"
 msgstr "Erstellung Disziplin"
 
 #: templates/admin/kind/view.tpl:23 templates/admin/event/view.tpl:25
-#: templates/admin/comanager/view.tpl:23
-#: templates/admin/location/view.tpl:23 templates/admin/manager/view.tpl:23
-#: templates/user/kind/view.tpl:20 templates/user/event/view.tpl:22
-#: templates/user/comanager/view.tpl:20 templates/user/location/view.tpl:20
-#: templates/user/manager/view.tpl:20
+#: templates/admin/comanager/view.tpl:23 templates/admin/location/view.tpl:23
+#: templates/admin/manager/view.tpl:23 templates/user/kind/view.tpl:20
+#: templates/user/event/view.tpl:22 templates/user/comanager/view.tpl:20
+#: templates/user/location/view.tpl:20 templates/user/manager/view.tpl:20
 msgid "Back to paginated view"
 msgstr "Zurück zur Seitenansicht"
 
 #: templates/admin/kind/view.tpl:29 templates/admin/event/view.tpl:31
-#: templates/admin/comanager/view.tpl:29
-#: templates/admin/location/view.tpl:29 templates/admin/manager/view.tpl:29
-#: templates/user/kind/view.tpl:26 templates/user/event/view.tpl:28
-#: templates/user/comanager/view.tpl:26 templates/user/location/view.tpl:26
-#: templates/user/manager/view.tpl:26
+#: templates/admin/comanager/view.tpl:29 templates/admin/location/view.tpl:29
+#: templates/admin/manager/view.tpl:29 templates/user/kind/view.tpl:26
+#: templates/user/event/view.tpl:28 templates/user/comanager/view.tpl:26
+#: templates/user/location/view.tpl:26 templates/user/manager/view.tpl:26
 msgid "Show all entries"
 msgstr "Zeige alle Einträge"
 
@@ -1574,11 +1577,10 @@ msgid "Edit kind"
 msgstr "Disziplin bearbeiten"
 
 #: templates/admin/kind/edit.tpl:28 templates/admin/event/edit.tpl:30
-#: templates/admin/comanager/edit.tpl:28
-#: templates/admin/location/edit.tpl:28 templates/admin/manager/edit.tpl:28
-#: templates/user/kind/edit.tpl:22 templates/user/event/edit.tpl:24
-#: templates/user/comanager/edit.tpl:22 templates/user/location/edit.tpl:22
-#: templates/user/manager/edit.tpl:22
+#: templates/admin/comanager/edit.tpl:28 templates/admin/location/edit.tpl:28
+#: templates/admin/manager/edit.tpl:28 templates/user/kind/edit.tpl:22
+#: templates/user/event/edit.tpl:24 templates/user/comanager/edit.tpl:22
+#: templates/user/location/edit.tpl:22 templates/user/manager/edit.tpl:22
 msgid "Content"
 msgstr "Inhalt"
 
@@ -1623,20 +1625,18 @@ msgid "Delete existing file"
 msgstr "Datei löschen"
 
 #: templates/admin/kind/edit.tpl:91 templates/admin/event/edit.tpl:124
-#: templates/admin/comanager/edit.tpl:92
-#: templates/admin/location/edit.tpl:91 templates/admin/manager/edit.tpl:93
-#: templates/user/kind/edit.tpl:85 templates/user/event/edit.tpl:118
-#: templates/user/comanager/edit.tpl:86 templates/user/location/edit.tpl:85
-#: templates/user/manager/edit.tpl:87
+#: templates/admin/comanager/edit.tpl:92 templates/admin/location/edit.tpl:91
+#: templates/admin/manager/edit.tpl:93 templates/user/kind/edit.tpl:85
+#: templates/user/event/edit.tpl:118 templates/user/comanager/edit.tpl:86
+#: templates/user/location/edit.tpl:85 templates/user/manager/edit.tpl:87
 msgid "Return control"
 msgstr "Nächster Schritt"
 
 #: templates/admin/kind/edit.tpl:93 templates/admin/event/edit.tpl:126
-#: templates/admin/comanager/edit.tpl:94
-#: templates/admin/location/edit.tpl:93 templates/admin/manager/edit.tpl:95
-#: templates/user/kind/edit.tpl:87 templates/user/event/edit.tpl:120
-#: templates/user/comanager/edit.tpl:88 templates/user/location/edit.tpl:87
-#: templates/user/manager/edit.tpl:89
+#: templates/admin/comanager/edit.tpl:94 templates/admin/location/edit.tpl:93
+#: templates/admin/manager/edit.tpl:95 templates/user/kind/edit.tpl:87
+#: templates/user/event/edit.tpl:120 templates/user/comanager/edit.tpl:88
+#: templates/user/location/edit.tpl:87 templates/user/manager/edit.tpl:89
 msgid "Create another item after save"
 msgstr "Eine weiteree Element nach dem Speichern erstellen"
 
@@ -1770,12 +1770,11 @@ msgstr "Trainer"
 #: templates/admin/comanager/display.tpl:4
 #: templates/admin/comanager/include_selectOne.tpl:9
 #: templates/admin/comanager/include_selectOne.tpl:14
-#: templates/user/event/display.tpl:93
-#: templates/user/comanager/display.tpl:4
+#: templates/user/event/display.tpl:93 templates/user/comanager/display.tpl:4
 #: templates/user/comanager/include_selectOne.tpl:9
 #: templates/user/comanager/include_selectOne.tpl:14
 msgid "Comanager"
-msgstr "Comanager"
+msgstr "Organisator"
 
 #: templates/admin/event/view.tpl:229 templates/user/event/view.tpl:124
 msgid "No events found."
@@ -1856,79 +1855,66 @@ msgstr "Dieses Training wirklich löschen?"
 
 #: templates/admin/comanager/display.tpl:31
 #: templates/admin/comanager/view_quickNav.tpl:33
-#: templates/admin/comanager/view.tpl:53
-#: templates/admin/comanager/edit.tpl:31
+#: templates/admin/comanager/view.tpl:53 templates/admin/comanager/edit.tpl:31
 #: templates/user/comanager/display.tpl:28
 #: templates/user/comanager/view_quickNav.tpl:33
-#: templates/user/comanager/view.tpl:42
-#: templates/user/comanager/edit.tpl:25
+#: templates/user/comanager/view.tpl:42 templates/user/comanager/edit.tpl:25
 msgid "Comanager name"
-msgstr "Comanager"
+msgstr "Organisator Name"
 
 #: templates/admin/comanager/display.tpl:33
 #: templates/admin/comanager/view_quickNav.tpl:34
-#: templates/admin/comanager/view.tpl:56
-#: templates/admin/comanager/edit.tpl:37
+#: templates/admin/comanager/view.tpl:56 templates/admin/comanager/edit.tpl:37
 #: templates/user/comanager/display.tpl:30
 #: templates/user/comanager/view_quickNav.tpl:34
-#: templates/user/comanager/view.tpl:45
-#: templates/user/comanager/edit.tpl:31
+#: templates/user/comanager/view.tpl:45 templates/user/comanager/edit.tpl:31
 msgid "Comanager text"
 msgstr "Beschreibung"
 
 #: templates/admin/comanager/display.tpl:35
 #: templates/admin/comanager/view_quickNav.tpl:35
-#: templates/admin/comanager/view.tpl:59
-#: templates/admin/comanager/edit.tpl:42
+#: templates/admin/comanager/view.tpl:59 templates/admin/comanager/edit.tpl:42
 #: templates/user/comanager/display.tpl:32
 #: templates/user/comanager/view_quickNav.tpl:35
-#: templates/user/comanager/view.tpl:48
-#: templates/user/comanager/edit.tpl:36
+#: templates/user/comanager/view.tpl:48 templates/user/comanager/edit.tpl:36
 msgid "Comanager picture"
 msgstr "Bild"
 
 #: templates/admin/comanager/include_selectOne.tpl:17
 #: templates/user/comanager/include_selectOne.tpl:17
 msgid "Choose comanager"
-msgstr "Comanager auswählen"
+msgstr "Organisator auswählen"
 
 #: templates/admin/comanager/include_selectOne.tpl:18
 #: templates/admin/comanager/include_selectOne.tpl:24
 #: templates/user/comanager/include_selectOne.tpl:18
 #: templates/user/comanager/include_selectOne.tpl:24
 msgid "Choose the comanager"
-msgstr "Wähle den Comanager aus"
+msgstr "Wähle den Organisator aus"
 
-#: templates/admin/comanager/view.tpl:13
-#: templates/admin/comanager/edit.tpl:10
-#: templates/user/comanager/view.tpl:10
-#: templates/user/comanager/edit.tpl:9
+#: templates/admin/comanager/view.tpl:13 templates/admin/comanager/edit.tpl:10
+#: templates/user/comanager/view.tpl:10 templates/user/comanager/edit.tpl:9
 msgid "Create comanager"
-msgstr "Comanager anlegen"
+msgstr "Organisator anlegen"
 
-#: templates/admin/comanager/view.tpl:106
-#: templates/user/comanager/view.tpl:92
+#: templates/admin/comanager/view.tpl:106 templates/user/comanager/view.tpl:92
 msgid "No comanagers found."
-msgstr "Keine Comanageren gefunden"
+msgstr "Keine Organisatoren gefunden"
 
 #: templates/admin/comanager/view.tpl:118
 msgid "With selected comanagers"
-msgstr "Mit ausgewählten Comanageren"
+msgstr "Mit ausgewählten Organisatoren"
 
-#: templates/admin/comanager/edit.tpl:7
-#: templates/admin/comanager/edit.tpl:13
-#: templates/user/comanager/edit.tpl:7
-#: templates/user/comanager/edit.tpl:11
+#: templates/admin/comanager/edit.tpl:7 templates/admin/comanager/edit.tpl:13
+#: templates/user/comanager/edit.tpl:7 templates/user/comanager/edit.tpl:11
 msgid "Edit comanager"
-msgstr "Comanager bearbeiten"
+msgstr "Organisator bearbeiten"
 
-#: templates/admin/comanager/edit.tpl:32
-#: templates/user/comanager/edit.tpl:26
+#: templates/admin/comanager/edit.tpl:32 templates/user/comanager/edit.tpl:26
 msgid "Enter the comanager name of the comanager"
-msgstr "Gebe den Namen des Comanagers an"
+msgstr "Gebe den Namen des Organisator an"
 
-#: templates/admin/comanager/edit.tpl:38
-#: templates/user/comanager/edit.tpl:32
+#: templates/admin/comanager/edit.tpl:38 templates/user/comanager/edit.tpl:32
 msgid "Enter the comanager text of the comanager"
 msgstr "Gebe eine Beschreibung an"
 
@@ -1937,15 +1923,14 @@ msgstr "Gebe eine Beschreibung an"
 msgid "Allowed file size:"
 msgstr "Erlaubte Dateigröße:"
 
-#: templates/admin/comanager/edit.tpl:61
-#: templates/user/comanager/edit.tpl:55
+#: templates/admin/comanager/edit.tpl:61 templates/user/comanager/edit.tpl:55
 msgid "Delete comanager picture ?"
 msgstr "Vorhandenes Bild löchen?"
 
 #: templates/admin/comanager/edit.tpl:107
 #: templates/user/comanager/edit.tpl:101
 msgid "Really delete this comanager?"
-msgstr "Diesen Comanager wirklich löschen?"
+msgstr "Diesen Organisator wirklich löschen?"
 
 #: templates/admin/location/display.tpl:31
 #: templates/admin/location/view_quickNav.tpl:33
@@ -2157,6 +2142,9 @@ msgid ""
 "it's entries by applying filters. On the right side you will see a preview "
 "of the selected entry."
 msgstr ""
+"Bitte das Elemnt wählen. Die Drowpdownliste kann umsortiert werden und die "
+"Einträge können mit den Filtern reduziert werden. Auf der rechten Seite wird "
+"eine Vorschau des ausgewählten Elemente angezeigt."
 
 #: templates/contenttype/item_edit.tpl:17
 msgid "Link to object"
