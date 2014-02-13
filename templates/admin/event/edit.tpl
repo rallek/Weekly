@@ -76,6 +76,7 @@
             {formtextinput group='event' id='eventText' mandatory=false __title='Enter the event text of the event' textMode='multiline' rows='6' cols='50' cssClass='' }
         </div>
         
+		{if $modvars.Weekly.showParticipants}
         <div class="z-formrow">
             {formlabel for='maxParticipants' __text='Max participants' cssClass=''}
             {formintinput group='event' id='maxParticipants' mandatory=false __title='Enter the max participants of the event' maxLength=11 cssClass=' validate-digits' }
@@ -88,17 +89,28 @@
             {weeklyValidationError id='currentParticipants' class='validate-digits'}
         </div>
         
+        {/if}
+		{if $modvars.Weekly.allowDeactivating}
         <div class="z-formrow">
             {gt text='if you deactivate the event is not shown in the user view' assign='toolTip'}
             {formlabel for='active' __text='Active' cssClass='weekly-form-tooltips' title=$toolTip}
             {formcheckbox group='event' id='active' readOnly=false __title='active ?' cssClass='' }
         </div>
+		{/if}
     </fieldset>
     
-    {include file='admin/kind/include_selectOne.tpl' group='event' alias='kind' aliasReverse='event' mandatory=false idPrefix='weeklyEvent_Kind' linkingItem=$event displayMode='dropdown' allowEditing=false}
-    {include file='admin/location/include_selectOne.tpl' group='event' alias='location' aliasReverse='event' mandatory=false idPrefix='weeklyEvent_Location' linkingItem=$event displayMode='dropdown' allowEditing=false}
-    {include file='admin/manager/include_selectOne.tpl' group='event' alias='manager' aliasReverse='event' mandatory=false idPrefix='weeklyEvent_Manager' linkingItem=$event displayMode='dropdown' allowEditing=false}
-    {include file='admin/comanager/include_selectOne.tpl' group='event' alias='comanager' aliasReverse='event' mandatory=false idPrefix='weeklyEvent_Comanager' linkingItem=$event displayMode='dropdown' allowEditing=false}
+    {if $modvars.Weekly.showKind}
+		{include file='admin/kind/include_selectOne.tpl' group='event' alias='kind' aliasReverse='event' mandatory=false idPrefix='weeklyEvent_Kind' linkingItem=$event displayMode='dropdown' allowEditing=false}
+	{/if}
+	{if $modvars.Weekly.showLocation}
+		{include file='admin/location/include_selectOne.tpl' group='event' alias='location' aliasReverse='event' mandatory=false idPrefix='weeklyEvent_Location' linkingItem=$event displayMode='dropdown' allowEditing=false}
+	{/if}
+	{if $modvars.Weekly.showManager}
+		{include file='admin/manager/include_selectOne.tpl' group='event' alias='manager' aliasReverse='event' mandatory=false idPrefix='weeklyEvent_Manager' linkingItem=$event displayMode='dropdown' allowEditing=false}
+	{/if}
+	{if $modvars.Weekly.showComanager}
+		{include file='admin/comanager/include_selectOne.tpl' group='event' alias='comanager' aliasReverse='event' mandatory=false idPrefix='weeklyEvent_Comanager' linkingItem=$event displayMode='dropdown' allowEditing=false}
+	{/if}
     {if $mode ne 'create'}
         {include file='admin/include_standardfields_edit.tpl' obj=$event}
     {/if}

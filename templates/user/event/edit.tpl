@@ -39,36 +39,36 @@
             {weeklyValidationError id='eventName' class='required'}
         </div>
         
-        <div class="z-formrow">
-            {formlabel for='eventDay' __text='Event day' mandatorysym='1' cssClass=''}
-            {formdropdownlist group='event' id='eventDay' mandatory=true __title='Choose the event day' selectionMode='single'}
-        </div>
-        
-        <div class="z-formrow">
-            {gt text='The time when the event begins' assign='toolTip'}
-            {formlabel for='eventBeginText' __text='Event begin text' mandatorysym='1' cssClass='weekly-form-tooltips' title=$toolTip}
-            {formtextinput group='event' id='eventBeginText' mandatory=true readOnly=false __title='Enter the event begin text of the event' textMode='singleline' minLength=5 maxLength=5 cssClass='required' }
-            {weeklyValidationError id='eventBeginText' class='required'}
-        </div>
-        
-        <div class="z-formrow">
-            {gt text='The time how long the event takes normaly (in minutes)' assign='toolTip'}
-            {formlabel for='eventDuration' __text='Event duration' mandatorysym='1' cssClass='weekly-form-tooltips' title=$toolTip}
-            {formintinput group='event' id='eventDuration' mandatory=true __title='Enter the event duration of the event' maxLength=11 cssClass='required validate-digits' }
-            {weeklyValidationError id='eventDuration' class='required'}
-            {weeklyValidationError id='eventDuration' class='validate-digits'}
-        </div>
-        
-        <div class="z-formrow">
-            {gt text='be so kind and write a date and not only next week' assign='toolTip'}
-            {formlabel for='eventMessage' __text='Event message' cssClass='weekly-form-tooltips' title=$toolTip}
-            {formtextinput group='event' id='eventMessage' mandatory=false readOnly=false __title='Enter the event message of the event' textMode='singleline' maxLength=255 cssClass='' }
-        </div>
-        
-        <div class="z-formrow">
-            {formlabel for='eventText' __text='Event text' cssClass=''}
-            {formtextinput group='event' id='eventText' mandatory=false __title='Enter the event text of the event' textMode='multiline' rows='6' cols='50' cssClass='' }
-        </div>
+		<div class="z-formrow">
+			{formlabel for='eventDay' __text='Event day' mandatorysym='1' cssClass=''}
+			{formdropdownlist group='event' id='eventDay' mandatory=true __title='Choose the event day' selectionMode='single'}
+		</div>
+		
+		<div class="z-formrow">
+			{gt text='The time when the event begins' assign='toolTip'}
+			{formlabel for='eventBeginText' __text='Event begin text' mandatorysym='1' cssClass='weekly-form-tooltips' title=$toolTip}
+			{formtextinput group='event' id='eventBeginText' mandatory=true readOnly=false __title='Enter the event begin text of the event' textMode='singleline' minLength=5 maxLength=5 cssClass='required' }
+			{weeklyValidationError id='eventBeginText' class='required'}
+		</div>
+		
+		<div class="z-formrow">
+			{gt text='The time how long the event takes normaly (in minutes)' assign='toolTip'}
+			{formlabel for='eventDuration' __text='Event duration' mandatorysym='1' cssClass='weekly-form-tooltips' title=$toolTip}
+			{formintinput group='event' id='eventDuration' mandatory=true __title='Enter the event duration of the event' maxLength=11 cssClass='required validate-digits' }
+			{weeklyValidationError id='eventDuration' class='required'}
+			{weeklyValidationError id='eventDuration' class='validate-digits'}
+		</div>
+			
+		<div class="z-formrow">
+			{gt text='be so kind and write a date and not only next week' assign='toolTip'}
+			{formlabel for='eventMessage' __text='Event message' cssClass='weekly-form-tooltips' title=$toolTip}
+			{formtextinput group='event' id='eventMessage' mandatory=false readOnly=false __title='Enter the event message of the event' textMode='singleline' maxLength=255 cssClass='' }
+		</div>
+			
+		<div class="z-formrow">
+			{formlabel for='eventText' __text='Event text' cssClass=''}
+			{formtextinput group='event' id='eventText' mandatory=false __title='Enter the event text of the event' textMode='multiline' rows='6' cols='50' cssClass='' }
+		</div>
         
 		{if $modvars.Weekly.showParticipants}
         <div class="z-formrow">

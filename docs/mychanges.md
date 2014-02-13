@@ -85,7 +85,19 @@ sorting the table for nicer view. Use z-sub, z-normal and z-bold in span for nic
 
 ## user/event/display.tpl
 
+encapsulate similar to edit.tpl to hide not configured fields
+
 ## Weekly\lib\Weekly\Api\User.php
 
-copy from ``Weekly\lib\Weekly\Api\Base\User.php`` ...
+copy from ``Weekly\lib\Weekly\Api\Base\User.php``  the complete ``public function getlinks()`` and encapsulate the if statements. e.g.:
+````
+		if ($this->getVar('showManager')) {
+			if (in_array('manager', $allowedObjectTypes)
+				&& SecurityUtil::checkPermission($this->name . ':Manager:', '::', ACCESS_READ)) {
+				$links[] = array('url' => ModUtil::url($this->name, 'user', 'view', array('ot' => 'manager')),
+								 'text' => $this->__('Managers'),
+								 'title' => $this->__('Manager list'));
+			}
+		}
+````
 
