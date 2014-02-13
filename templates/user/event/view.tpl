@@ -5,8 +5,6 @@
     {pagesetvar name='title' value=$templateTitle}
     <h2>{$templateTitle}</h2>
 
-    <p class="z-informationmsg">the name of the event</p>
-
     {if $canBeCreated}
         {checkpermissionblock component='Weekly:Event:' instance='::' level='ACCESS_EDIT'}
             {gt text='Create event' assign='createTitle'}
@@ -29,13 +27,12 @@
         <a href="{modurl modname='Weekly' type='user' func='view' ot='event' all=1}" title="{$linkTitle}" class="z-icon-es-view">{$linkTitle}</a>
     {/if}
 
-    {include file='user/event/view_quickNav.tpl' all=$all own=$own workflowStateFilter=false sorting=false pageSizeSelector=false searchFilter=false activeFilter=false}{* see template file for available options *}
+    {include file='user/event/view_quickNav_table.tpl' all=$all own=$own workflowStateFilter=false sorting=false pageSizeSelector=false searchFilter=false activeFilter=false}{* see template file for available options *}
 
     <table class="z-datatable">
         <colgroup>
             <col id="cEventBegin" />
             <col id="cEventName" />
-			<col id="cEventMessage" />
         </colgroup>
         <thead>
         <tr>
@@ -45,11 +42,6 @@
             <th id="hEventName" scope="col" class="z-left">
                 {sortlink __linktext='Event name' currentsort=$sort modname='Weekly' type='user' func='view' ot='event' sort='eventName' sortdir=$sdir all=$all own=$own kind=$kind location=$location manager=$manager comanager=$comanager workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
             </th>
-
-            <th id="hEventMessage" scope="col" class="z-left">
-                {sortlink __linktext='Event message' currentsort=$sort modname='Weekly' type='user' func='view' ot='event' sort='eventMessage' sortdir=$sdir all=$all own=$own kind=$kind location=$location manager=$manager comanager=$comanager workflowState=$workflowState eventDay=$eventDay searchterm=$searchterm pageSize=$pageSize active=$active}
-            </th>
-
         </tr>
         </thead>
         <tbody>
@@ -122,13 +114,12 @@
 					{/if}
 					</span>
 				{/if}
+				{if ($event.eventMessage)}
+					</br></br><span class="z-warningmsg">{$event.eventMessage}</span>
+				{/if}
 				
             </td>
-            <td headers="hEventMessage" class="z-left z-middle">
-                {if ($event.eventMessage)}
-				<span class="z-warningmsg">{$event.eventMessage}</span>
-				{/if}
-            </td>
+
 
         </tr>
     {foreachelse}
